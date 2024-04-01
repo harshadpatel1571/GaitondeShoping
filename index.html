@@ -82,15 +82,19 @@
     <main>
         <section class="section__hero">
             <div class="row section__hero__grid">
-                <div class="col-12 col-lg-6">
-                    <div>
+                <div class="col-12 col-lg-6 d-flex align-items-end">
+                    <div class="d-flex flex-column">
                         <p class="font-20">Top Selling!</p>
                         <h1 class="text-orange font-60">Top Collection</h1>
                         <p class="font-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                        <div class="text-center">
+                            <button class="btn btn-1">Shop now</button>
+                        </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6">
-                    <div id="carouselExample" class="carousel slide d-flex justify-content-around align-items-center">
+                <div class="col-12 col-lg-6 d-flex align-items-start">
+                    <img src="https://placehold.co/600x500/FDD1CB/white" class="d-block img-fluid" alt="...">
+                    <!-- <div id="carouselExample" class="carousel slide d-flex justify-content-around align-items-center">
                         <div class="carousel-inner">
                           <div class="carousel-item active">
                             <img src="https://placehold.co/600x300/FDD1CB/white" class="d-block img-fluid" alt="...">
@@ -110,7 +114,7 @@
                           <span class="carousel-control-next-icon" aria-hidden="true"></span>
                           <span class="visually-hidden">Next</span>
                         </button>
-                      </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -278,14 +282,14 @@
         </section>
         <section class="section__testimonial">
             <h1 class="text-center text-orange my-3 font-60">Testimonials</h1>
-            <div class="row d-flex align-items-center g-4">
-                <div class="col-12 col-lg-6">
-                    <img src="wwwroot/images/testimonial-img.png" class="card-img-top rounded-0" alt="...">
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div id="carouselExample2" class="carousel slide">
-                        <div class="carousel-inner bg-orange-10 shadow p-4">
+            <!-- <div class="row d-flex align-items-center g-4">
+                <div >
+                    <div id="carouselExample2" class="carousel slide d-flex">
+                        <div class="carousel-inner p-4 d-flex">
                           <div class="carousel-item active">
+                                <div>
+                                    <img src="https://placehold.co/600x500/FDD1CB/white" class="d-block img-fluid" alt="...">
+                                </div>
                                 <div class="d-flex align-items-center justify-content-between mb-5">
                                     <div class="d-flex align-items-center gap-4">
                                         <img src="wwwroot/images/testimonial-avatar.svg" alt="avatar">
@@ -356,8 +360,113 @@
                         </button>
                     </div>
                 </div>
+            </div> -->
+
+            <div style="position: relative;">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="position: relative;">
+                    <div class="carousel-inner">
+
+                      <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col">
+                                <img src="https://placehold.co/400x500/FDD1CB/white" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="col d-flex flex-column justify-content-center">
+                                <div class="bg-orange-20 p-4 rounded-3 shadow">
+                                    <div class="d-flex align-items-center justify-content-between mb-5">
+                                        <div class="d-flex align-items-center gap-4">
+                                            <img src="wwwroot/images/testimonial-avatar.svg" alt="avatar">
+                                            <div>
+                                                <p class="mb-0 bold font-14">Ajay Dharpale</p>
+                                                <p class="mb-0 font-14 text-black-40">@ajay_dhar29</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <img src="wwwroot/images/testimonial-logo.svg" alt="company-logo">
+                                        </div>
+                                    </div>
+                                    <p class="bold mb-4 font-20">I've never experienced such a perfect balance of comfort
+                                        and style in a pair of shoes before. These shoes not only
+                                        look great, but they also feel like I'm walking on clouds.
+                                        I can wear them all day without any discomfort. Truly 
+                                        impressed</p>
+                                    <p class="font-14 text-black-40">March 22, 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="row">
+                            <div class="col">
+                                <img src="https://placehold.co/400x500/FDD1CB/white" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="col d-flex flex-column justify-content-center">
+                                <div class="bg-orange-20 p-4 rounded-3 shadow">
+                                    <div class="d-flex align-items-center justify-content-between mb-5">
+                                        <div class="d-flex align-items-center gap-4">
+                                            <img src="wwwroot/images/testimonial-avatar.svg" alt="avatar">
+                                            <div>
+                                                <p class="mb-0 bold font-14">Ajay Dharpale</p>
+                                                <p class="mb-0 font-14 text-black-40">@ajay_dhar29</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <img src="wwwroot/images/testimonial-logo.svg" alt="company-logo">
+                                        </div>
+                                    </div>
+                                    <p class="bold mb-4 font-20">I've never experienced such a perfect balance of comfort
+                                        and style in a pair of shoes before. These shoes not only
+                                        look great, but they also feel like I'm walking on clouds.
+                                        I can wear them all day without any discomfort. Truly 
+                                        impressed</p>
+                                    <p class="font-14 text-black-40">March 22, 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="row">
+                            <div class="col">
+                                <img src="https://placehold.co/400x500/FDD1CB/white" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="col d-flex flex-column justify-content-center">
+                                <div class="bg-orange-20 p-4 rounded-3 shadow">
+                                    <div class="d-flex align-items-center justify-content-between mb-5">
+                                        <div class="d-flex align-items-center gap-4">
+                                            <img src="wwwroot/images/testimonial-avatar.svg" alt="avatar">
+                                            <div>
+                                                <p class="mb-0 bold font-14">Ajay Dharpale</p>
+                                                <p class="mb-0 font-14 text-black-40">@ajay_dhar29</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <img src="wwwroot/images/testimonial-logo.svg" alt="company-logo">
+                                        </div>
+                                    </div>
+                                    <p class="bold mb-4 font-20">I've never experienced such a perfect balance of comfort
+                                        and style in a pair of shoes before. These shoes not only
+                                        look great, but they also feel like I'm walking on clouds.
+                                        I can wear them all day without any discomfort. Truly 
+                                        impressed</p>
+                                    <p class="font-14 text-black-40">March 22, 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+    
+                    </div>                    
+                </div>
+                    <button class="carousel-control-prev carousel-testimonial-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next carousel-testimonial-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
             </div>
         </section>
+        
         <section>
             <div class="row p-5">
                 <div class="col">

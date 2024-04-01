@@ -180,7 +180,7 @@ header .nav-link:active{
     width: 40px;
     border-radius: 100%;
     position: absolute;
-    top: 110%;
+    top: 105%;
     left: 40%;
 }
 .carousel-testimonial-next{
@@ -189,8 +189,8 @@ header .nav-link:active{
     height: 40px;
     width: 40px;
     border-radius: 100%;
-    position: absolute;
-    top: 110%;
+    position: absolute; 
+    top: 105%;
     right: 40%;
 }
 footer .nav-link{
@@ -209,6 +209,7 @@ main{
     background-color: #FEF3F2;
     padding: 50px;
     /* height: 100vh; */
+    margin-top: 30px;
     display: flex;
     align-items: center;
 
