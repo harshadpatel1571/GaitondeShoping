@@ -6,6 +6,10 @@
 body{
     font-family: "Roboto Flex";
 }
+/* spacing */
+.margin-80{
+    margin: 80px 80px;
+}
 /* color */
 .bg-orange-0{
     background-color: #FEF3F2;
@@ -85,7 +89,9 @@ body{
 .font-60{
     font-size: 60px;
 }
-
+.regular{
+    font-weight: 400;
+}
 .semibold{
     font-weight: 600;
 }
@@ -94,6 +100,9 @@ body{
 }
 .border-1{
     border: 1px solid black;
+}
+.border-orange{
+    border: 1px solid #DB4834;
 }
 
 /* buttons */
@@ -131,6 +140,20 @@ body{
 .btn-coupon:hover{
     color: #DB4834;
     background-color: #FAE4E1;
+}
+.decrement{
+    color: #DB4834;
+    font-size: 26px;
+}
+.decrement:hover{
+    color: #DB4834;
+}
+.increment{
+    color: #DB4834;
+    font-size: 24px;
+}
+.increment:hover{
+    color: #DB4834;
 }
 /* navbar */
 .navbar{
@@ -180,8 +203,8 @@ header .nav-link:active{
     width: 40px;
     border-radius: 100%;
     position: absolute;
-    top: 105%;
-    left: 40%;
+    top: 80%;
+    left: 70%;
 }
 .carousel-testimonial-next{
     color: black;
@@ -190,8 +213,8 @@ header .nav-link:active{
     width: 40px;
     border-radius: 100%;
     position: absolute; 
-    top: 105%;
-    right: 40%;
+    top: 80%;
+    right: 20%;
 }
 footer .nav-link{
     color: #201D1D;
@@ -265,7 +288,18 @@ main{
 .accordion-product:not(.collapsed)::after {
     color: #DB4834!important;
 } */
-
+.form-label{
+    color: #DB4834;
+}
+.form-control{
+    border: 1px solid #DB4834;
+    color: #DB4834!important;
+}
+.form-control:focus{
+    box-shadow: 0 0 0 0.25rem #FDD1CB;
+    color: #DB4834;
+    border: 1px solid #DB4834;
+}
 
 /* Responsive */
 @media only screen and (max-width: 768px) {
@@ -303,7 +337,7 @@ main{
         width: 25px;
         border-radius: 100%;
         position: absolute;
-        top: 110%;
+        top: 105%;
         left: 40%;
     }
     .carousel-testimonial-next{
@@ -311,7 +345,7 @@ main{
         width: 25px;
         border-radius: 100%;
         position: absolute;
-        top: 110%;
+        top: 105%;
         right: 40%;
     }
     footer .nav-link{

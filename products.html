@@ -53,7 +53,7 @@
                 <a class="nav-link" href="#">FAQ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contacts</a>
+                <a class="nav-link" href="contact.html">Contacts</a>
               </li>
             </ul>
             <div class="d-flex d-md-none align-items-center justify-content-center">
@@ -95,7 +95,153 @@
                         <a class="nav-link" href="#">Loffers</a>
                     </nav>
                 </div>
+                
                 <div>
+                  <button class="btn btn-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Filter by</button>
+                    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                      <div class="offcanvas-header border-bottom">
+                        <h5 class="text-orange font-24 semibold offcanvas-title" id="offcanvasWithBothOptionsLabel">Filter</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                      </div>
+                      <div class="offcanvas-body">
+                        <div class="d-flex justify-content-between mb-3">
+                          <h5 class="text-orange ">Size (UK)</h5>
+                          <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasForSize" aria-controls="offcanvasForSize"><img src="wwwroot/images/next-arrow.svg"></a>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                          <h5 class="text-orange ">Type</h5>
+                          <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasForType" aria-controls="offcanvasForType"><img src="wwwroot/images/next-arrow.svg"></a>
+                        </div>
+                      </div>
+                      <div class="offcanvas-footer border-top p-3 d-flex align-items-center justify-content-around">
+                        <a class="text-orange me-3" href="#">Remove All</a>
+                        <button class="btn btn-1">Apply</button>
+                      </div>
+                    </div>
+
+                    <!-- size offcanvas -->
+                    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasForSize" aria-labelledby="offcanvasForSizeLabel">
+                      <div class="offcanvas-header border-bottom">
+                        <h5 class="text-orange font-24 semibold offcanvas-title" id="offcanvasForSizeLabel">Filter</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                      </div>
+                      <div class="offcanvas-body">
+                        <div class="d-flex gap-3 mb-3">
+                          <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><img src="wwwroot/images/back-arrow.svg"></a>
+                          <h5 class="text-orange">Size</h5>
+                        </div>
+
+                        <div class="px-5">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="text-orange form-check-label" for="flexCheckDefault">
+                              3
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="text-orange form-check-label" for="flexCheckChecked">
+                              4
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="text-orange form-check-label" for="flexCheckDefault">
+                              5
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="text-orange form-check-label" for="flexCheckChecked">
+                              6
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="text-orange form-check-label" for="flexCheckDefault">
+                              7
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="text-orange form-check-label" for="flexCheckChecked">
+                              8
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="text-orange form-check-label" for="flexCheckDefault">
+                              9
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="text-orange form-check-label" for="flexCheckChecked">
+                              10
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="text-orange form-check-label" for="flexCheckDefault">
+                              11
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="text-orange form-check-label" for="flexCheckChecked">
+                              12
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="offcanvas-footer border-top p-3 d-flex align-items-center justify-content-around">
+                        <a class="text-orange me-3" href="#">Clear</a>
+                        <button class="btn btn-1">Apply</button>
+                      </div>
+                    </div>
+
+                    <!-- type offcanvas -->
+                    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasForType" aria-labelledby="offcanvasForTypeLabel">
+                      <div class="offcanvas-header border-bottom">
+                        <h5 class="text-orange font-24 semibold offcanvas-title" id="offcanvasForTypeLabel">Filter</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                      </div>
+                      <div class="offcanvas-body">
+                        <div class="d-flex gap-3 mb-3">
+                          <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><img src="wwwroot/images/back-arrow.svg"></a>
+                          <h5 class="text-orange">Type</h5>
+                        </div>
+
+                        <div class="px-5">
+                          <div class="form-check my-2">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="text-orange form-check-label" for="flexCheckDefault">
+                              Shoes
+                            </label>
+                          </div>
+                          <div class="form-check my-2">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="text-orange form-check-label" for="flexCheckChecked">
+                              Chappal
+                            </label>
+                          </div>
+                          <div class="form-check my-2">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="text-orange form-check-label" for="flexCheckDefault">
+                              Sandels
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="offcanvas-footer border-top p-3 d-flex align-items-center justify-content-around">
+                        <a class="text-orange me-3" href="#">Clear</a>
+                        <button class="btn btn-1">Apply</button>
+                      </div>
+                    </div>
+
+                </div>
+                <!-- modal filter starts -->
+                <!-- <div>
                     
                   <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
@@ -250,7 +396,8 @@
                   </div>
                   <a class="btn btn-1" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Filter by</a>
 
-                </div>
+                </div> -->
+                <!-- modal filter ends -->
             </div>
             <div class="row">
   
@@ -475,88 +622,9 @@
                 </button>
             </div>
         </section>
-        <section class="section__testimonial">
-          <h1 class="text-center text-orange my-3 font-60">Testimonials</h1>
-          <div class="row d-flex align-items-center g-4">
-              <div class="col-12 col-lg-6">
-                  <img src="wwwroot/images/testimonial-img.png" class="card-img-top rounded-0" alt="...">
-              </div>
-              <div class="col-12 col-lg-6">
-                <div id="carouselExample2" class="carousel slide">
-                  <div class="carousel-inner bg-orange-10 shadow p-4">
-                    <div class="carousel-item active">
-                          <div class="d-flex align-items-center justify-content-between mb-5">
-                              <div class="d-flex align-items-center gap-4">
-                                  <img src="wwwroot/images/testimonial-avatar.svg" alt="avatar">
-                                  <div>
-                                      <p class="mb-0 bold font-14">Ajay Dharpale</p>
-                                      <p class="mb-0 font-14 text-black-40">@ajay_dhar29</p>
-                                  </div>
-                              </div>
-                              <div>
-                                  <img src="wwwroot/images/testimonial-logo.svg" alt="company-logo">
-                              </div>
-                          </div>
-                          <p class="bold mb-4 font-20">I've never experienced such a perfect balance of comfort
-                              and style in a pair of shoes before. These shoes not only
-                              look great, but they also feel like I'm walking on clouds.
-                              I can wear them all day without any discomfort. Truly 
-                              impressed</p>
-                          <p class="font-14 text-black-40">March 22, 2023</p>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="d-flex align-items-center justify-content-between mb-5">
-                          <div class="d-flex align-items-center gap-4">
-                              <img src="wwwroot/images/testimonial-avatar.svg" alt="avatar">
-                              <div>
-                                  <p class="mb-0 bold font-14">Ajay Dharpale</p>
-                                  <p class="mb-0 font-14 text-black-40">@ajay_dhar29</p>
-                              </div>
-                          </div>
-                          <div>
-                              <img src="wwwroot/images/testimonial-logo.svg" alt="company-logo">
-                          </div>
-                      </div>
-                      <p class="bold mb-4 font-20">I've never experienced such a perfect balance of comfort
-                          and style in a pair of shoes before. These shoes not only
-                          look great, but they also feel like I'm walking on clouds.
-                          I can wear them all day without any discomfort. Truly 
-                          impressed</p>
-                      <p class="font-14 text-black-40">March 22, 2023</p>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="d-flex align-items-center justify-content-between mb-5">
-                          <div class="d-flex align-items-center gap-4">
-                              <img src="wwwroot/images/testimonial-avatar.svg" alt="avatar">
-                              <div>
-                                  <p class="mb-0 bold font-14">Ajay Dharpale</p>
-                                  <p class="mb-0 font-14 text-black-40">@ajay_dhar29</p>
-                              </div>
-                          </div>
-                          <div>
-                              <img src="wwwroot/images/testimonial-logo.svg" alt="company-logo">
-                          </div>
-                      </div>
-                      <p class="bold mb-4 font-20">I've never experienced such a perfect balance of comfort
-                          and style in a pair of shoes before. These shoes not only
-                          look great, but they also feel like I'm walking on clouds.
-                          I can wear them all day without any discomfort. Truly 
-                          impressed</p>
-                      <p class="font-14 text-black-40">March 22, 2023</p>
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev carousel-testimonial-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next carousel-testimonial-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-              </div>
-              </div>
-          </div>
-      </section>
+        <section>
+          <div class="imprzd-wrapper" id="imprzd-wrapper-section"></div>
+        </section>
     </main>
     <footer>
       <div class="row bg-orange-20 p-4 g-0">
@@ -638,6 +706,37 @@
           </div>
       </div>
     </footer>
+
+    <script defer="defer" src="https://www.imprzd.com/bi/in-scol/app.js" inject="true" async test="{}" id="imprzd_SOL" domain="https://www.imprzd.com" api_type="scol" 
+merchantdata="MTg=" 
+imprzd_title_text="Customer Reviews" 
+imprzd_title_font="Inter" 
+imprzd_title_font_color="#DB4834"
+imprzd_title_font_size="50" 
+imprzd_title_font_weight="700" 
+imprzd_button_text="VIEW MORE POSTS"
+imprzd_button_url="https://gaitonde.com/testimonials.php"
+imprzd_button_color="#DB4834"
+imprzd_button_border_radius="10px"
+imprzd_button_font="Inter" 
+imprzd_button_font_color="#FFF" 
+imprzd_button_font_size="23"
+imprzd_button_font_weight="700" 
+imprzd_post_title_font="Inter" 
+imprzd_post_title_font_color="#DB4834"
+imprzd_post_title_font_size="24" 
+imprzd_post_title_font_weight="700" 
+imprzd_post_desc_font="Inter"
+imprzd_post_desc_font_color="#201D1D" 
+imprzd_post_desc_font_size="16" 
+imprzd_post_desc_font_weight="400"
+imprzd_container_color="#FFF" 
+imprzd_container_shadow_color="#ffffffaf"
+google_font_link="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+display_customer_name="true" 
+display_product_name="true" 
+display_posted_date="true"
+        display_shared_channel="true"></script>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
