@@ -282,12 +282,36 @@ main{
     box-shadow: none;
     color: #DB4834;
 }
-/* .accordion-product::after {
-    color: #DB4834!important;
+.accordion-faq{
+    text-decoration: none;
+    background-color: #FEE5E2!important;
+    box-shadow: none;
+    background-image: none!important; 
+    color: #201D1D;
+    font-weight: 700;
+    font-size: 30px;
 }
-.accordion-product:not(.collapsed)::after {
-    color: #DB4834!important;
-} */
+.accordion-faq:focus{
+    box-shadow: none;
+    color: #201D1D;
+}
+.faq .accordion-item{
+    background-color: #FEE5E2!important;
+}
+.faq .accordion-body{
+    color: #201D1D;
+    font-weight: 600;
+    font-size: 20px;
+}
+.accordion-faq::after {   
+    background-image: url(../images/faq-arrow-down.svg);
+}
+.accordion-faq:not(.collapsed)::after {
+    background-image: url(../images/faq-arrow-up.svg);   
+    transform: none;
+    color: #201D1D!important;
+}
+
 .form-label{
     color: #DB4834;
 }
