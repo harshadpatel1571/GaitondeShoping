@@ -123,3 +123,22 @@ async function Getproductaspershop() {
     console.log(result);
     return result;
 }
+
+async function GetSingleProductData() {
+
+    //var shope_name = localStorage.getItem('shop_name');
+    const data = {
+        "product_id": "3",
+    };
+
+    const response = await fetch('https://hx314n44hh.execute-api.us-east-1.amazonaws.com/default/getParticularProductData', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    const result = await response.json();
+    return result;
+}
