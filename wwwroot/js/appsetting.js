@@ -27,6 +27,18 @@
 //     }
 // }
 
+function getParameterValueByName(name) {
+
+    var url = window.location.href.toString();
+
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 async function checkServerSession() {
     var session_id = localStorage.getItem('session_id');
     if (session_id != null) {
@@ -84,7 +96,7 @@ async function createServerSession() {
     if (result != null) {
         //var encryptedData = CryptoJS.AES.encrypt(result.data, 'secret_key').toString();
         localStorage.setItem('session_id', result[0].session_id);
-        localStorage.setItem('shop_name', result[0].shop.trim());
+        localStorage.setItem('shop_name', result[0].shop.trim().toLowerCase());
         return true;
     }
     else {
@@ -108,5 +120,6 @@ async function Getproductaspershop() {
     });
 
     const result = await response.json();
+    console.log(result);
     return result;
 }
