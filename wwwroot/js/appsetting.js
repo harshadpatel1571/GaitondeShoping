@@ -66,7 +66,6 @@ async function checkServerSession() {
 
 
 async function createServerSession() {
-    debugger;
     const data = {
         "shop": "testStore@gaitonde.com ",
         "machine_ip": "sample id",
@@ -85,9 +84,29 @@ async function createServerSession() {
     if (result != null) {
         //var encryptedData = CryptoJS.AES.encrypt(result.data, 'secret_key').toString();
         localStorage.setItem('session_id', result[0].session_id);
+        localStorage.setItem('shop_name', result[0].shop.trim());
         return true;
     }
     else {
         return false;
     }
+}
+
+async function Getproductaspershop() {
+
+    var shope_name = localStorage.getItem('shop_name');
+    const data = {
+        "shop": `${shope_name}`,
+    };
+
+    const response = await fetch('https://pkjnhdiqab.execute-api.us-east-1.amazonaws.com/default/getProductByShop', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    const result = await response.json();
+    return result;
 }

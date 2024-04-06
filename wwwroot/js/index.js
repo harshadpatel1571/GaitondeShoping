@@ -1,28 +1,23 @@
-$(document).ready(function () {
-    checkServerSession();
-});
-
-async function Getproductaspershop() {
-    const data = {
-        "session_id": "80459a11-9234-4c43-86a7-0f99c6522a8a",
-        "shop": "testStore@gaitonde.com",
-        "machine_ip": "sample id",
-        "machine_name": "machine name",
-        "last_login": "2024-04-04T14:29:02.349Z",
-        "is_expired": false
-    };
-
-    const response = await fetch('https://pkjnhdiqab.execute-api.us-east-1.amazonaws.com/default/getProductByShop', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            'Content-Type': 'application/json'
+$(document).ready(async function () {
+    let session = await checkServerSession();
+    if (session) {
+        const result = await Getproductaspershop();
+        if (result.data != null) {
+            $.each(result.data.slice(0, 6), function (index, value) {
+                let html = `<div class="col px-0">
+                <div class="card rounded-0 border-1">
+                    <img src="${value.images[0].image_url}" class="card-img-top rounded-0" alt="...">
+                        <div class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
+                            <p class="font-20 bold mb-0">${value.product_name}</p>
+                            <img src="wwwroot/images/product-add-icon.svg" alt="add-icon">
+                        </div>
+                    </div>
+                </div>`;
+                $("#divProduct").append(html);
+            });
         }
-    });
-
-    const result = await response.json();
-    console.log(result);
-}
+    }
+});
 
 async function EditCartItems() {
     const data = {
