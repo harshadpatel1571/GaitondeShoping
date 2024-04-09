@@ -36,6 +36,45 @@ $(document).ready(async function () {
     }
 });
 
+$(".increment").click(async function () {
+    var quantityElement = $(this).siblings(".quantity");
+    var currentQuantity = parseInt(quantityElement.text());
+    var newQtty = currentQuantity + 1;
+    quantityElement.text(newQtty);
+    let id = quantityElement[0].id;
+    await EditCartItems(`${id}`, 4, newQtty);
+});
+
+$(".decrement").click(async function () {
+    var quantityElement = $(this).siblings(".quantity");
+    var currentQuantity = parseInt(quantityElement.text());
+    if (currentQuantity > 1) {
+        var newQtty = currentQuantity - 1;
+        quantityElement.text(currentQuantity - 1);
+        let id = quantityElement[0].id;
+        await EditCartItems(`${id}`, 4, newQtty);
+    }
+    else {
+        let id = quantityElement[0].id;
+        console.log(quantityElement);
+        if (id > 0) {
+            alert(id);
+            let response = await DeleteItemToCart(`${id}`, 4);
+            console.log(response);
+            if (response.length > 0) {
+                alert("Item removed from cart");
+            }
+        }
+    }
+});
+
+$("#btnEmptyCart").click(async function () {
+    let result = await DeleteAllCartItems();
+    if (result.length > 0 && (result != undefined || result != null)) {
+        alert("cart are empty.");
+    }
+});
+
 async function GetAllCartItems() {
     const data = {
         "session_id": "60987207-7a3d-40f4-bf75-7ade491171dd",
@@ -53,12 +92,13 @@ async function GetAllCartItems() {
     console.log(result);
 }
 
-async function EditCartItems() {
+async function EditCartItems(productId, veriantId, qtty) {
+    var session_id = localStorage.getItem('session_id');
     const data = {
-        "product_id": "1",
-        "variant_id": 1,
-        "session_id": "d869d407-3315-4dfd-8144-c14fed80a0f4",
-        "qty": 10
+        "product_id": productId,
+        "variant_id": veriantId,
+        "session_id": session_id,
+        "qty": qtty
     };
 
     const response = await fetch('https://crjdjof3kf.execute-api.us-east-1.amazonaws.com/default/editCartItems', {
@@ -74,8 +114,11 @@ async function EditCartItems() {
 }
 
 async function DeleteAllCartItems() {
+
+    var session_id = localStorage.getItem('session_id');
+
     const data = {
-        "session_id": "d869d407-3315-4dfd-8144-c14fed80a0f4"
+        "session_id": session_id
     };
 
     const response = await fetch('https://obmrkkuzm0.execute-api.us-east-1.amazonaws.com/default/deleteAllCartItems', {
@@ -87,34 +130,15 @@ async function DeleteAllCartItems() {
     });
 
     const result = await response.json();
-    console.log(result);
+    return result;
 }
 
-async function AddItemToCart() {
+async function DeleteItemToCart(productId, veriantId) {
+    var session_id = localStorage.getItem('session_id');
     const data = {
-        "product_id": "1",
-        "variant_id": 1,
-        "session_id": "d869d407-3315-4dfd-8144-c14fed80a0f4",
-        "qty": 4
-    };
-
-    const response = await fetch('https://7seegteiv0.execute-api.us-east-1.amazonaws.com/default/addItemsToCart', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-
-    const result = await response.json();
-    console.log(result);
-}
-
-async function DeleteItemToCart() {
-    const data = {
-        "product_id": "1",
-        "variant_id": 1,
-        "session_id": "d869d407-3315-4dfd-8144-c14fed80a0f4"
+        "product_id": productId,
+        "variant_id": veriantId,
+        "session_id": session_id
     };
 
     const response = await fetch('https://6ux7uee6ug.execute-api.us-east-1.amazonaws.com/default/deleteItemFromCart', {
@@ -126,5 +150,5 @@ async function DeleteItemToCart() {
     });
 
     const result = await response.json();
-    console.log(result);
+    return result;
 }

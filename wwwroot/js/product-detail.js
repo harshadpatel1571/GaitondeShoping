@@ -13,3 +13,11 @@ $(document).ready(async function () {
         }
     }
 });
+
+$("#btnAddToCart").click(async function () {
+    var result = await AddItemToCart("1",4,1);
+    if(result.length > 0 && (result != undefined || result != null))
+    {
+        alert("item added to cart");
+    }
+});

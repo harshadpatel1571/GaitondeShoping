@@ -39,13 +39,16 @@ function getParameterValueByName(name) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
+
+//-- this is for session related functions.
 async function checkServerSession() {
     var session_id = localStorage.getItem('session_id');
+    var shope_name = localStorage.getItem('shop_name');
     if (session_id != null) {
 
         const data = {
             "session_id": session_id,
-            "shop": "   onde.com",
+            "shop": shope_name,
             "machine_ip": "sample id",
             "machine_name": "machine name",
             "last_login": "2024-04-04T14:29:02.349Z",
@@ -61,8 +64,9 @@ async function checkServerSession() {
         });
 
         const result = await response.json();
+        console.log(result[0]);
 
-        if (result.data == null) {
+        if (result.length == 0) {
             return createServerSession();
         }
         else
@@ -75,7 +79,6 @@ async function checkServerSession() {
         createServerSession();
     }
 }
-
 
 async function createServerSession() {
     const data = {
@@ -103,6 +106,8 @@ async function createServerSession() {
         return false;
     }
 }
+
+//-- This is for Product Related functions.
 
 async function Getproductaspershop() {
 
@@ -132,6 +137,28 @@ async function GetSingleProductData() {
     };
 
     const response = await fetch('https://hx314n44hh.execute-api.us-east-1.amazonaws.com/default/getParticularProductData', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    const result = await response.json();
+    return result;
+}
+
+// this is for cart related functions.
+async function AddItemToCart(productId, veriantId, qtty) {
+    var session_id = localStorage.getItem('session_id');
+    const data = {
+        "product_id": productId,
+        "variant_id": veriantId,
+        "session_id": session_id,
+        "qty": qtty
+    };
+
+    const response = await fetch('https://7seegteiv0.execute-api.us-east-1.amazonaws.com/default/addItemsToCart', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
