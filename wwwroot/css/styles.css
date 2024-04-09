@@ -128,6 +128,14 @@ body{
     color: white;
     background-color: #F68373;
 }
+.btn-3{
+    color: #DB4834;
+    border: 1px solid #DB4834;
+}
+.btn-3:hover{
+    color: #DB4834;
+    border: 1px solid #DB4834;
+}
 .btn-size{
     height: 40px;
     width: 40px;
@@ -161,6 +169,28 @@ body{
 .increment:hover{
     color: #DB4834;
 }
+.btn-quickAdd-size{
+    height: 24px;
+    width: 26px;
+    background-color: #fff;
+    color: black;
+    border-radius: 5px;
+}
+.btn-quickAdd-size:hover{
+    height: 24px;
+    width: 26px;
+    color: #fff;
+    background-color: black;
+    border-radius: 5px;
+}
+.btn-quickAdd-cart{
+    color: #000;
+    background-color: #fff;
+}
+.btn-quickAdd-cart:hover{
+    background-color: #000;
+    color: #fff;
+}
 /* navbar */
 .navbar{
     padding: 16px 70px;
@@ -172,7 +202,11 @@ body{
     display: block;
 }
 .navbar-toggler[aria-expanded="true"] .nav-open-icon{
-    display: none;
+    display: none;  
+}
+.navbar-toggler:focus{
+    outline: 0;
+    box-shadow: none;
 }
 header .nav-link{
     color: #4A4242;
@@ -321,17 +355,36 @@ main{
 .form-label{
     color: #DB4834;
 }
-.form-control{
+.form-control, .form-select{
     border: 1px solid #DB4834;
     color: #DB4834!important;
 }
-.form-control:focus{
+.form-control:focus, .form-select:focus{
     box-shadow: 0 0 0 0.25rem #FDD1CB;
     color: #DB4834;
     border: 1px solid #DB4834;
 }
+.form-control::placeholder{
+    color: #F68373;
+}
 .order__confirm{
     margin: 80px 80px;
+}
+.border-bottom{
+    border-bottom: 1px solid #DB4834!important;
+}
+.offcanvas{
+    position: absolute;
+    margin: 10px;
+    background-color: #F68373;
+    color: white;
+    /* height: 40vh!important; */
+}
+.best-seller-tag{
+    top: 10px;
+}
+.out-of-stock-tag{
+    top: 10px;
 }
 /* Responsive */
 /* @media only screen and (max-width: 568px) {
@@ -372,7 +425,7 @@ main{
         font-size: 30px;
     }
     .navbar{
-        padding: 16px 24px;
+        padding: 16px 16px;
     }
     .section__hero{
         padding: 30px;
@@ -423,5 +476,9 @@ main{
     .faq .accordion-body{
         font-weight: 400;
         font-size: 14px;
+    }
+    .offcanvas{
+        position: fixed;
+        margin: 0px;
     }
 }
