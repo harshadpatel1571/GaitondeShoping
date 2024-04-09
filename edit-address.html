@@ -18,27 +18,27 @@
         </div>
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg shadow">
-            <div class="container-fluid p-0 ">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="justify-content-start gap-2 container-fluid p-0 ">
+                <button class="border-0 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="">
-                        <img src="wwwroot/images/nav-open-icon.svg" class="nav-open-icon border-0">
+                        <img src="wwwroot/images/nav-open-icon.svg" class="nav-open-icon">
                         <img src="wwwroot/images/nav-close-icon.svg" class="nav-close-icon">
                     </span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="wwwroot/images/gaitonde-logo.svg"></a>
-                <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+                <a class="m-0 navbar-brand" href="index.html"><img src="wwwroot/images/gaitonde-logo.svg" class="img-fluid" alt="logo"></a>
+                <div class="collapse navbar-collapse justify-content-between flex-grow-1" id="navbarSupportedContent">
+                    <ul class="navbar-nav d-flex justify-content-center mb-2 mx-auto mb-lg-0 align-items-center">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Gaitonde</a>
+                            <a class="nav-link" href="index.html">Gaitonde</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="products.html">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Testimonials</a>
+                            <a class="nav-link" href="testimonials.html">Testimonials</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="faq.html">FAQ</a>
@@ -47,8 +47,7 @@
                             <a class="nav-link" href="contact.html">Contacts</a>
                         </li>
                     </ul>
-                    <!-- mobile view -->
-                    <div class="d-flex d-md-none align-items-center justify-content-center">
+                    <div class="position-relative d-flex justify-content-center align-items-center me-0">
                         <a href="javascript:void{0};">
                             <img src="wwwroot/images/nav-wishlist-icon.svg" alt="wishlist-icon" class="mx-2">
                         </a>
@@ -57,24 +56,97 @@
                         </a>
                         <div class="d-flex flex-column align-items-end mx-3">
                             <p class="m-0 text-orange font-12">Hi Welcome!</p>
-                            <p class="m-0 text-orange font-14">Michel...</p>
+                            <p class="m-0 text-orange font-14">Michel</p>
                         </div>
-                        <img src="wwwroot/images/nav-avatar.svg" alt="profile-img">
+                        
+                          <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle-btn" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                <img src="wwwroot/images/nav-avatar.svg" alt="profile-img">
+                            </button>
+                            <ul class="dropdown-menu shadow">
+                              <li class="border-bottom">
+                                <a class="text-orange d-flex justify-content-between font-18 dropdown-item" href="edit-profile.html">
+                                    <div>
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.0585 6.02L11.9783 6.94L2.91959 16H1.99972V15.08L11.0585 6.02ZM14.658 0C14.408 0 14.148 0.1 13.9581 0.29L12.1283 2.12L15.8778 5.87L17.7075 4.04C18.0975 3.65 18.0975 3.02 17.7075 2.63L15.3679 0.29C15.1679 0.09 14.9179 0 14.658 0ZM11.0585 3.19L0 14.25V18H3.74948L14.8079 6.94L11.0585 3.19Z" fill="#DB4834" fill-opacity="0.82"/>
+                                        </svg>
+                                        <span class="ms-1">Edit Profile</span>
+                                    </div> 
+                                    <div class="ms-3">
+                                        <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M22.7071 8.7071C23.0976 8.31658 23.0976 7.68342 22.7071 7.29289L16.3431 0.928931C15.9526 0.538406 15.3195 0.538406 14.9289 0.928931C14.5384 1.31946 14.5384 1.95262 14.9289 2.34314L20.5858 8L14.9289 13.6569C14.5384 14.0474 14.5384 14.6805 14.9289 15.0711C15.3195 15.4616 15.9526 15.4616 16.3431 15.0711L22.7071 8.7071ZM8.74228e-08 9L22 9L22 7L-8.74228e-08 7L8.74228e-08 9Z" fill="#DB4834"/>
+                                        </svg>
+                                    </div> 
+                                </a>
+                              </li>
+                              <li class="border-bottom">
+                                <a class="text-orange d-flex justify-content-between font-18 dropdown-item" href="edit-address.html">
+                                    <div>
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.0585 6.02L11.9783 6.94L2.91959 16H1.99972V15.08L11.0585 6.02ZM14.658 0C14.408 0 14.148 0.1 13.9581 0.29L12.1283 2.12L15.8778 5.87L17.7075 4.04C18.0975 3.65 18.0975 3.02 17.7075 2.63L15.3679 0.29C15.1679 0.09 14.9179 0 14.658 0ZM11.0585 3.19L0 14.25V18H3.74948L14.8079 6.94L11.0585 3.19Z" fill="#DB4834" fill-opacity="0.82"/>
+                                        </svg>
+                                        <span class="ms-1">Edit Address</span>
+                                    </div> 
+                                    <div class="ms-3">
+                                        <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M22.7071 8.7071C23.0976 8.31658 23.0976 7.68342 22.7071 7.29289L16.3431 0.928931C15.9526 0.538406 15.3195 0.538406 14.9289 0.928931C14.5384 1.31946 14.5384 1.95262 14.9289 2.34314L20.5858 8L14.9289 13.6569C14.5384 14.0474 14.5384 14.6805 14.9289 15.0711C15.3195 15.4616 15.9526 15.4616 16.3431 15.0711L22.7071 8.7071ZM8.74228e-08 9L22 9L22 7L-8.74228e-08 7L8.74228e-08 9Z" fill="#DB4834"/>
+                                        </svg>
+                                    </div> 
+                                </a>
+                              </li>
+                              <li class="border-bottom">
+                                <a class="text-orange d-flex justify-content-between font-18 dropdown-item" href="order-history.html">  
+                                    <div>
+                                        <svg width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13.8571 1H3.14286C1.95939 1 1 1.95469 1 3.13235V16.9926C1 18.1703 1.95939 19.125 3.14286 19.125H13.8571C15.0406 19.125 16 18.1703 16 16.9926V3.13235C16 1.95469 15.0406 1 13.8571 1Z" stroke="#DB4834"/>
+                                            <path d="M5.375 6.625H11.625M5.375 10.6875H11.625M5.375 14.75H9.54167" stroke="#DB4834" stroke-linecap="round"/>
+                                        </svg>                                            
+                                        <span class="ms-1">Order History</span>
+                                    </div> 
+                                    <div class="ms-3">
+                                        <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M22.7071 8.7071C23.0976 8.31658 23.0976 7.68342 22.7071 7.29289L16.3431 0.928931C15.9526 0.538406 15.3195 0.538406 14.9289 0.928931C14.5384 1.31946 14.5384 1.95262 14.9289 2.34314L20.5858 8L14.9289 13.6569C14.5384 14.0474 14.5384 14.6805 14.9289 15.0711C15.3195 15.4616 15.9526 15.4616 16.3431 15.0711L22.7071 8.7071ZM8.74228e-08 9L22 9L22 7L-8.74228e-08 7L8.74228e-08 9Z" fill="#DB4834"/>
+                                        </svg>
+                                    </div>                           
+                                </a>
+                              </li>
+                              <li class="border-bottom">
+                                <a class="text-orange d-flex justify-content-between font-18 dropdown-item" href="return-exchange.html">
+                                    <div>
+                                        <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 17.0316C1 17.609 1.22242 18.1627 1.61833 18.571C2.01424 18.9793 2.55121 19.2087 3.11111 19.2087C3.67101 19.2087 4.20798 18.9793 4.60389 18.571C4.9998 18.1627 5.22222 17.609 5.22222 17.0316C5.22222 16.4542 4.9998 15.9004 4.60389 15.4921C4.20798 15.0839 3.67101 14.8545 3.11111 14.8545C2.55121 14.8545 2.01424 15.0839 1.61833 15.4921C1.22242 15.9004 1 16.4542 1 17.0316ZM15.7778 3.96908C15.7778 4.54647 16.0002 5.10022 16.3961 5.50851C16.792 5.91679 17.329 6.14616 17.8889 6.14616C18.4488 6.14616 18.9858 5.91679 19.3817 5.50851C19.7776 5.10022 20 4.54647 20 3.96908C20 3.39168 19.7776 2.83793 19.3817 2.42965C18.9858 2.02136 18.4488 1.79199 17.8889 1.79199C17.329 1.79199 16.792 2.02136 16.3961 2.42965C16.0002 2.83793 15.7778 3.39168 15.7778 3.96908Z" stroke="#DB4834" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M17.625 6.27778V11.5556C17.625 12.9553 17.0888 14.2977 16.1344 15.2875C15.18 16.2773 13.8855 16.8333 12.5357 16.8333H9.48214M9.48214 16.8333L12.5357 13.6667M9.48214 16.8333L12.5357 20M3.375 14.7222V9.44444C3.375 8.04469 3.91119 6.70227 4.86562 5.71249C5.82004 4.72272 7.11452 4.16667 8.46429 4.16667H11.5179M11.5179 4.16667L8.46429 1M11.5179 4.16667L8.46429 7.33333" stroke="#DB4834" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>                                            
+                                        <span class="ms-1">Return & Exchange</span>
+                                    </div> 
+                                    <div class="ms-3">
+                                        <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M22.7071 8.7071C23.0976 8.31658 23.0976 7.68342 22.7071 7.29289L16.3431 0.928931C15.9526 0.538406 15.3195 0.538406 14.9289 0.928931C14.5384 1.31946 14.5384 1.95262 14.9289 2.34314L20.5858 8L14.9289 13.6569C14.5384 14.0474 14.5384 14.6805 14.9289 15.0711C15.3195 15.4616 15.9526 15.4616 16.3431 15.0711L22.7071 8.7071ZM8.74228e-08 9L22 9L22 7L-8.74228e-08 7L8.74228e-08 9Z" fill="#DB4834"/>
+                                        </svg>
+                                    </div> 
+                                </a>
+                              </li>
+                              <li>
+                                <a class="text-orange d-flex justify-content-between font-18 dropdown-item" href="#">
+                                    <div>
+                                        <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 5.83333L12.59 7.47833L14.17 9.33333H6V11.6667H14.17L12.59 13.51L14 15.1667L18 10.5L14 5.83333ZM2 2.33333H9V0H2C0.9 0 0 1.05 0 2.33333V18.6667C0 19.95 0.9 21 2 21H9V18.6667H2V2.33333Z" fill="#DB4834"/>
+                                        </svg>                                            
+                                        <span class="ms-1">Logout</span>
+                                    </div> 
+                                    <div class="ms-3">
+                                        <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M22.7071 8.7071C23.0976 8.31658 23.0976 7.68342 22.7071 7.29289L16.3431 0.928931C15.9526 0.538406 15.3195 0.538406 14.9289 0.928931C14.5384 1.31946 14.5384 1.95262 14.9289 2.34314L20.5858 8L14.9289 13.6569C14.5384 14.0474 14.5384 14.6805 14.9289 15.0711C15.3195 15.4616 15.9526 15.4616 16.3431 15.0711L22.7071 8.7071ZM8.74228e-08 9L22 9L22 7L-8.74228e-08 7L8.74228e-08 9Z" fill="#DB4834"/>
+                                        </svg>
+                                    </div> 
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        
                     </div>
                 </div>
-                <div class="d-none d-md-flex align-items-center">
-                    <a href="javascript:void{0};">
-                        <img src="wwwroot/images/nav-wishlist-icon.svg" alt="wishlist-icon" class="mx-2">
-                    </a>
-                    <a href="cart.html">
-                        <img src="wwwroot/images/nav-cart-icon.svg" alt="cart-icon" class="mx-2">
-                    </a>
-                    <div class="d-flex flex-column align-items-end mx-3">
-                        <p class="m-0 text-orange font-12">Hi Welcome!</p>
-                        <p class="m-0 text-orange font-14">Michel</p>
-                    </div>
-                    <img src="wwwroot/images/nav-avatar.svg" alt="profile-img">
-                </div>
+                
             </div>
         </nav>
 
@@ -130,7 +202,7 @@
     <footer>
         <div class="row bg-orange-20 p-4 g-0">
             <div class="col-12 col-lg-2">
-                <img src="wwwroot/images/gaitonde-logo.svg" alt="gaitonde-logo" class="mb-3" style="width: 80%;">
+                <img src="wwwroot/images/gaitonde-logo.svg" alt="gaitonde-logo" class="mb-3 img-fluid">
                 <p class="font-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <p class="font-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
@@ -163,7 +235,7 @@
             <div class="col-12 col-lg-2">
                 <h5 class="text-orange bold px-2 font-18">Reach&nbsp;US</h5>
                 <nav class="nav flex-row flex-lg-column">
-                    <p class="px-3 font-12 px-2">
+                    <p class="px-2 font-12">
                         5th Floor,”A” Block
                         Alsa Crescent
                         No:58, Harrington Road
@@ -194,7 +266,7 @@
                         </p>
                     </div>
                     <div>
-                        <p class="text-white mb-0 p-2">© 2024, All rights reserved by Gaitonde Leathers and Accessories Private Limited</p>
+                        <p class="text-white mb-0 p-2">© 2024, All rights reserved by Gaitonde Leathers and Accessories Private Limited</p>
                     </div>
                     <div>
                         <p class="mb-0 p-2 text-white">

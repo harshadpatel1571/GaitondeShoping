@@ -120,6 +120,14 @@ body{
     color: white;
     background-color: #DB4834;
 }
+.btn-1:active{
+    color: white;
+    background-color: #DB4834;
+}
+.btn-1:focus{
+    color: white!important;
+    background-color: #DB4834!important;
+}
 .btn-2{
     color: white;
     background-color: #F68373;
@@ -128,6 +136,14 @@ body{
     color: white;
     background-color: #F68373;
 }
+.btn-2:active{
+    color: white;
+    background-color: #F68373;
+}
+.btn-2:focus{
+    color: white!important;
+    background-color: #F68373!important;
+}
 .btn-3{
     color: #DB4834;
     border: 1px solid #DB4834;
@@ -135,6 +151,14 @@ body{
 .btn-3:hover{
     color: #DB4834;
     border: 1px solid #DB4834;
+}
+.btn-3:active{
+    color: #DB4834;
+    border: 1px solid #DB4834;
+}
+.btn-3:focus{
+    color: #DB4834!important;
+    border: 1px solid #DB4834!important;
 }
 .btn-size{
     height: 40px;
@@ -147,6 +171,14 @@ body{
     color: white;
     background-color: #DB4834;
 }
+.btn-size:active{
+    color: white;
+    background-color: #DB4834;
+}
+.btn-size:focus{
+    color: white!important;
+    background-color: #DB4834!important;
+}
 .btn-coupon{
     color: #DB4834;
     background-color: #FAE4E1;
@@ -155,19 +187,39 @@ body{
     color: #DB4834;
     background-color: #FAE4E1;
 }
+.btn-coupon:active{
+    color: #DB4834;
+    background-color: #FAE4E1;
+}
+.btn-coupon:focus{
+    color: #DB4834!important;
+    background-color: #FAE4E1!important;
+}
 .decrement{
     color: #DB4834;
     font-size: 26px;
+    border: none;
 }
 .decrement:hover{
     color: #DB4834;
+    border: none;
+}
+.decrement:focus{
+    color: #DB4834;
+    border: none;
 }
 .increment{
     color: #DB4834;
     font-size: 24px;
+    border: none;
 }
 .increment:hover{
     color: #DB4834;
+    border: none;
+}
+.increment:focus{
+    color: #DB4834;
+    border: none;
 }
 .btn-quickAdd-size{
     height: 24px;
@@ -183,6 +235,14 @@ body{
     background-color: black;
     border-radius: 5px;
 }
+.btn-quickAdd-size:active{
+    color: #fff;
+    background-color: black;
+}
+.btn-quickAdd-size:focus{
+    color: #fff!important;
+    background-color: black!important;
+}
 .btn-quickAdd-cart{
     color: #000;
     background-color: #fff;
@@ -190,6 +250,14 @@ body{
 .btn-quickAdd-cart:hover{
     background-color: #000;
     color: #fff;
+}
+.btn-quickAdd-cart:active{
+    color: #000;
+    background-color: #fff;
+}
+.btn-quickAdd-cart:focus{
+    background-color: #000!important;
+    color: #fff!important;
 }
 /* navbar */
 .navbar{
@@ -218,7 +286,7 @@ header .nav-link:hover{
 header .nav-link:active{
     color: #DB4834;
 }
-.carousel-hero-prev{
+/* .carousel-hero-prev{
     color: black;
     background: #DB4834;
     height: 40px;
@@ -255,7 +323,7 @@ header .nav-link:active{
     position: absolute; 
     top: 80%;
     right: 20%;
-}
+} */
 footer .nav-link{
     color: #201D1D;
 }
@@ -267,15 +335,14 @@ footer .nav-link:focus{
 }
 main{
     padding: 0px 70px;
+    min-height: 100vh;
 }
 .section__hero{
     background-color: #FEF3F2;
     padding: 50px;
-    /* height: 100vh; */
     margin-top: 30px;
-    display: flex;
-    align-items: center;
-
+    /* display: flex;
+    align-items: center; */
 }
 .section__hero__grid{
     margin: 80px 0px;
@@ -373,7 +440,7 @@ main{
 .border-bottom{
     border-bottom: 1px solid #DB4834!important;
 }
-.offcanvas{
+.cart-offcanvas{
     position: absolute;
     margin: 10px;
     background-color: #F68373;
@@ -385,6 +452,26 @@ main{
 }
 .out-of-stock-tag{
     top: 10px;
+}
+.dropdown-toggle-btn{
+    border: none;
+}
+.dropdown-menu{
+    border: none;
+    padding: 0px;
+    right: 0!important;
+}
+.dropdown-menu .dropdown-item:hover{
+    color: #DB4834;
+    background-color: #FEF3F2;
+}
+.dropdown-menu .dropdown-item:active{
+    color: #DB4834!important;
+    background-color: #fff!important;
+}
+.dropdown-menu[data-bs-popper] {
+    right: 0!important;
+    left: auto;
 }
 /* Responsive */
 /* @media only screen and (max-width: 568px) {
@@ -433,7 +520,7 @@ main{
     .section__hero__grid{
         margin: 30px 0px;
     }
-    .carousel-hero-prev{
+    /* .carousel-hero-prev{
         height: 20px;
         width: 20px;
         position: absolute;
@@ -462,7 +549,7 @@ main{
         position: absolute;
         top: 105%;
         right: 40%;
-    }
+    } */
     footer .nav-link{
         color: #201D1D;
         text-decoration: underline;
@@ -477,7 +564,7 @@ main{
         font-weight: 400;
         font-size: 14px;
     }
-    .offcanvas{
+    .cart-offcanvas{
         position: fixed;
         margin: 0px;
     }
