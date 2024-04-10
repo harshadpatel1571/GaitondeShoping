@@ -160,22 +160,31 @@ body{
     color: #DB4834!important;
     border: 1px solid #DB4834!important;
 }
-.btn-size{
+
+.btn-product-color:active{
+    border: 2px solid #DB4834;
+    outline: none;
+}
+.btn-product-color:focus{
+    border: 2px solid #DB4834!important;
+    outline: none;
+}
+.btn-product-size{
     height: 40px;
     width: 40px;
     background-color: #FAE4E1;
     color: black;
     border-radius: 0px;
 }
-.btn-size:hover{
+.btn-product-size:hover{
     color: white;
     background-color: #DB4834;
 }
-.btn-size:active{
+.btn-product-size:active{
     color: white;
     background-color: #DB4834;
 }
-.btn-size:focus{
+.btn-product-size:focus{
     color: white!important;
     background-color: #DB4834!important;
 }
@@ -473,6 +482,40 @@ main{
     right: 0!important;
     left: auto;
 }
+
+.gallery{
+    width: 500px;
+    display: flex;
+    overflow-x: scroll;
+    border: 2px solid #DB4834;
+}
+.gallery div{
+    /* width: 100%; */
+    /* display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px; */
+    padding: 10px;
+    flex: none;
+}
+.gallery div img{
+    width: 100%;
+}
+.gallery::-webkit-scrollbar{
+    display: none;
+}
+.gallery-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin: 10% auto; */
+}
+#backBtn,#nextBtn{
+    /* width: 50px; */
+    cursor: pointer;
+    margin: 12px;
+}
+
+
 /* Responsive */
 /* @media only screen and (max-width: 568px) {
     
