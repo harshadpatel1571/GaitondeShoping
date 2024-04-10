@@ -57,12 +57,12 @@
                         <a href="cart.html">
                             <img src="wwwroot/images/nav-cart-icon.svg" alt="cart-icon" class="mx-2">
                         </a>
-                        <div class="d-flex flex-column align-items-end mx-3">
+                        <!-- <div class="d-flex flex-column align-items-end mx-3">
                             <p class="m-0 text-orange font-12">Hi Welcome!</p>
                             <p class="m-0 text-orange font-14">Michel</p>
-                        </div>
+                        </div> -->
                         
-                          <div class="btn-group">
+                          <!-- <div class="btn-group">
                             <button type="button" class="btn dropdown-toggle-btn" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                 <img src="wwwroot/images/nav-avatar.svg" alt="profile-img">
                             </button>
@@ -145,7 +145,7 @@
                                 </a>
                               </li>
                             </ul>
-                          </div>
+                          </div> -->
                         
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                         <img src="wwwroot/images/product-slider-backbtn.svg" id="backBtn"/>
                         <div class="gallery">
                             <div>
-                                <button class="btn-product-color btn rounded-2 p-0 me-2 mb-1">
+                                <button class="btn-product-color btn rounded-2 p-0 me-2 mb-1" type="button">
                                     <img src="https://placehold.co/100x100/FDD1CB/white" class="rounded-2 img-fluid" alt="product-color-img">
                                 </button>
                                 <button class="btn-product-color btn rounded-2 p-0 me-2 mb-1">
@@ -234,16 +234,34 @@
                                     </svg>
                                 </p>
                             </div>
-                            <div>
-                                <button class="btn-product-size btn me-2 mb-2">4</button>
-                                <button class="btn-product-size btn me-2 mb-2">5</button>
-                                <button class="btn-product-size btn me-2 mb-2">6</button>
-                                <button class="btn-product-size btn me-2 mb-2">7</button>
-                                <button class="btn-product-size btn me-2 mb-2">8</button>
-                                <button class="btn-product-size btn me-2 mb-2">9</button>
-                                <button class="btn-product-size btn me-2 mb-2">10</button>
-                                <button class="btn-product-size btn me-2 mb-2">11</button>
-                                <button class="btn-product-size btn me-2 mb-2">12</button>
+                            <div class="product-size-radios">
+                                <input type="radio" class="btn-check" name="options" id="size-4" autocomplete="off">
+                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-4">4</label>
+
+                                <input type="radio" class="btn-check" name="options" id="size-5" autocomplete="off">
+                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-5">5</label>
+
+                                <input type="radio" class="btn-check" name="options" id="size-6" autocomplete="off">
+                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-6">6</label>
+
+                                <input type="radio" class="btn-check" name="options" id="size-7" autocomplete="off">
+                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-7">7</label>
+
+                                <input type="radio" class="btn-check" name="options" id="size-8" autocomplete="off">
+                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-8">8</label>
+
+                                <input type="radio" class="btn-check" name="options" id="size-9" autocomplete="off">
+                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-9">9</label>
+
+                                <input type="radio" class="btn-check" name="options" id="size-10" autocomplete="off">
+                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-10">10</label>
+
+                                <input type="radio" class="btn-check" name="options" id="size-11" autocomplete="off">
+                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-11">11</label>
+
+                                <input type="radio" class="btn-check" name="options" id="size-12" autocomplete="off">
+                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-12">12</label>
+                                
                             </div>
                         </div>
                         <div class="d-grid gap-2">
@@ -360,7 +378,7 @@
             <h1 class="text-center text-orange my-3 font-60">Similar Product</h1>
             <div class="row g-0">
                 
-                <!-- This is proper card for product. Use his div in product loop -->
+                <!-- This is proper card for product. Use this div in product loop -->
                 <div class="col-6 col-lg-3 px-0">
                     <div class="card rounded-0 border-1 position-relative">
                     <img src="wwwroot/images/tag-bestSeller.svg" alt="best-seller" class="position-absolute best-seller-tag"></img>
@@ -395,15 +413,36 @@
                         <div class="offcanvas-body">
                             <p class="bold">Size</p>
                             <div>
-                                <button class="btn-quickAdd-size btn p-0 me-2 mb-2">4</button>
-                                <button class="btn-quickAdd-size btn p-0 me-2 mb-2">5</button>
-                                <button class="btn-quickAdd-size btn p-0 me-2 mb-2">6</button>
-                                <button class="btn-quickAdd-size btn p-0 me-2 mb-2">7</button>
-                                <button class="btn-quickAdd-size btn p-0 me-2 mb-2">8</button>
-                                <button class="btn-quickAdd-size btn p-0 me-2 mb-2">9</button>
-                                <button class="btn-quickAdd-size btn p-0 me-2 mb-2">10</button>
-                                <button class="btn-quickAdd-size btn p-0 me-2 mb-2">11</button>
-                                <button class="btn-quickAdd-size btn p-0 me-2 mb-2">12</button>
+
+                                <input type="radio" class="btn-check" name="options" id="cartAdd-size-4" autocomplete="off">
+                                <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd-size-4">4</label>
+
+                                <input type="radio" class="btn-check" name="options" id="cartAdd-size-5" autocomplete="off">
+                                <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd-size-5">5</label>
+
+                                <input type="radio" class="btn-check" name="options" id="cartAdd-size-6" autocomplete="off">
+                                <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd-size-6">6</label>
+
+                                <input type="radio" class="btn-check" name="options" id="cartAdd-size-7" autocomplete="off">
+                                <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd-size-7">7</label>
+
+                                <input type="radio" class="btn-check" name="options" id="cartAdd-size-8" autocomplete="off">
+                                <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd-size-8">8</label>
+
+                                <input type="radio" class="btn-check" name="options" id="cartAdd-size-9" autocomplete="off">
+                                <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd-size-9">9</label>
+
+                                <input type="radio" class="btn-check" name="options" id="cartAdd-size-10" autocomplete="off">
+                                <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd-size-10">10</label>
+
+                                <input type="radio" class="btn-check" name="options" id="cartAdd-size-11" autocomplete="off">
+                                <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd-size-11">11</label>
+
+                                <input type="radio" class="btn-check" name="options" id="cartAdd-size-12" autocomplete="off">
+                                <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd-size-12">12</label>
+                                
+                                
+                                <!-- <button class="btn-quickAdd-size btn p-0 me-2 mb-2">12</button> -->
                             </div>
                             <div class="d-grid my-2">
                                 <button class="btn-quickAdd-cart btn">Add to Cart</button>

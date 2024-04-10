@@ -169,25 +169,20 @@ body{
     border: 2px solid #DB4834!important;
     outline: none;
 }
-.btn-product-size{
+
+.product-size-radios .btn-product-size{
     height: 40px;
     width: 40px;
     background-color: #FAE4E1;
     color: black;
     border-radius: 0px;
 }
-.btn-product-size:hover{
-    color: white;
-    background-color: #DB4834;
-}
-.btn-product-size:active{
-    color: white;
-    background-color: #DB4834;
-}
-.btn-product-size:focus{
+.product-size-radios .btn-check:checked+.btn-product-size, .btn-product-size.active, .btn-product-size:hover, .btn-product-size.show, .btn-product-size:first-child:active, :not(.btn-check)+.btn-product-size:active{
     color: white!important;
     background-color: #DB4834!important;
+    border-color: #DB4834!important;
 }
+
 .btn-coupon{
     color: #DB4834;
     background-color: #FAE4E1;
@@ -230,28 +225,20 @@ body{
     color: #DB4834;
     border: none;
 }
+
 .btn-quickAdd-size{
-    height: 24px;
-    width: 26px;
+    height: 40px;
+    width: 40px;
     background-color: #fff;
     color: black;
     border-radius: 5px;
 }
-.btn-quickAdd-size:hover{
-    height: 24px;
-    width: 26px;
-    color: #fff;
-    background-color: black;
-    border-radius: 5px;
+.btn-check:checked+.btn-quickAdd-size, .btn-quickAdd-size.active, .btn-quickAdd-size:hover, .btn-quickAdd-size.show, .btn-quickAdd-size:first-child:active, :not(.btn-check)+.btn-quickAdd-size:active{
+    color: white!important;
+    background-color: #201D1D!important;
+    border-color: #201D1D!important;
 }
-.btn-quickAdd-size:active{
-    color: #fff;
-    background-color: black;
-}
-.btn-quickAdd-size:focus{
-    color: #fff!important;
-    background-color: black!important;
-}
+
 .btn-quickAdd-cart{
     color: #000;
     background-color: #fff;
@@ -268,6 +255,19 @@ body{
     background-color: #000!important;
     color: #fff!important;
 }
+
+/* container for larger screens */
+/* .container-large {
+    margin: 0px 0px;
+}
+  
+@media only screen and (min-width: 1400px) {
+    .container-large {
+      margin: 0 auto;
+      width: 1224px;
+    }
+} */
+
 /* navbar */
 .navbar{
     padding: 16px 70px;
@@ -517,9 +517,11 @@ main{
 
 
 /* Responsive */
-/* @media only screen and (max-width: 568px) {
-    
-} */
+@media only screen and (min-width: 1400px) {
+    main{
+        padding: 0px 100px;
+    }
+}
 @media only screen and (max-width: 768px) {
     main{
         padding: 0px 30px;
@@ -534,22 +536,22 @@ main{
         font-size: 10px;
     } */
     .font-22{
-        font-size: 11px;
+        font-size: 12px;
     }
     .font-24{
-        font-size: 12px;
+        font-size: 14px;
     }
     .font-26{
-        font-size: 12px;
+        font-size: 16px;
     }
     .font-30{
-        font-size: 15px;
-    }
-    .font-35{
         font-size: 18px;
     }
-    .font-40{
+    .font-35{
         font-size: 20px;
+    }
+    .font-40{
+        font-size: 25px;
     }
     .font-60{
         font-size: 30px;
