@@ -152,3 +152,4 @@ async function DeleteItemToCart(productId, veriantId) {
     const result = await response.json();
     return result;
 }
+

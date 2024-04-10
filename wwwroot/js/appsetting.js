@@ -133,10 +133,10 @@ async function GetSingleProductData() {
 
     //var shope_name = localStorage.getItem('shop_name');
     const data = {
-        "product_id": "3",
+        "product_id": "a1cae3cc-7f97-4619-87d6-fc977e22955e",
     };
 
-    const response = await fetch('https://hx314n44hh.execute-api.us-east-1.amazonaws.com/default/getParticularProductData', {
+    const response = await fetch('https://hesclts35l.execute-api.us-east-1.amazonaws.com/default/getParticularProductData', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

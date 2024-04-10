@@ -7,13 +7,12 @@ $(document).ready(async function () {
         }
         else {
             if (result.data != null) {
-                console.log(result.data);
                 $.each(result.data.slice(0, 6), function (index, value) {
+                    var image = value.images != null ? value.images[0].image_url : '';
                     let html = `<div class="col px-0">
                                     <a href="product-page.html?product_id=${value.product_id}" style="text-decoration: none;">
                                     <div class="card rounded-0 border-1">
-                                        <img src="${value.images[0].image_url}" class="card-img-top rounded-0" alt="">
-                        
+                                        <img src="${image}" class="card-img-top rounded-0" alt="">
                                         <div
                                         class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
                                         <p class="font-20 bold mb-0">${value.product_name}</p>
