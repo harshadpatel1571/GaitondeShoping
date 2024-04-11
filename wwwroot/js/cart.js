@@ -3,70 +3,130 @@ $(document).ready(async function () {
     if (session) {
         const result = await GetAllCartItems();
         if (result.error) {
-            $("#divProduct").append(result.msg);
+            $("#divCartList").append(result.msg);
         }
         else {
             if (result.data != null) {
-                $.each(result.data.slice(0, 3), function (index, value) {
-                    let html = `<div class="col px-0">
-                        <div class="d-flex align-items-center justify-content-between border-bottom py-4">
-                            <div class="d-flex align-items-center">
-                                <button class="btn p-0">
-                                    <img src="${value.images[0].image_url}" class="rounded-0 img-fluid" alt="product-color-img">
-                                </button>
-                                <div class="ms-4">
-                                    <h4 class="mb-2 text-orange semibold font-30">${value.product_name}</h4>
-                                    <p class="mb-0 text-orange semibold font-24">${value.product_size}<span>6</span></p>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 class="text-orange semibold font-35">${value.product_price}</h4>
-                                <div class="border-orange d-flex justify-content-between align-items-center">
-                                    <button class="btn decrement" onclick="decrementQuantity()">-</button>
-                                    <span class="text-orange quantity">${value.product_qty}</span>
-                                    <button class="btn increment" onclick="incrementQuantity()">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>`;
-                    $("#divProduct").append(html);
-                });
+                // $.each(result.data, function (index, value) {
+                //     //console.log(value.products);
+                //     // let html = `<div class="col px-0">
+                //     //     <div class="d-flex align-items-center justify-content-between border-bottom py-4">
+                //     //         <div class="d-flex align-items-center">
+                //     //             <button class="btn p-0">
+                //     //                 <img src="${value.images[0].image_url}" class="rounded-0 img-fluid" alt="product-color-img">
+                //     //             </button>
+                //     //             <div class="ms-4">
+                //     //                 <h4 class="mb-2 text-orange semibold font-30">${value.product_name}</h4>
+                //     //                 <p class="mb-0 text-orange semibold font-24">${value.product_size}<span>6</span></p>
+                //     //             </div>
+                //     //         </div>
+                //     //         <div>
+                //     //             <h4 class="text-orange semibold font-35">${value.product_price}</h4>
+                //     //             <div class="border-orange d-flex justify-content-between align-items-center">
+                //     //                 <button class="btn decrement" onclick="decrementQuantity()">-</button>
+                //     //                 <span class="text-orange quantity">${value.product_qty}</span>
+                //     //                 <button class="btn increment" onclick="incrementQuantity()">+</button>
+                //     //             </div>
+                //     //         </div>
+                //     //     </div>
+                //     // </div>`;
+                //     // $("#divCartList").append(html);
+                // });
+                var cartData = result.data[0];
+                if (cartData != null) {
+                    $.each(cartData.products, function (index, value) {
+                        let html = `<div class="d-flex gap-3 align-items-center justify-content-between border-bottom py-4">
+                                    <div class="d-flex align-items-center">
+                                        <button class="btn p-0">
+                                            <img src="${value.images}" class="rounded-0 img-fluid"
+                                                alt="product-color-img" height="150" width="150">
+                                        </button>
+                                        <div class="ms-2 ms-lg-4">
+                                            <h4 class="mb-2 text-orange semibold font-30">${value.product_title}</h4>
+                                            <p class="mb-0 text-orange semibold font-24">Size : <span>${value.variant_title}</span></p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-orange semibold font-35">Rs. ${value.total_price}</h4>
+                                        <div class="border-orange d-flex justify-content-between align-items-center">
+                                            <button class="btn decrement">-</button>
+                                            <span class="text-orange quantity" id="${value.variant_id}">${value.quantity}</span>
+                                            <input type="hidden" id="dhn_prod_${value.variant_id}" value="${value.product_id}">
+                                            <button class="btn increment">+</button>
+                                        </div>
+                                    </div>
+                                </div>`;
+                        $("#divCartList").append(html);
+                    });
+                }
             }
         }
     }
 });
 
-$(".increment").click(async function () {
+// $(".increment").click(async function () {
+//     var quantityElement = $(this).siblings(".quantity");
+//     var currentQuantity = parseInt(quantityElement.text());
+//     var newQtty = currentQuantity + 1;
+//     quantityElement.text(newQtty);
+//     let id = quantityElement[0].id;
+//     await EditCartItems(`${id}`, 4, newQtty);
+// });
+
+// $(".decrement").click(async function () {
+//     var quantityElement = $(this).siblings(".quantity");
+//     var currentQuantity = parseInt(quantityElement.text());
+//     if (currentQuantity > 1) {
+//         var newQtty = currentQuantity - 1;
+//         quantityElement.text(currentQuantity - 1);
+//         let id = quantityElement[0].id;
+//         await EditCartItems(`${id}`, 4, newQtty);
+//     }
+//     else {
+//         let id = quantityElement[0].id;
+
+//         if (id > 0) {
+//             alert(id);
+//             let response = await DeleteItemToCart(`${id}`, 4);
+//             if (response.length > 0) {
+//                 alert("Item removed from cart");
+//             }
+//         }
+//     }
+// });
+
+$(document).on('click', '.increment', async function () {
     var quantityElement = $(this).siblings(".quantity");
     var currentQuantity = parseInt(quantityElement.text());
     var newQtty = currentQuantity + 1;
     quantityElement.text(newQtty);
     let id = quantityElement[0].id;
-    await EditCartItems(`${id}`, 4, newQtty);
+    let productId = $(`#dhn_prod_${id}`).val();
+    let response = await EditCartItems(`${productId}`, id, newQtty);
+    //console.log(response.data);
 });
 
-$(".decrement").click(async function () {
+$(document).on('click', '.decrement', async function () {
     var quantityElement = $(this).siblings(".quantity");
     var currentQuantity = parseInt(quantityElement.text());
     if (currentQuantity > 1) {
         var newQtty = currentQuantity - 1;
         quantityElement.text(currentQuantity - 1);
         let id = quantityElement[0].id;
-        await EditCartItems(`${id}`, 4, newQtty);
-    }
-    else {
+        let productId = $(`#dhn_prod_${id}`).val();
+        await EditCartItems(`${productId}`, id, newQtty);
+    } else {
         let id = quantityElement[0].id;
-        console.log(quantityElement);
         if (id > 0) {
             alert(id);
             let response = await DeleteItemToCart(`${id}`, 4);
-            console.log(response);
             if (response.length > 0) {
                 alert("Item removed from cart");
             }
         }
     }
 });
+
 
 $("#btnEmptyCart").click(async function () {
     let result = await DeleteAllCartItems();
@@ -76,20 +136,16 @@ $("#btnEmptyCart").click(async function () {
 });
 
 async function GetAllCartItems() {
-    const data = {
-        "session_id": "60987207-7a3d-40f4-bf75-7ade491171dd",
-    };
-
-    const response = await fetch('https://ckdsvy7303.execute-api.us-east-1.amazonaws.com/default/getCartdetails', {
-        method: 'POST',
-        body: JSON.stringify(data),
+    var session_id = localStorage.getItem('session_id');
+    const response = await fetch(`https://gaitondeapi.imersive.io/api/cart/get?session_id=${session_id}`, {
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
     });
 
     const result = await response.json();
-    console.log(result);
+    return result;
 }
 
 async function EditCartItems(productId, veriantId, qtty) {
@@ -101,7 +157,7 @@ async function EditCartItems(productId, veriantId, qtty) {
         "qty": qtty
     };
 
-    const response = await fetch('https://crjdjof3kf.execute-api.us-east-1.amazonaws.com/default/editCartItems', {
+    const response = await fetch('https://gaitondeapi.imersive.io/api/cart/edit', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -110,7 +166,7 @@ async function EditCartItems(productId, veriantId, qtty) {
     });
 
     const result = await response.json();
-    console.log(result);
+    return result;
 }
 
 async function DeleteAllCartItems() {
@@ -121,7 +177,7 @@ async function DeleteAllCartItems() {
         "session_id": session_id
     };
 
-    const response = await fetch('https://obmrkkuzm0.execute-api.us-east-1.amazonaws.com/default/deleteAllCartItems', {
+    const response = await fetch('https://gaitondeapi.imersive.io/api/cart/deleteAllItems', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -141,7 +197,7 @@ async function DeleteItemToCart(productId, veriantId) {
         "session_id": session_id
     };
 
-    const response = await fetch('https://6ux7uee6ug.execute-api.us-east-1.amazonaws.com/default/deleteItemFromCart', {
+    const response = await fetch('https://gaitondeapi.imersive.io/api/cart/deleteItem', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

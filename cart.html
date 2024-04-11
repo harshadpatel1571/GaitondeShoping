@@ -28,7 +28,7 @@
             <div class="justify-content-start gap-2 container-fluid p-0 ">
                 <button class="border-0 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="">
-                        <img src="wwwroot/images/nav-open-icon.svg" class="nav-open-icon">
+                        <img src="wwwroot/images/nav-open-icon.svg" class="nav-open-icon"
                         <img src="wwwroot/images/nav-close-icon.svg" class="nav-close-icon">
                     </span>
                 </button>
@@ -163,70 +163,8 @@
         <section>
             <h1 class="text-center text-orange my-3 font-60">Cart</h1>
             <div class="my-4">
-                <div>
-                    <div class="d-flex gap-3 align-items-center justify-content-between border-bottom py-4">
-
-                        <div class="d-flex align-items-center">
-                            <button class="btn p-0">
-                                <img src="https://placehold.co/150x150/FDD1CB/white" class="rounded-0 img-fluid"
-                                    alt="product-color-img">
-                            </button>
-                            <div class="ms-2 ms-lg-4">
-                                <h4 class="mb-2 text-orange semibold font-30">Product 1</h4>
-                                <p class="mb-0 text-orange semibold font-24">Size : <span>6</span></p>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="text-orange semibold font-35">Rs. 2,499</h4>
-                            <div class="border-orange d-flex justify-content-between align-items-center">
-                                <button class="btn decrement">-</button>
-                                <span class="text-orange quantity" id="1">1</span>
-                                <button class="btn increment">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex gap-3 align-items-center justify-content-between border-bottom py-4">
-
-                        <div class="d-flex align-items-center">
-                            <button class="btn p-0">
-                                <img src="https://placehold.co/150x150/FDD1CB/white" class="rounded-0 img-fluid"
-                                    alt="product-color-img">
-                            </button>
-                            <div class="ms-2 ms-lg-4">
-                                <h4 class="mb-2 text-orange semibold font-30">Product 1</h4>
-                                <p class="mb-0 text-orange semibold font-24">Size : <span>6</span></p>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="text-orange semibold font-35">Rs. 2,499</h4>
-                            <div class="border-orange d-flex justify-content-between align-items-center">
-                                <button class="btn decrement" onclick="decrementQuantity()">-</button>
-                                <span class="text-orange quantity">1</span>
-                                <button class="btn increment" onclick="incrementQuantity()">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex gap-3 align-items-center justify-content-between border-bottom py-4">
-
-                        <div class="d-flex align-items-center">
-                            <button class="btn p-0">
-                                <img src="https://placehold.co/150x150/FDD1CB/white" class="rounded-0 img-fluid"
-                                    alt="product-color-img">
-                            </button>
-                            <div class="ms-2 ms-lg-4">
-                                <h4 class="mb-2 text-orange semibold font-30">Product 1</h4>
-                                <p class="mb-0 text-orange semibold font-24">Size : <span>6</span></p>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="text-orange semibold font-35">Rs. 2,499</h4>
-                            <div class="border-orange d-flex justify-content-between align-items-center">
-                                <button class="btn decrement" onclick="decrementQuantity()">-</button>
-                                <span class="text-orange quantity">1</span>
-                                <button class="btn increment" onclick="incrementQuantity()">+</button>
-                            </div>
-                        </div>
-                    </div>
+                <div id="divCartList">
+                    
                 </div>
                 <div class=" p-4 border-bottom row">
                     <div class="col d-flex flex-column justify-content-end align-items-end">
@@ -281,8 +219,8 @@
             <div class="col-12 col-lg-2">
                 <h5 class="text-orange bold px-2 font-18">Explore</h5>
                 <nav class="nav flex-row flex-lg-column">
-                    <a class="nav-link font-12 px-2" href="#">Faq</a>
-                    <a class="nav-link font-12 px-2" href="#">Testimonials</a>
+                    <a class="nav-link font-12 px-2" href="faq.html">Faq</a>
+                    <a class="nav-link font-12 px-2" href="testimonials.html">Testimonials</a>
                     <a class="nav-link font-12 px-2" href="#">Sitemap</a>
                     <a class="nav-link font-12 px-2" href="#">Disclaimer</a>
                 </nav>

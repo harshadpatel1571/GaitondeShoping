@@ -43,39 +43,23 @@ function getParameterValueByName(name) {
 //-- this is for session related functions.
 async function checkServerSession() {
     var session_id = localStorage.getItem('session_id');
-    var shope_name = localStorage.getItem('shop_name');
     if (session_id != null) {
-
-        const data = {
-            "session_id": session_id,
-            "shop": shope_name,
-            "machine_ip": "sample id",
-            "machine_name": "machine name",
-            "last_login": "2024-04-04T14:29:02.349Z",
-            "is_expired": false
-        };
-
-        const response = await fetch('https://g2ggbk0iw0.execute-api.us-east-1.amazonaws.com/default/checkSession', {
-            method: 'POST',
-            body: JSON.stringify(data),
+        const response = await fetch(`https://gaitondeapi.imersive.io/api/session/check?session_id=${session_id}`, {
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
         });
 
         const result = await response.json();
-        console.log(result[0]);
-
         if (result.length == 0) {
             return createServerSession();
         }
-        else
-        {
+        else {
             return true;
         }
     }
-    else
-    {
+    else {
         createServerSession();
     }
 }
@@ -87,7 +71,7 @@ async function createServerSession() {
         "machine_name": "machine name",
     };
 
-    const response = await fetch('https://0vikxt51ll.execute-api.us-east-1.amazonaws.com/default/createSession', {
+    const response = await fetch('https://gaitondeapi.imersive.io/api/session/create', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -98,8 +82,8 @@ async function createServerSession() {
     const result = await response.json();
     if (result != null) {
         //var encryptedData = CryptoJS.AES.encrypt(result.data, 'secret_key').toString();
-        localStorage.setItem('session_id', result[0].session_id);
-        localStorage.setItem('shop_name', result[0].shop.trim().toLowerCase());
+        localStorage.setItem('session_id', result.data.session_id);
+        localStorage.setItem('shop_name', result.data.shop.trim().toLowerCase());
         return true;
     }
     else {
@@ -112,33 +96,23 @@ async function createServerSession() {
 async function Getproductaspershop() {
 
     var shope_name = localStorage.getItem('shop_name');
-    const data = {
-        "shop": `${shope_name}`,
-    };
 
-    const response = await fetch('https://pkjnhdiqab.execute-api.us-east-1.amazonaws.com/default/getProductByShop', {
-        method: 'POST',
-        body: JSON.stringify(data),
+    const response = await fetch(`https://gaitondeapi.imersive.io/api/product/byShop?shop=${shope_name}`, {
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
     });
 
     const result = await response.json();
-    console.log(result);
     return result;
 }
 
-async function GetSingleProductData() {
+async function GetSingleProductData(productId) {
 
     //var shope_name = localStorage.getItem('shop_name');
-    const data = {
-        "product_id": "a1cae3cc-7f97-4619-87d6-fc977e22955e",
-    };
-
-    const response = await fetch('https://hesclts35l.execute-api.us-east-1.amazonaws.com/default/getParticularProductData', {
-        method: 'POST',
-        body: JSON.stringify(data),
+    const response = await fetch(`https://gaitondeapi.imersive.io/api/product/byId?product_id=${productId}`, {
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
@@ -158,7 +132,7 @@ async function AddItemToCart(productId, veriantId, qtty) {
         "qty": qtty
     };
 
-    const response = await fetch('https://7seegteiv0.execute-api.us-east-1.amazonaws.com/default/addItemsToCart', {
+    const response = await fetch('https://gaitondeapi.imersive.io/api/cart/addItems', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

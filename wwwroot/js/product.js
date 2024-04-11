@@ -7,9 +7,9 @@ $(document).ready(async function () {
         }
         else {
             if (result.data != null) {
-                $.each(result.data.slice(0, 6), function (index, value) {
+                $.each(result.data.slice(0, 24), function (index, value) {
                     var image = value.images != null ? value.images[0].image_url : '';
-                    let html = `<div class="col px-0">
+                    let html = `<div class="col-sm-3 px-0">
                                     <a href="product-page.html?product_id=${value.product_id}" style="text-decoration: none;">
                                     <div class="card rounded-0 border-1">
                                         <img src="${image}" class="card-img-top rounded-0" alt="">

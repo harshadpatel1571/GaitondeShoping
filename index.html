@@ -154,20 +154,8 @@
 
     <main>
         <section class="section__hero">
-            <div class="row section__hero__grid">
-                <div class="col-12 col-lg-6 d-flex align-items-end justify-content-center">
-                    <div class="d-flex flex-column">
-                        <p class="font-20">Top Selling!</p>
-                        <h1 class="text-orange font-60">Top Collection</h1>
-                        <p class="font-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        <div class="text-center my-3">
-                            <button class="btn btn-1" onclick="location.href='products.html'">Shop now</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 d-flex align-items-start justify-content-center">
-                    <img src="https://placehold.co/600x500/FDD1CB/white" class="d-block img-fluid" alt="banner-img">
-                </div>
+            <div class="row section__hero__grid" id="divTopCollection">
+                
             </div>
         </section>
         <section class="bg-orange-60 text-white">
@@ -178,65 +166,12 @@
         </section>
         <section>
             <h1 class="text-center text-orange my-3 font-60">New Arrival</h1>
-            <div class="row">
-                <div class="col px-0">
-                    <div class="card rounded-0 border-1">
-                        <img src="https://placehold.co/300x300/FDD1CB/white" class="card-img-top rounded-0 img-fluid" alt="latest-product">
-
-                        <div class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
-                            <p class="font-20 bold mb-0">Product 1</p>
-                            <img src="wwwroot/images/product-add-icon.svg" alt="add-icon">
-                        </div>
-                    </div>
-                </div>
-                <div class="col px-0">
-                    <div class="card rounded-0 border-1">
-                        <img src="https://placehold.co/300x300/FDD1CB/white" class="card-img-top rounded-0 img-fluid" alt="latest-product">
-
-                        <div class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
-                            <p class="font-20 bold mb-0">Product 1</p>
-                            <img src="wwwroot/images/product-add-icon.svg" alt="add-icon">
-                        </div>
-                    </div>
-                </div>
-                <div class="col px-0">
-                    <div class="card rounded-0 border-1">
-                        <img src="https://placehold.co/300x300/FDD1CB/white" class="card-img-top rounded-0 img-fluid" alt="latest-product">
-
-                        <div class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
-                            <p class="font-20 bold mb-0">Product 1</p>
-                            <img src="wwwroot/images/product-add-icon.svg" alt="add-icon">
-                        </div>
-                    </div>
-                </div>
-                <div class="col px-0">
-                    <div class="card rounded-0 border-1">
-                        <img src="https://placehold.co/300x300/FDD1CB/white" class="card-img-top rounded-0" alt="...">
-
-                        <div class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
-                            <p class="font-20 bold mb-0">Product 1</p>
-                            <img src="wwwroot/images/product-add-icon.svg" alt="add-icon">
-                        </div>
-                    </div>
-                </div>
+            <div class="row" id="divNewArrival">
             </div>
         </section>
         <section>
             <h1 class="text-center text-orange my-3 font-60">Best Seller</h1>
-            <div class="row">
-                <div class="col-12 col-lg-6 px-0 border-1">
-                    <img src="https://placehold.co/600x400/FDD1CB/white" class="card-img-top img-fluid" alt="best-seller">
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="row">
-                        <div class="col-12 px-0 border-1">
-                            <img src="https://placehold.co/600x200/FDD1CB/white" class="card-img-top img-fluid" alt="best-seller">
-                        </div>
-                        <div class="col-12 px-0 border-1">
-                            <img src="https://placehold.co/600x200/FDD1CB/white" class="card-img-top img-fluid" alt="best-seller">
-                        </div>
-                    </div>
-                </div>
+            <div class="row" id="divBestSeller">
             </div>
         </section>
         <section>
@@ -294,8 +229,8 @@
             <div class="col-12 col-lg-2">
                 <h5 class="text-orange bold px-2 font-18">Explore</h5>
                 <nav class="nav flex-row flex-lg-column">
-                    <a class="nav-link font-12 px-2" href="#">Faq</a>
-                    <a class="nav-link font-12 px-2" href="#">Testimonials</a>
+                    <a class="nav-link font-12 px-2" href="faq.html">Faq</a>
+                    <a class="nav-link font-12 px-2" href="testimonials.html">Testimonials</a>
                     <a class="nav-link font-12 px-2" href="#">Sitemap</a>
                     <a class="nav-link font-12 px-2" href="#">Disclaimer</a>
                 </nav>

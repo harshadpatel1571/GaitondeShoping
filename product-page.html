@@ -164,7 +164,7 @@
             <div class="row g-0 py-5">
                 <div class="col-12 col-lg-6 text-center">
                     <div class="mb-4">
-                        <img src="https://placehold.co/400x500/FDD1CB/white" class="rounded-0 img-fluid" alt="product-img">
+                        <img src="" class="rounded-0" alt="product-img" id="imgProductMainImage" height="500" width="400">
                     </div>
                     <div class="gallery-wrap mb-4">
                         <img src="wwwroot/images/product-slider-backbtn.svg" id="backBtn"/>
@@ -173,22 +173,6 @@
                                 <button class="btn-product-color btn rounded-2 p-0 me-2 mb-1" type="button">
                                     <img src="https://placehold.co/100x100/FDD1CB/white" class="rounded-2 img-fluid" alt="product-color-img">
                                 </button>
-                                <button class="btn-product-color btn rounded-2 p-0 me-2 mb-1">
-                                    <img src="https://placehold.co/100x100/FDD1CB/white" class="rounded-2 img-fluid" alt="product-color-img">
-                                </button>
-                                <button class="btn-product-color btn rounded-2 p-0 me-2 mb-1">
-                                    <img src="https://placehold.co/100x100/FDD1CB/white" class="rounded-2 img-fluid" alt="product-color-img">
-                                </button>
-                                <button class="btn-product-color btn rounded-2 p-0 me-2 mb-1">
-                                    <img src="https://placehold.co/100x100/FDD1CB/white" class="rounded-2 img-fluid" alt="product-color-img">
-                                </button>
-                                <button class="btn-product-color btn rounded-2 p-0 me-2 mb-1">
-                                    <img src="https://placehold.co/100x100/FDD1CB/white" class="rounded-2 img-fluid" alt="product-color-img">
-                                </button>
-                                <button class="btn-product-color btn rounded-2 p-0 me-2 mb-1">
-                                    <img src="https://placehold.co/100x100/FDD1CB/white" class="rounded-2 img-fluid" alt="product-color-img">
-                                </button>
-                                
                             </div>
                         </div>
                         <img src="wwwroot/images/product-slider-nextbtn.svg" id="nextBtn"/>
@@ -197,10 +181,10 @@
                 <div class="col-12 col-lg-6">
                     <div>
                         <div class="d-flex justify-content-between border-bottom">
-                            <p class="text-orange font-20 bold">Product 1</p>
-                            <p class="text-orange font-16 semibold">Rs. 2,199</p>
+                            <p class="text-orange font-20 bold" id="spnProductName"></p>
+                            <p class="text-orange font-16 semibold" id="spnProductPrice"></p>
                         </div>
-                        <div class="border-bottom py-4">
+                        <!-- <div class="border-bottom py-4">
                             <p class="text-orange font-14 bold text-uppercase">Color</p>
                             <div>
                                 <button class="btn-product-color btn rounded-5 p-0 mb-1">
@@ -216,7 +200,7 @@
                                     <img src="https://placehold.co/100x100/FDD1CB/white" class="rounded-5 img-fluid" alt="product-color-img">
                                 </button>
                             </div>
-                        </div>
+                        </div> -->
                         <div class=" py-4">
                             <div class="d-flex justify-content-between">
                                 <p class="text-orange font-14 bold text-uppercase">Size(UK):</p>
@@ -234,33 +218,7 @@
                                     </svg>
                                 </p>
                             </div>
-                            <div class="product-size-radios">
-                                <input type="radio" class="btn-check" name="options" id="size-4" autocomplete="off">
-                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-4">4</label>
-
-                                <input type="radio" class="btn-check" name="options" id="size-5" autocomplete="off">
-                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-5">5</label>
-
-                                <input type="radio" class="btn-check" name="options" id="size-6" autocomplete="off">
-                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-6">6</label>
-
-                                <input type="radio" class="btn-check" name="options" id="size-7" autocomplete="off">
-                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-7">7</label>
-
-                                <input type="radio" class="btn-check" name="options" id="size-8" autocomplete="off">
-                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-8">8</label>
-
-                                <input type="radio" class="btn-check" name="options" id="size-9" autocomplete="off">
-                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-9">9</label>
-
-                                <input type="radio" class="btn-check" name="options" id="size-10" autocomplete="off">
-                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-10">10</label>
-
-                                <input type="radio" class="btn-check" name="options" id="size-11" autocomplete="off">
-                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-11">11</label>
-
-                                <input type="radio" class="btn-check" name="options" id="size-12" autocomplete="off">
-                                <label class="btn-product-size btn p-2 me-2 mb-2" for="size-12">12</label>
+                            <div class="product-size-radios" id="divSizeList">
                                 
                             </div>
                         </div>
@@ -498,8 +456,8 @@
             <div class="col-12 col-lg-2">
                 <h5 class="text-orange bold px-2 font-18">Explore</h5>
                 <nav class="nav flex-row flex-lg-column">
-                    <a class="nav-link font-12 px-2" href="#">Faq</a>
-                    <a class="nav-link font-12 px-2" href="#">Testimonials</a>
+                    <a class="nav-link font-12 px-2" href="faq.html">Faq</a>
+                    <a class="nav-link font-12 px-2" href="testimonials.html">Testimonials</a>
                     <a class="nav-link font-12 px-2" href="#">Sitemap</a>
                     <a class="nav-link font-12 px-2" href="#">Disclaimer</a>
                 </nav>
