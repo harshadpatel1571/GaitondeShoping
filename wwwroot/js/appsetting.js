@@ -27,6 +27,12 @@
 //     }
 // }
 
+$(document).ready(async function () {
+    setTimeout(function () {
+        $('.imprzd-watermark').remove();
+    }, 1000);
+});
+
 function getParameterValueByName(name) {
 
     var url = window.location.href.toString();
@@ -60,13 +66,13 @@ async function checkServerSession() {
         }
     }
     else {
-        createServerSession();
+        return await createServerSession();
     }
 }
 
 async function createServerSession() {
     const data = {
-        "shop": "testStore@gaitonde.com ",
+        "shop": "teststore@gaitonde.com",
         "machine_ip": "sample id",
         "machine_name": "machine name",
     };
@@ -143,3 +149,35 @@ async function AddItemToCart(productId, veriantId, qtty) {
     const result = await response.json();
     return result;
 }
+
+$('#phone_number').on('input', function () {
+    $(this).val($(this).val().replace(/\D/g, ''));
+});
+
+$("#btnContactUs").click(async function () {
+    var form = $('#myForm')[0];
+    if (form.checkValidity()) {
+
+        var session_id = localStorage.getItem('session_id');
+        var formData = {};
+        $('#myForm').find('input, textarea').each(function () {
+            formData[$(this).attr('id')] = $(this).val();
+        });
+        formData["session_id"] = session_id;
+        
+        const response = await fetch('https://gaitondeapi.imersive.io/api/customer/request', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const result = await response.json();
+        if (!result.error) {
+            window.location.reload();
+        }
+    } else {
+        alert('Please fill out all required fields.');
+    }
+});

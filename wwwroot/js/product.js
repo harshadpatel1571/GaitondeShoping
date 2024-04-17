@@ -9,13 +9,15 @@ $(document).ready(async function () {
             if (result.data != null) {
                 $.each(result.data.slice(0, 24), function (index, value) {
                     var image = value.images != null ? value.images[0].image_url : '';
+                    var price = value.variants.filter(x=>x.product_id==value.product_id)[0] != null ? value.variants.filter(x=>x.product_id==value.product_id)[0].price : 0;
                     let html = `<div class="col-sm-3 px-0">
                                     <a href="product-page.html?product_id=${value.product_id}" style="text-decoration: none;">
                                     <div class="card rounded-0 border-1">
                                         <img src="${image}" class="card-img-top rounded-0" alt="">
                                         <div
                                         class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
-                                        <p class="font-20 bold mb-0">${value.product_name}</p>
+                                        <p class="font-20 bold mb-0">${value.product_name}</p><br>
+                                        <p class="font-20 bold mb-0">&#8377 ${price}</p>
                                         <button class="btn p-0" onclick="">
                                             <img src="wwwroot/images/product-add-icon.svg" alt="add-icon">
                                         </button>

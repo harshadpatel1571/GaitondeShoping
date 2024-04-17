@@ -26,6 +26,20 @@ $(document).ready(async function () {
                         });
                     }
 
+                    if (product.images.length > 0) {
+                        $.each(product.images, function (index, value) {
+                            var image = value.image_url != null ? value.image_url : "https://placehold.co/100x100/FDD1CB/white";
+                            let html = `<div>
+                                        <button class="btn-product-color btn rounded-2 p-0 me-2 mb-1" type="button" onclick="changeImageUrl('${image}')">
+                                            <img src="${image}" class="rounded-2 img-fluid" alt="product-color-img" style="height: 100px;width: 100px;">
+                                        </button>
+                                    </div>`;
+                        $("#divImageSlider").append(html);
+                        });
+                    }
+
+                    
+
                     var selectedValue = $('input[name="options"]:checked').data('price');
                     $("#spnProductPrice").text(`Rs ${selectedValue} /-`);
                 }
@@ -43,13 +57,16 @@ $(document).on('change', 'input[name="options"]', function () {
 $("#btnAddToCart").click(async function () {
     if (productId != null) {
         var size = $('input[name="options"]:checked').val();
-        if(size == undefined)
-        {
+        if (size == undefined) {
             alert("Please select size first.");
         }
         var result = await AddItemToCart(`${productId}`, size, 1);
-        if (result.length > 0 && (result != undefined || result != null)) {
-            alert("item added to cart");
+        if (result.data.length > 0 && result != undefined) {
+            alert(result.msg);
         }
     }
 });
+
+function changeImageUrl(url){
+    $("#imgProductMainImage").attr("src", url);
+}

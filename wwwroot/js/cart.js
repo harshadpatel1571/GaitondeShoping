@@ -58,42 +58,14 @@ $(document).ready(async function () {
                                 </div>`;
                         $("#divCartList").append(html);
                     });
+                    $("#divCheckoutDetail").removeClass("d-none");
+                    $("#spnCartTotalAmount").text(cartData.total_amount);
+                    $("#hdnCartId").val(cartData.cart_id);
                 }
             }
         }
     }
 });
-
-// $(".increment").click(async function () {
-//     var quantityElement = $(this).siblings(".quantity");
-//     var currentQuantity = parseInt(quantityElement.text());
-//     var newQtty = currentQuantity + 1;
-//     quantityElement.text(newQtty);
-//     let id = quantityElement[0].id;
-//     await EditCartItems(`${id}`, 4, newQtty);
-// });
-
-// $(".decrement").click(async function () {
-//     var quantityElement = $(this).siblings(".quantity");
-//     var currentQuantity = parseInt(quantityElement.text());
-//     if (currentQuantity > 1) {
-//         var newQtty = currentQuantity - 1;
-//         quantityElement.text(currentQuantity - 1);
-//         let id = quantityElement[0].id;
-//         await EditCartItems(`${id}`, 4, newQtty);
-//     }
-//     else {
-//         let id = quantityElement[0].id;
-
-//         if (id > 0) {
-//             alert(id);
-//             let response = await DeleteItemToCart(`${id}`, 4);
-//             if (response.length > 0) {
-//                 alert("Item removed from cart");
-//             }
-//         }
-//     }
-// });
 
 $(document).on('click', '.increment', async function () {
     var quantityElement = $(this).siblings(".quantity");
@@ -103,7 +75,6 @@ $(document).on('click', '.increment', async function () {
     let id = quantityElement[0].id;
     let productId = $(`#dhn_prod_${id}`).val();
     let response = await EditCartItems(`${productId}`, id, newQtty);
-    //console.log(response.data);
 });
 
 $(document).on('click', '.decrement', async function () {
@@ -130,8 +101,9 @@ $(document).on('click', '.decrement', async function () {
 
 $("#btnEmptyCart").click(async function () {
     let result = await DeleteAllCartItems();
-    if (result.length > 0 && (result != undefined || result != null)) {
+    if (result.data.length > 0 && (result != undefined || result != null)) {
         alert("cart are empty.");
+        window.location.reload();
     }
 });
 
@@ -209,3 +181,40 @@ async function DeleteItemToCart(productId, veriantId) {
     return result;
 }
 
+async function CheckoutRequest(cartId) {
+    var session_id = localStorage.getItem('session_id');
+    const data = {
+        "session_id": session_id,
+        "cart_id": cartId
+    };
+
+    const response = await fetch(`https://gaitondeapi.imersive.io/api/checkout/create`, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    const result = await response.json();
+    return result;
+}
+
+$("#btnCheckoutRequest").click(async function () {
+    let cartId = $("#hdnCartId").val();
+    if (cartId != null) {
+        let response = await CheckoutRequest(cartId);
+        if(response.error)
+        {
+            alert(response.msg);
+            return false;
+        }
+        else
+        {
+            window.location = `checkout.html?checkout_request_id=${response.data[0].checkout_request_id}`;
+        }
+    }
+    else {
+        alert("Error for checkout.");
+    }
+});
