@@ -7,31 +7,6 @@ $(document).ready(async function () {
         }
         else {
             if (result.data != null) {
-                // $.each(result.data, function (index, value) {
-                //     //console.log(value.products);
-                //     // let html = `<div class="col px-0">
-                //     //     <div class="d-flex align-items-center justify-content-between border-bottom py-4">
-                //     //         <div class="d-flex align-items-center">
-                //     //             <button class="btn p-0">
-                //     //                 <img src="${value.images[0].image_url}" class="rounded-0 img-fluid" alt="product-color-img">
-                //     //             </button>
-                //     //             <div class="ms-4">
-                //     //                 <h4 class="mb-2 text-orange semibold font-30">${value.product_name}</h4>
-                //     //                 <p class="mb-0 text-orange semibold font-24">${value.product_size}<span>6</span></p>
-                //     //             </div>
-                //     //         </div>
-                //     //         <div>
-                //     //             <h4 class="text-orange semibold font-35">${value.product_price}</h4>
-                //     //             <div class="border-orange d-flex justify-content-between align-items-center">
-                //     //                 <button class="btn decrement" onclick="decrementQuantity()">-</button>
-                //     //                 <span class="text-orange quantity">${value.product_qty}</span>
-                //     //                 <button class="btn increment" onclick="incrementQuantity()">+</button>
-                //     //             </div>
-                //     //         </div>
-                //     //     </div>
-                //     // </div>`;
-                //     // $("#divCartList").append(html);
-                // });
                 var cartData = result.data[0];
                 if (cartData != null) {
                     $.each(cartData.products, function (index, value) {

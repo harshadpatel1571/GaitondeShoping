@@ -1,32 +1,3 @@
-// $(document).ready(function () {
-//     if (!checkSession()) {
-//         checkServerSession();
-//     }
-// });
-
-// function checkSession() {
-//     if (localStorage.getItem('session')) {
-//         var encryptedData = localStorage.getItem('session');
-//         var decryptedData = CryptoJS.AES.decrypt(encryptedData, 'secret_key').toString(CryptoJS.enc.Utf8);
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
-
-// function createSession() {
-//     var encryptedData = CryptoJS.AES.encrypt("Harshad Koradiya", 'secret_key').toString();
-//     localStorage.setItem('session', encryptedData);
-//     console.log('Session created');
-// }
-
-// function urlRemake() {
-//     if (location.pathname.endsWith('.html')) {
-//         var newPath = location.pathname.replace('.html', '');
-//         history.replaceState({}, '', newPath);
-//     }
-// }
-
 $(document).ready(async function () {
     setTimeout(function () {
         $('.imprzd-watermark').remove();
