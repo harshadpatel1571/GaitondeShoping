@@ -295,6 +295,26 @@ header .nav-link:hover{
 header .nav-link:active{
     color: #DB4834;
 }
+.best-seller .carousel-control-prev{
+    color: black;
+    background: #DB4834;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+}
+.best-seller .carousel-control-next{
+    color: black;
+    background: #DB4834;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+}
 /* .carousel-hero-prev{
     color: black;
     background: #DB4834;
@@ -312,8 +332,8 @@ header .nav-link:active{
     position: absolute;
     top: 100%;
     right: 40%;
-}
-.carousel-testimonial-prev{
+} */
+/* .carousel-testimonial-prev{
     color: black;
     background: #DB4834;
     height: 40px;

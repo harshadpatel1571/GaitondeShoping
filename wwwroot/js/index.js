@@ -108,7 +108,7 @@ $(document).ready(async function () {
                 </div>
             </div>
             <div class="col-12 col-lg-6 d-flex align-items-start justify-content-center">
-                <img src="${image}" class="" alt="banner-img" width="600" height="500">
+                <img src="${image}" class="img-fluid" alt="banner-img">
             </div>`;
                 $("#divTopCollection").append(html);
             }
