@@ -107,19 +107,6 @@ $("#btnEmptyCart").click(async function () {
     }
 });
 
-async function GetAllCartItems() {
-    var session_id = localStorage.getItem('session_id');
-    const response = await fetch(`https://gaitondeapi.imersive.io/api/cart/get?session_id=${session_id}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-
-    const result = await response.json();
-    return result;
-}
-
 async function EditCartItems(productId, veriantId, qtty) {
     var session_id = localStorage.getItem('session_id');
     const data = {

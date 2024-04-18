@@ -52,8 +52,7 @@
                             <img src="wwwroot/images/nav-wishlist-icon.svg" alt="wishlist-icon" class="mx-2">
                         </a> -->
                         <a href="cart.html" class="btn p-0 position-relative">
-                            <span class="position-absolute translate-middle badge rounded-circle bg-orange-60" style="left: 38px; top: 8px;">
-                                3
+                            <span id="spnCartCount" class="position-absolute translate-middle badge rounded-circle bg-orange-60" style="left: 38px; top: 8px;">
                             </span>
                             <img src="wwwroot/images/nav-cart-icon.svg" alt="cart-icon" class="mx-2">
                         </a>
@@ -217,7 +216,7 @@
         <section>
             <div class="imprzd-wrapper" id="imprzd-wrapper-section"></div>
         </section>
-
+        
         <section>
             <div class="row p-5">
                 <div class="col">
@@ -228,18 +227,18 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="text-center">
+                    <!-- <div class="text-center">
                         <img src="wwwroot/images/feature2-icon.svg" alt="feature-icon" class="mb-4">
                         <h5 class="font-20 bold">24/7 CUSTOMER SERVICE</h5>
                         <p class="font-18">Friendly 24/7 customer support</p>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col">
-                    <div class="text-center">
+                    <!-- <div class="text-center">
                         <img src="wwwroot/images/feature3-icon.svg" alt="feature-icon" class="mb-4">
                         <h5 class="font-20 bold">MONEY BACK GUARANTEE</h5>
                         <p class="font-18">We reurn money within 30 days</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -250,16 +249,16 @@
         <div class="row bg-orange-20 p-4 g-0">
             <div class="col-12 col-lg-2">
                 <img src="wwwroot/images/gaitonde-logo.svg" alt="gaitonde-logo" class="mb-3 img-fluid">
-                <p class="font-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p class="font-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <!-- <p class="font-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="font-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
             </div>
             <div class="col-12 col-lg-2">
                 <h5 class="text-orange bold px-2 font-18">Explore</h5>
                 <nav class="nav flex-row flex-lg-column">
-                    <a class="nav-link font-12 px-2" href="faq.html">Faq</a>
+                    <a class="nav-link font-12 px-2" href="faq.html">FAQ</a>
                     <a class="nav-link font-12 px-2" href="testimonials.html">Testimonials</a>
-                    <a class="nav-link font-12 px-2" href="#">Sitemap</a>
-                    <a class="nav-link font-12 px-2" href="#">Disclaimer</a>
+                    <!-- <a class="nav-link font-12 px-2" href="#">Sitemap</a> -->
+                    <!-- <a class="nav-link font-12 px-2" href="#">Disclaimer</a> -->   
                 </nav>
             </div>
             <div class="col-12 col-lg-2">
@@ -274,9 +273,9 @@
             <div class="col-12 col-lg-2">
                 <h5 class="text-orange bold px-2 font-18">Policies</h5>
                 <nav class="nav flex-row flex-lg-column">
-                    <a class="nav-link font-12 px-2" href="#">Privacy Policy</a>
-                    <a class="nav-link font-12 px-2" href="#">Delivery & Return Policy</a>
-                    <a class="nav-link font-12 px-2" href="#">Terms & Conditions</a>
+                    <a class="nav-link font-12 px-2" href="privacy_policy.html">Privacy Policy</a>
+                    <a class="nav-link font-12 px-2" href="return_exchange.html">Delivery & Return Policy</a>
+                    <a class="nav-link font-12 px-2" href="terms_condition.html">Terms & Conditions</a>
                 </nav>
             </div>
             <div class="col-12 col-lg-2">
@@ -295,8 +294,8 @@
                 <nav class="nav flex-row flex-lg-column">
                     <a class="nav-link d-flex align-items-center gap-2 font-12 px-2" href="#"><img src="wwwroot/images/footer-phone-icon.svg"></img> 044 28363101</a>
                     <a class="nav-link d-flex align-items-center gap-2 font-12 px-2" href="#"><img src="wwwroot/images/footer-whatsapp-icon.svg"></img> 97907 04282</a>
-                    <a class="nav-link d-flex align-items-center gap-2 font-12 px-2" href="#"><img src="wwwroot/images/footer-mail-icon.svg"></img> domestic@gaitonde.com</a>
-                    <a class="nav-link d-flex align-items-center gap-2 font-12 px-2" href="#"><img src="wwwroot/images/footer-web-icon.svg"></img> www.gaitonde.com</a>
+                    <a class="nav-link d-flex align-items-center gap-2 font-12 px-2" href="mailto:domestic@gaitonde.com"><img src="wwwroot/images/footer-mail-icon.svg"></img> domestic@gaitonde.com</a>
+                    <a class="nav-link d-flex align-items-center gap-2 font-12 px-2" href="https://gaitonde.com/"><img src="wwwroot/images/footer-web-icon.svg"></img> www.gaitonde.com</a>
                 </nav>
             </div>
         </div>
@@ -308,7 +307,7 @@
                         <p class="text-white mb-0 p-2">
                             Follow Us
                             <a><img src="wwwroot/images/footer-facebook-icon.svg" alt="facbook-icon"></a>
-                            <a><img src="wwwroot/images/footer-twitter-icon.svg" alt="twitter-icon"></a>
+                            <!-- <a><img src="wwwroot/images/footer-twitter-icon.svg" alt="twitter-icon"></a> -->
                             <a><img src="wwwroot/images/footer-instagram-icon.svg" alt="instagram-icon"></a>
                         </p>
                     </div>
@@ -317,7 +316,7 @@
                     </div>
                     <div>
                         <p class="mb-0 p-2 text-white">
-                            <a class="text-white nav-link p-1 d-inline-flex">Privacy Policy</a>&nbsp;|&nbsp;<a class="text-white nav-link p-1 d-inline-flex">Return Policy</a>&nbsp;|&nbsp;<a class="text-white nav-link p-1 d-inline-flex">Terms and Conditions</a>
+                            <!-- <a class="text-white nav-link p-1 d-inline-flex">Privacy Policy</a>&nbsp;|&nbsp;<a class="text-white nav-link p-1 d-inline-flex">Return Policy</a>&nbsp;|&nbsp;<a class="text-white nav-link p-1 d-inline-flex">Terms and Conditions</a> -->
                         </p>
                     </div>
                 </div>

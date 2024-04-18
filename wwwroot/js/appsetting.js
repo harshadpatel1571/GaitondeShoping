@@ -31,6 +31,16 @@ $(document).ready(async function () {
     setTimeout(function () {
         $('.imprzd-watermark').remove();
     }, 1000);
+
+    const result = await GetAllCartItems();
+    if(result.error)
+    {
+        $("#spnCartCount").text(0);
+    }
+    else
+    {
+        $("#spnCartCount").text(result.data[0].total_items);
+    }
 });
 
 function getParameterValueByName(name) {
@@ -141,6 +151,19 @@ async function AddItemToCart(productId, veriantId, qtty) {
     const response = await fetch('https://gaitondeapi.imersive.io/api/cart/addItems', {
         method: 'POST',
         body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    const result = await response.json();
+    return result;
+}
+
+async function GetAllCartItems() {
+    var session_id = localStorage.getItem('session_id');
+    const response = await fetch(`https://gaitondeapi.imersive.io/api/cart/get?session_id=${session_id}`, {
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
