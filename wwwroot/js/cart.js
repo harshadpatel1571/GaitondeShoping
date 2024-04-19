@@ -6,6 +6,7 @@ $(document).ready(async function () {
             $("#divCartList").append(result.msg);
         }
         else {
+
             if (result.data != null) {
                 var cartData = result.data[0];
                 if (cartData != null) {
@@ -32,15 +33,17 @@ $(document).ready(async function () {
                                     </div>
                                 </div>`;
                         $("#divCartList").append(html);
+                        
                     });
                     $("#divCheckoutDetail").removeClass("d-none");
-                    $("#spnCartTotalAmount").text(cartData.total_amount);
+                    $("#spnCartTotalAmount").text("Rs. "+cartData.total_amount + ".00");
                     $("#hdnCartId").val(cartData.cart_id);
                 }
             }
         }
     }
 });
+
 
 $(document).on('click', '.increment', async function () {
     var quantityElement = $(this).siblings(".quantity");
@@ -50,6 +53,7 @@ $(document).on('click', '.increment', async function () {
     let id = quantityElement[0].id;
     let productId = $(`#dhn_prod_${id}`).val();
     let response = await EditCartItems(`${productId}`, id, newQtty);
+    window.location.reload();
 });
 
 $(document).on('click', '.decrement', async function () {
@@ -63,14 +67,16 @@ $(document).on('click', '.decrement', async function () {
         await EditCartItems(`${productId}`, id, newQtty);
     } else {
         let id = quantityElement[0].id;
+        let productId = $(`#dhn_prod_${id}`).val();
         if (id > 0) {
-            alert(id);
-            let response = await DeleteItemToCart(`${id}`, 4);
-            if (response.length > 0) {
+            let response = await DeleteItemToCart(`${productId}`,id);
+            if (response) {
                 alert("Item removed from cart");
+                window.location.reload();
             }
         }
     }
+    window.location.reload();
 });
 
 
@@ -166,13 +172,11 @@ $("#btnCheckoutRequest").click(async function () {
     let cartId = $("#hdnCartId").val();
     if (cartId != null) {
         let response = await CheckoutRequest(cartId);
-        if(response.error)
-        {
+        if (response.error) {
             alert(response.msg);
             return false;
         }
-        else
-        {
+        else {
             window.location = `checkout.html?checkout_request_id=${response.data[0].checkout_request_id}`;
         }
     }

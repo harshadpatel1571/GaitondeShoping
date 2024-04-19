@@ -9,14 +9,14 @@ $(document).ready(async function () {
             if (result.data != null) {
                 $.each(result.data.slice(0, 8), function (index, value) {
                     var image = value.images != null ? value.images[0].image_url : '';
-                    var price = value.variants.filter(x=>x.product_id==value.product_id)[0] != null ? value.variants.filter(x=>x.product_id==value.product_id)[0].price : 0;
+                    var price = value.variants.filter(x => x.product_id == value.product_id)[0] != null ? value.variants.filter(x => x.product_id == value.product_id)[0].price : 0;
                     let html = `<div class="col-sm-3 px-0">
                     <a href="product-page.html?product_id=${value.product_id}" style="text-decoration: none;">
                 <div class="card rounded-0 border-1">
                     <img src="${image}" class="card-img-top rounded-0" alt="...">
                         <div class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
-                            <p class="font-20 bold mb-0">${value.product_name}</p><br/>
-                            <p class="font-20 bold mb-0">&#8377 ${price}</p>
+                            <lable class="font-15 bold  mb-0">${value.product_name}</lable><br>
+                            <div><p class="font-15 bold mb-0"> &#8377   ${price}</p></div>
                             <img src="wwwroot/images/product-add-icon.svg" alt="add-icon">
                         </div>
                     </div>
@@ -35,14 +35,14 @@ $(document).ready(async function () {
             if (newArrival.data != null) {
                 $.each(newArrival.data.slice(0, 6), function (index, value) {
                     var image = value.images != null ? value.images[0].image_url : '';
-                    var price = value.variants.filter(x=>x.product_id==value.product_id)[0] != null ? value.variants.filter(x=>x.product_id==value.product_id)[0].price : 0;
+                    var price = value.variants.filter(x => x.product_id == value.product_id)[0] != null ? value.variants.filter(x => x.product_id == value.product_id)[0].price : 0;
                     let html = `<div class="col-sm-3 px-0">
                     <a href="product-page.html?product_id=${value.product_id}" style="text-decoration: none;">
                 <div class="card rounded-0 border-1">
                     <img src="${image}" class="card-img-top rounded-0" alt="...">
                         <div class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
-                            <p class="font-20 bold mb-0">${value.product_name}</p><br/>
-                            <p class="font-20 bold mb-0">&#8377 ${price}</p>
+                            <p class="font-15 bold mb-0">${value.product_name}</p><br/>
+                            <p class="font-15 bold mb-0">&#8377 ${price}</p>
                             <img src="wwwroot/images/product-add-icon.svg" alt="add-icon">
                         </div>
                     </div>
@@ -60,32 +60,15 @@ $(document).ready(async function () {
         }
         else {
             if (bestSeller.data != null) {
-                if (bestSeller.data[0] != null) {
-                    var image = bestSeller.data[0].images != null ? bestSeller.data[0].images[0].image_url : '';
-                    let html = `
-                    <div class="col-12 col-lg-6 px-0 border-1 d-flex">
-                        <img src="${image}" class="object-fit-fill" alt="best-seller" height="100%" width="670">
+                let active = "active";
+                $.each(bestSeller.data, function (index, value) {
+                    var image = value.images != null ? value.images[0].image_url : 'https://gaitonde.imersive.io/liveassets/a1cae3cc-7f97-4619-87d6-fc977e22955e/28122020143343.png';
+                    let html = `<div class="carousel-item ${active}">
+                    <img src="${image}" class="w-100" alt="best-seller-product">
                     </div>`;
                     $("#divBestSeller").append(html);
-                }
-                if (bestSeller.data[1] != null) {
-                    var image = bestSeller.data[1].images != null ? bestSeller.data[1].images[0].image_url : '';
-                    let html = `<div class="col-12 col-lg-6 d-flex text-center">
-                        <div class="row" id="divSecoundBestSeller">
-                            <div class="col-12 px-0 border-1">
-                                <img src="${image}" class="object-fit-fill" alt="best-seller" height="450" width="500">
-                            </div>
-                        </div>
-                    </div>`
-                    $("#divBestSeller").append(html);
-                }
-                if (bestSeller.data[2] != null) {
-                    var image = bestSeller.data[2].images != null ? bestSeller.data[2].images[0].image_url : '';
-                    let html = `<div class="col-12 px-0 border-1">
-                                    <img src="${image}" class="object-fit-fill" alt="best-seller" height="450" width="500">
-                                </div>`
-                    $("#divSecoundBestSeller").append(html);
-                }
+                    active = "";
+                });
             }
         }
 
@@ -101,7 +84,7 @@ $(document).ready(async function () {
                 <div class="d-flex flex-column">
                     <p class="font-20">Top Selling!</p>
                     <h1 class="text-orange font-60">Top Collection</h1>
-                    <p class="font-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                    <p class="font-20">"Unleash Your Sole Power."</p>
                     <div class="text-center my-3">
                         <button class="btn btn-1" onclick="location.href='products.html'">Shop now</button>
                     </div>

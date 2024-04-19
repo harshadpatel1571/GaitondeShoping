@@ -16,9 +16,15 @@ $(document).ready(async function () {
                     $("#spnProductName").text(product.product_name);
 
                     if (product.variants.length > 0) {
+                        product.variants.sort((a, b) => {
+                            return a.variant_title - b.variant_title;
+                        });
+                    
                         var checked = true;
                         $.each(product.variants, function (index, value) {
-                            var size = value.variant_title;
+                            var size = new Array ( value.variant_title);
+
+                            
                             let html = `<input type="radio" class="btn-check" name="options" id="${size}" value="${value.variant_id}" autocomplete="off" checked="${checked}" data-price="${value.price}">
                             <label class="btn-product-size btn p-2 me-2 mb-2" for="${size}">${size}</label>`;
                             $("#divSizeList").append(html);
@@ -62,9 +68,10 @@ $("#btnAddToCart").click(async function () {
         }
         var result = await AddItemToCart(`${productId}`, size, 1);
         if (result.data.length > 0 && result != undefined) {
-            alert(result.msg);
+            // alert(result.msg);
         }
     }
+    window.location.reload();
 });
 
 function changeImageUrl(url){
