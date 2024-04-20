@@ -2,6 +2,7 @@ $(document).ready(async function () {
     let session = await checkServerSession();
     if (session) {
         const result = await GetAllCartItems();
+        console.log(result);
         if (result.error) {
             $("#divCartList").append(result.msg);
         }
