@@ -14,7 +14,7 @@ $(document).ready(async function () {
                 <div class="d-flex flex-column">
                     <p class="font-20">Top Selling!</p>
                     <h1 class="text-orange font-60">Top Collection</h1>
-                    <p class="font-20">"Unleash Your Sole Power."</p>
+                    <p class="font-20">${topCollection.data[0].description}</p>
                     <div class="text-center my-3">
                         <button class="btn btn-1" onclick="location.href='products.html'">Shop now</button>
                     </div>

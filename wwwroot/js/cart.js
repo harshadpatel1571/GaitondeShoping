@@ -2,7 +2,6 @@ $(document).ready(async function () {
     let session = await checkServerSession();
     if (session) {
         const result = await GetAllCartItems();
-        console.log(result);
         if (result.error) {
             $("#divCartList").append(result.msg);
         }
@@ -36,6 +35,7 @@ $(document).ready(async function () {
                         $("#divCartList").append(html);
                         
                     });
+                    $("#hdn_cart_id").val(result.data[0].cart_id);
                     $("#divCheckoutDetail").removeClass("d-none");
                     $("#spnCartTotalAmount").text("Rs. "+cartData.total_amount + ".00");
                     $("#hdnCartId").val(cartData.cart_id);
@@ -173,12 +173,14 @@ $("#btnCheckoutRequest").click(async function () {
     let cartId = $("#hdnCartId").val();
     if (cartId != null) {
         let response = await CheckoutRequest(cartId);
+        
         if (response.error) {
+            
             alert(response.msg);
             return false;
         }
         else {
-            window.location = `checkout.html?checkout_request_id=${response.data[0].checkout_request_id}`;
+            window.location = `checkout.html?checkout_request_id=${response.data[0].checkout_request_id}&cart_id=${$('#hdn_cart_id').val()}`;
         }
     }
     else {

@@ -240,9 +240,9 @@
                                     </button>
                                   </h2>
                                   <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body px-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum 
-                                        dolor sit amet, consectetur adipiscing elit.adipiscing elit. Lorem ipsum
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum </div>
+                                    <div class="accordion-body px-0">
+                                        <span id="spnDescription"></span>
+                                    </div>
                                   </div>
                                 </div>
                             </div>
@@ -273,7 +273,7 @@
             <div class="row py-4 g-0">
                 <div class="col-12 col-lg-6 order-1 order-lg-0">
                     <div class="d-flex flex-column align-items-center align-items-lg-start">
-                        <h2 class="text-orange font-40 semibold">Title 1</h2>
+                        <!-- <h2 class="text-orange font-40 semibold">Title 1</h2> -->
                         <p class="font-20 text-black-95">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum 
                         dolor sit amet, consectetur adipiscing elit.adipiscing elit. Lorem ipsum
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum</p>
@@ -293,7 +293,7 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <div class="d-flex flex-column align-items-center align-items-lg-start">
-                        <h2 class="text-orange font-40 semibold">Title 2</h2>
+                        <!-- <h2 class="text-orange font-40 semibold">Title 2</h2> -->
                         <p class="font-20 text-black-95">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum 
                         dolor sit amet, consectetur adipiscing elit.adipiscing elit. Lorem ipsum
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum</p>
@@ -303,7 +303,7 @@
             <div class="row py-4 g-0">
                 <div class="col-12 col-lg-6 order-1 order-lg-0">
                     <div class="d-flex flex-column align-items-center align-items-lg-start">
-                        <h2 class="text-orange font-40 semibold">Title 3</h2>
+                        <!-- <h2 class="text-orange font-40 semibold">Title 3</h2> -->
                         <p class="font-20 text-black-95">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum 
                         dolor sit amet, consectetur adipiscing elit.adipiscing elit. Lorem ipsum
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum</p>
@@ -323,7 +323,7 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     <div class="d-flex flex-column align-items-center align-items-lg-start">
-                        <h2 class="text-orange font-40 semibold">Title 4</h2>
+                        <!-- <h2 class="text-orange font-40 semibold">Title 4</h2> -->
                         <p class="font-20 text-black-95">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum 
                         dolor sit amet, consectetur adipiscing elit.adipiscing elit. Lorem ipsum
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum</p>
@@ -337,15 +337,13 @@
         </section>
         <section class="py-5">
             <h1 class="text-center text-orange my-3 font-60">Similar Product</h1>
-
-            <img src="" class="rounded-0" alt="product-img" id="imgsimiliarproductImage" height="500" width="500">
-            <div class="row g-0">
+            
+            <div class="row g-0" id="divSimilarProductList">
                 
                 <!-- This is proper card for product. Use this div in product loop -->
-                <div class="col-6 col-lg-3 px-0">
+                <!-- <div class="col-6 col-lg-3 px-0">
                     <div class="card rounded-0 border-1 position-relative">
                     <img src="wwwroot/images/tag-bestSeller.svg" alt="best-seller" class="position-absolute best-seller-tag"></img>
-                    <!-- <img src="wwwroot/images/tag-outOfStock.svg" alt="out-of-stock" class="position-absolute out-of-stock-tag"></img> -->
                     <a href="product-page.html" style="text-decoration: none;">    
                       <img src="https://placehold.co/300x300/FDD1CB/white" class="card-img-top rounded-0 img-fluid" alt="product-img">
                     </a>
@@ -403,9 +401,6 @@
 
                                 <input type="radio" class="btn-check" name="options" id="cartAdd-size-12" autocomplete="off">
                                 <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd-size-12">12</label>
-                                
-                                
-                                <!-- <button class="btn-quickAdd-size btn p-0 me-2 mb-2">12</button> -->
                             </div>
                             <div class="d-grid my-2">
                                 <button class="btn-quickAdd-cart btn">Add to Cart</button>
@@ -413,10 +408,10 @@
                         </div>
                     </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- This is proper card for product. Use his div in product loop -->
                 
-                <div class="col px-0">
+                <!-- <div class="col px-0">
                     <div class="card rounded-0 border-1">
                         <img src="wwwroot/images/tag-outOfStock.svg" alt="out-of-stock" class="position-absolute out-of-stock-tag"></img>
                         <img src="https://placehold.co/300x300/FDD1CB/white" class="card-img-top rounded-0" alt="...">
@@ -446,7 +441,7 @@
                           <img src="wwwroot/images/product-add-icon.svg" alt="add-icon">
                         </div>
                       </div>
-                </div>
+                </div> -->
               </div>
         </section>
     </main>

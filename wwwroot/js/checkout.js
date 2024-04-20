@@ -1,15 +1,10 @@
 $(document).ready(async function () {
-    const result=await GetAllCartItems();
-   // console.log(result.data[0].products);
-
-     if (! result.error)
-     {   
-        if (result.data[0].products != null) 
-        {
-            console.log(result);
+    const result = await GetAllCartItems();
+    if (!result.error) {
+        if (result.data[0].products != null) {
             $.each(result.data[0].products, function (index, value) {
-               
-                let html =`<div class="d-flex align-items-center justify-content-between py-2">
+
+                let html = `<div class="d-flex align-items-center justify-content-between py-2">
                         
                 <div class="d-flex align-items-center">
                     <button class="btn p-0 position-relative">
@@ -27,17 +22,17 @@ $(document).ready(async function () {
                     <h5 class="text-orange font-18">Rs.${value.price_per_unit}</h5>
                 </div>
             </div>`
-            $("#divcheakoutproductlist").append(html);
+                $("#divcheakoutproductlist").append(html);
             });
 
-            $("#spnCheakoutTotalAmount").text("Rs. "+result.data[0].total_amount + ".00");
-            $("#spnCheakoutSubTotalAmount").text("Rs. "+result.data[0].total_amount + ".00");
-        } 
-     }
-     
-     else {
+            $("#spnCheakoutTotalAmount").text("Rs. " + result.data[0].total_amount + ".00");
+            $("#spnCheakoutSubTotalAmount").text("Rs. " + result.data[0].total_amount + ".00");
+        }
+    }
+
+    else {
         alert(result.msg);
-     }
+    }
 });
 
 
@@ -55,3 +50,29 @@ async function GetAllCartItems() {
         return result;
     }
 }
+
+$('#btn_pay_now').click(async function paynow() {
+    let checkout_request = await AddItemToCart();
+    console.log(checkout_request);
+})
+
+async function AddItemToCart(productId, veriantId, qtty) {
+    var session_id = localStorage.getItem('session_id');
+    var cart_id = getParameterValueByName('cart_id');
+    const data = {
+        "cart_id": cart_id,
+        "session_id": session_id,
+    };
+
+    const response = await fetch('https://gaitondeapi.imersive.io/api/checkout/create', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    const result = await response.json();
+    return result;
+}
+
