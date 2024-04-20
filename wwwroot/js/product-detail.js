@@ -19,12 +19,12 @@ $(document).ready(async function () {
                         product.variants.sort((a, b) => {
                             return a.variant_title - b.variant_title;
                         });
-                    
+
                         var checked = true;
                         $.each(product.variants, function (index, value) {
-                            var size = new Array ( value.variant_title);
+                            var size = new Array(value.variant_title);
 
-                            
+
                             let html = `<input type="radio" class="btn-check" name="options" id="${size}" value="${value.variant_id}" autocomplete="off" checked="${checked}" data-price="${value.price}">
                             <label class="btn-product-size btn p-2 me-2 mb-2" for="${size}">${size}</label>`;
                             $("#divSizeList").append(html);
@@ -40,11 +40,11 @@ $(document).ready(async function () {
                                             <img src="${image}" class="rounded-2 img-fluid" alt="product-color-img" style="height: 100px;width: 100px;">
                                         </button>
                                     </div>`;
-                        $("#divImageSlider").append(html);
+                            $("#divImageSlider").append(html);
                         });
                     }
 
-                    
+
 
                     var selectedValue = $('input[name="options"]:checked').data('price');
                     $("#spnProductPrice").text(`Rs ${selectedValue} /-`);
@@ -68,12 +68,17 @@ $("#btnAddToCart").click(async function () {
         }
         var result = await AddItemToCart(`${productId}`, size, 1);
         if (result.data.length > 0 && result != undefined) {
-            // alert(result.msg);
+            const result = await GetAllCartItems();
+            if (result.error) {
+                $("#spnCartCount").text(0);
+            }
+            else {
+                $("#spnCartCount").text(result.data[0].total_items);
+            }
         }
     }
-    window.location.reload();
 });
 
-function changeImageUrl(url){
+function changeImageUrl(url) {
     $("#imgProductMainImage").attr("src", url);
 }

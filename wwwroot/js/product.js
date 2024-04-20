@@ -9,7 +9,7 @@ $(document).ready(async function () {
             if (result.data != null) {
                 $.each(result.data.slice(0, 24), function (index, value) {
                     var image = value.images != null ? value.images[0].image_url : '';
-                    var price = value.variants.filter(x => x.product_id == value.product_id)[0] != null ? value.variants.filter(x => x.product_id == value.product_id)[0].price : 0;
+                    var price = value.variants != null ? value.variants.filter(x => x.product_id == value.product_id)[0].price : 0;
                     let html = `<div class="col-sm-3 px-0">
                                     <a href="product-page.html?product_id=${value.product_id}" style="text-decoration: none;">
                                     <div class="card rounded-0 border-1">
@@ -42,52 +42,8 @@ $(document).ready(async function () {
             }
         }
 
-        //const filter = await GetFilterData();
-        const filter = {
-            "error": false,
-            "msg": "Variant type mentioned below!",
-            "data": [
-                {
-                    "variant_type": "size",
-                    "titles": [
-                        "10",
-                        "11",
-                        "12",
-                        "6",
-                        "7",
-                        "8",
-                        "9"
-                    ]
-                },
-                {
-                    "variant_type": "size-2",
-                    "titles": [
-                        "10",
-                        "11",
-                        "12",
-                        "6",
-                        "7",
-                        "8",
-                        "9"
-                    ]
-                },
-                {
-                    "variant_type": "size-3",
-                    "titles": [
-                        "10",
-                        "11",
-                        "12",
-                        "6",
-                        "7",
-                        "8",
-                        "9"
-                    ]
-                }
-            ]
-        }
-
+        const filter = await GetFilterData();
         if (!filter.error) {
-            console.log(filter.data);
             $.each(filter.data, function (index, value) {
                 let htmlTitle = `<div class="d-flex justify-content-between mb-3">
                     <h5 class="text-orange">${value.variant_type}</h5>
@@ -114,7 +70,7 @@ $(document).ready(async function () {
                 </div>
                 <div class="offcanvas-footer border-top p-3 d-flex align-items-center justify-content-around">
                   <a class="text-orange me-3" href="#">Clear</a>
-                  <button class="btn btn-1">Apply</button>
+                  <button class="btn btn-1" onclick="GetFilterProducts()">Apply</button>
                 </div>
               </div>`;
 
@@ -164,9 +120,5 @@ function GetFilterProducts() {
 
         console.log(variantType);
         console.log(title);
-
-        // // Construct the API URL
-        // let apiUrl = `https://gaitondeapi.imersive.io/api/product/byShop?shop=teststore@gaitonde.com&variant_type=${variantType}&title=${title}`;
-        
     });
 }

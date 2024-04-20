@@ -1,6 +1,32 @@
 $(document).ready(async function () {
     let session = await checkServerSession();
     if (session) {
+
+        const topCollection = await GetTopCollection();
+        if (topCollection.error) {
+            $("#divTopCollection").append(result.msg);
+        }
+        else {
+
+            if (topCollection.data != null) {
+                var image = topCollection.data[0].images != null ? topCollection.data[0].images[0].image_url : '';
+                let html = `<div class="col-12 col-lg-6 d-flex align-items-end justify-content-center">
+                <div class="d-flex flex-column">
+                    <p class="font-20">Top Selling!</p>
+                    <h1 class="text-orange font-60">Top Collection</h1>
+                    <p class="font-20">"Unleash Your Sole Power."</p>
+                    <div class="text-center my-3">
+                        <button class="btn btn-1" onclick="location.href='products.html'">Shop now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 d-flex align-items-start justify-content-center">
+                <img src="${image}" class="img-fluid" alt="banner-img">
+            </div>`;
+                $("#divTopCollection").append(html);
+            }
+        }
+        
         const result = await Getproductaspershop();
         if (result.error) {
             $("#divProduct").append(result.msg);
@@ -72,30 +98,6 @@ $(document).ready(async function () {
             }
         }
 
-        const topCollection = await GetTopCollection();
-        if (bestSeller.error) {
-            $("#divTopCollection").append(result.msg);
-        }
-        else {
-
-            if (topCollection.data != null) {
-                var image = topCollection.data[0].images != null ? topCollection.data[0].images[0].image_url : '';
-                let html = `<div class="col-12 col-lg-6 d-flex align-items-end justify-content-center">
-                <div class="d-flex flex-column">
-                    <p class="font-20">Top Selling!</p>
-                    <h1 class="text-orange font-60">Top Collection</h1>
-                    <p class="font-20">"Unleash Your Sole Power."</p>
-                    <div class="text-center my-3">
-                        <button class="btn btn-1" onclick="location.href='products.html'">Shop now</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 d-flex align-items-start justify-content-center">
-                <img src="${image}" class="img-fluid" alt="banner-img">
-            </div>`;
-                $("#divTopCollection").append(html);
-            }
-        }
     }
 });
 
