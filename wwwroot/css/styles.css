@@ -299,6 +299,29 @@ header .nav-link:hover{
 header .nav-link:active{
     color: #DB4834;
 }
+.section__hero .carousel-item-next, .carousel-item-prev, .carousel-item.active{
+    display: flex!important;
+}
+.section__hero .carousel-control-prev{
+    color: black;
+    background: #DB4834;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+}
+.section__hero .carousel-control-next{
+    color: black;
+    background: #DB4834;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+}
 .best-seller .carousel-control-prev{
     color: black;
     background: #DB4834;
@@ -318,6 +341,11 @@ header .nav-link:active{
     position: absolute;
     top: 50%;
     right: 0%;
+}
+.best-seller .carousel-inner{
+    height: 500px;
+    width: 500px;
+    margin: auto;
 }
 /* .carousel-hero-prev{
     color: black;
@@ -584,10 +612,54 @@ main{
         padding: 16px 16px;
     }
     .section__hero{
-        padding: 30px;
+        padding: 5px;
     }
     .section__hero__grid{
         margin: 30px 0px;
+    }
+    .section__hero .carousel-item-next, .carousel-item-prev, .carousel-item.active{
+        display: block!important;
+    }
+    .section__hero .carousel-control-prev{
+        
+        height: 25px;
+        width: 25px;
+        
+        position: absolute;
+        top: 50%;
+        left: 0%;
+    }
+    .section__hero .carousel-control-next{
+        
+        height: 25px;
+        width: 25px;
+        
+        position: absolute;
+        top: 50%;
+        right: 0%;
+    }
+    .best-seller .carousel-control-prev{
+        
+        height: 25px;
+        width: 25px;
+        
+        position: absolute;
+        top: 50%;
+        left: 0%;
+    }
+    .best-seller .carousel-control-next{
+        
+        height: 25px;
+        width: 25px;
+        
+        position: absolute;
+        top: 50%;
+        right: 0%;
+    }
+    .best-seller .carousel-inner{
+        height: 300px;
+        width: 300px;
+        margin: auto;
     }
     /* .carousel-hero-prev{
         height: 20px;
