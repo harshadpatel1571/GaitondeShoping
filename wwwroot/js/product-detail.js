@@ -49,6 +49,9 @@ $(document).ready(async function () {
                 }
             }
 
+            const similarProducts = await GetAllSimilarProductList();
+            console.log(similarProducts);
+
             // const similarProducts = await GetAllSimilarProductList();
             // if (similarProducts.error) {
             //     $("#divSimilarProductList").append(similarProducts.msg);
@@ -235,7 +238,7 @@ function changeImageUrl(url) {
 }
 
 async function GetAllSimilarProductList() {
-    var session_id = localStorage.getItem('session_id');
+    var session_id = localStorage.getItem('shop_name');
     const response = await fetch(`https://gaitondeapi.imersive.io/api/poducts/similar?product_id=${productId}&shop=${session_id}`, {
         method: 'GET',
         headers: {

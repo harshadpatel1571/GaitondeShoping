@@ -3,30 +3,34 @@ $(document).ready(async function () {
     if (session) {
 
         const topCollection = await GetTopCollection();
+        console.log(topCollection);
         if (topCollection.error) {
             $("#divTopCollection").append(result.msg);
         }
         else {
-
             if (topCollection.data != null) {
-                var image = topCollection.data[0].images != null ? topCollection.data[0].images[0].image_url : '';
-                let html = `<div class="col-12 col-lg-6 d-flex align-items-end justify-content-center">
-                <div class="d-flex flex-column">
-                    <p class="font-20">Top Selling!</p>
-                    <h1 class="text-orange font-60">Top Collection</h1>
-                    <p class="font-20">${topCollection.data[0].description}</p>
-                    <div class="text-center my-3">
-                        <button class="btn btn-1" onclick="location.href='products.html'">Shop now</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 d-flex align-items-start justify-content-center">
-                <img src="${image}" class="img-fluid" alt="banner-img">
-            </div>`;
-                $("#divTopCollection").append(html);
+                let active = "active";
+                $.each(topCollection.data, function (index, value) {
+                    let html = `<div class="carousel-item ${active}">
+                        <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+                            <div class="d-flex flex-column">
+                                <h1 class="text-orange font-60">Top Collection</h1>
+                                <p class="font-20">${value.banner_description}</p>
+                                <div class="text-center my-3">
+                                    <button class="btn btn-1" onclick="location.href='product-page.html?product_id=${value.product_id}'">Shop now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 d-flex align-items-start justify-content-center">
+                            <img src="${value.banner_url}" class="img-fluid" alt="banner-img">
+                        </div>
+                    </div>`;
+                    $("#divTopCollection").append(html);
+                    active = "";
+                });
             }
         }
-        
+
         const result = await Getproductaspershop();
         if (result.error) {
             $("#divProduct").append(result.msg);
@@ -130,15 +134,12 @@ async function GetBestSeller() {
 }
 
 async function GetTopCollection() {
-
-    var shope_name = localStorage.getItem('shop_name');
-    const response = await fetch(`https://gaitondeapi.imersive.io/api/banner/getTopCollection?top_collection=true&limit=5&shop=${shope_name}`, {
+    const response = await fetch(`https://gaitondeapi.imersive.io/api/banner/getAll`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
     });
-
     const result = await response.json();
     return result;
 }
