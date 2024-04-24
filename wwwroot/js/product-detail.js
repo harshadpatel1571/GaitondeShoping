@@ -93,7 +93,7 @@ $(document).ready(async function () {
                                
                             </div>
                             <div class="d-grid my-2">
-                                <button class="btn-quickAdd-cart btn">Add to Cart</button>
+                                <button class="btn-quickAdd-cart btn" onclick="AddToCartProductFromQuick('${value.product_id}')">Add to Cart</button>
                             </div>
                         </div>
                     </div>
@@ -104,8 +104,9 @@ $(document).ready(async function () {
                         return ind.variant_title - val.variant_title;
                     });
                     $.each(value.variants, function (ind, val) {
-                        let div = `<input type="radio" class="btn-check" name="options"  id="cartAdd-size-4" autocomplete="off">
-                         <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd-size-4">${val.variant_title}</label>`;
+                        console.log(val);
+                        let div = `<input type="radio" class="btn-check" name="options" id="cartAdd_${value.product_id}_${val.variant_title}" autocomplete="off">
+                            <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd_${value.product_id}_${val.variant_title}">${val.variant_title}</label>`;
                         $(`#div_filter_${value.product_id}`).append(div);
                     })
                 });
@@ -138,6 +139,10 @@ $("#btnAddToCart").click(async function () {
         }
     }
 });
+
+async function AddToCartProductFromQuick(product_id) {
+    alert(product_id);
+}
 
 function changeImageUrl(url) {
     $("#imgProductMainImage").attr("src", url);

@@ -175,3 +175,23 @@ $("#btnContactUs").click(async function () {
         alert('Please fill out all required fields.');
     }
 });
+
+
+$("#btnAddToCart").click(async function () {
+    if (productId != null) {
+        var size = $('input[name="options"]:checked').val();
+        if (size == undefined) {
+            alert("Please select size first.");
+        }
+        var result = await AddItemToCart(`${productId}`, size, 1);
+        if (result.data.length > 0 && result != undefined) {
+            const result = await GetAllCartItems();
+            if (result.error) {
+                $("#spnCartCount").text(0);
+            }
+            else {
+                $("#spnCartCount").text(result.data[0].total_items);
+            }
+        }
+    }
+});
