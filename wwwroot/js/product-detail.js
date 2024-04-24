@@ -61,8 +61,8 @@ $(document).ready(async function () {
                     ${value.best_seller ? '<img src="wwwroot/images/tag-bestSeller.svg" alt="best-seller" class="position-absolute best-seller-tag"></img>' : ''
                         }
                     <!-- <img src="wwwroot/images/tag-outOfStock.svg" alt="out-of-stock" class="position-absolute out-of-stock-tag"></img> -->
-                    <a href="product-page.html" style="text-decoration: none;">    
-                    <img src="${image}" class="card-img-top rounded-0 img-fluid" alt="product-img">
+                    <a href="product-page.html?product_id=${value.product_id}" style="text-decoration: none;">    
+                        <img src="${image}" class="card-img-top rounded-0 img-fluid" alt="product-img">
                     </a>
                     <div class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
                         <p class="font-20 bold mb-0">${value.product_name}</p>
@@ -104,8 +104,7 @@ $(document).ready(async function () {
                         return ind.variant_title - val.variant_title;
                     });
                     $.each(value.variants, function (ind, val) {
-                        console.log(val);
-                        let div = `<input type="radio" class="btn-check" name="options" id="cartAdd_${value.product_id}_${val.variant_title}" autocomplete="off">
+                        let div = `<input type="radio" class="btn-check" name="chkVeriant" id="cartAdd_${value.product_id}_${val.variant_title}" value="${val.variant_id}" autocomplete="off">
                             <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd_${value.product_id}_${val.variant_title}">${val.variant_title}</label>`;
                         $(`#div_filter_${value.product_id}`).append(div);
                     })
@@ -139,10 +138,6 @@ $("#btnAddToCart").click(async function () {
         }
     }
 });
-
-async function AddToCartProductFromQuick(product_id) {
-    alert(product_id);
-}
 
 function changeImageUrl(url) {
     $("#imgProductMainImage").attr("src", url);

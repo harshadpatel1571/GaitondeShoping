@@ -176,22 +176,35 @@ $("#btnContactUs").click(async function () {
     }
 });
 
-
-$("#btnAddToCart").click(async function () {
-    if (productId != null) {
-        var size = $('input[name="options"]:checked').val();
-        if (size == undefined) {
-            alert("Please select size first.");
+async function AddToCartProductFromQuick(product_id) {
+    var result = await AddItemToCart(`${product_id}`, $('input[name="chkVeriant"]:checked').val(), 1);
+    if (result.data.length > 0 && result != undefined) {
+        const result = await GetAllCartItems();
+        if (result.error) {
+            $("#spnCartCount").text(0);
         }
-        var result = await AddItemToCart(`${productId}`, size, 1);
-        if (result.data.length > 0 && result != undefined) {
-            const result = await GetAllCartItems();
-            if (result.error) {
-                $("#spnCartCount").text(0);
-            }
-            else {
-                $("#spnCartCount").text(result.data[0].total_items);
-            }
+        else {
+            $("#spnCartCount").text(result.data[0].total_items);
+            $('.offcanvas').offcanvas('hide');
         }
     }
-});
+}
+
+// $("#btnAddToCart").click(async function () {
+//     if (productId != null) {
+//         var size = $('input[name="options"]:checked').val();
+//         if (size == undefined) {
+//             alert("Please select size first.");
+//         }
+//         var result = await AddItemToCart(`${productId}`, size, 1);
+//         if (result.data.length > 0 && result != undefined) {
+//             const result = await GetAllCartItems();
+//             if (result.error) {
+//                 $("#spnCartCount").text(0);
+//             }
+//             else {
+//                 $("#spnCartCount").text(result.data[0].total_items);
+//             }
+//         }
+//     }
+// });
