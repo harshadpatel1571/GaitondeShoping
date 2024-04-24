@@ -43,7 +43,7 @@ $(document).ready(async function () {
                     }
 
 
-
+                    $("#spnProductName").text(result.data.product_name)
                     var selectedValue = $('input[name="options"]:checked').data('price');
                     $("#spnProductPrice").text(`Rs ${selectedValue} /-`);
                 }
@@ -55,13 +55,11 @@ $(document).ready(async function () {
             }
             else {
                 $.each(similarProducts.data, function (index, value) {
-                    console.log(value);
                     var image = value.images != null ? value.images[0].image_url : "https://placehold.co/100x100/FDD1CB/white";
                     let html = `<div class="col-6 col-lg-3 px-0">
                     <div class="card rounded-0 border-1 position-relative">
-                    ${
-                        value.best_seller ? '<img src="wwwroot/images/tag-bestSeller.svg" alt="best-seller" class="position-absolute best-seller-tag"></img>' : ''
-                    }
+                    ${value.best_seller ? '<img src="wwwroot/images/tag-bestSeller.svg" alt="best-seller" class="position-absolute best-seller-tag"></img>' : ''
+                        }
                     <!-- <img src="wwwroot/images/tag-outOfStock.svg" alt="out-of-stock" class="position-absolute out-of-stock-tag"></img> -->
                     <a href="product-page.html" style="text-decoration: none;">    
                     <img src="${image}" class="card-img-top rounded-0 img-fluid" alt="product-img">
@@ -91,9 +89,8 @@ $(document).ready(async function () {
                         </div>
                         <div class="offcanvas-body">
                             <p class="bold">Size</p>
-                            <div>
-                                <input type="radio" class="btn-check" name="options" id="cartAdd-size-4" autocomplete="off">
-                                <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd-size-4">4</label>
+                            <div id="div_filter_${value.product_id}">
+                               
                             </div>
                             <div class="d-grid my-2">
                                 <button class="btn-quickAdd-cart btn">Add to Cart</button>
@@ -103,6 +100,14 @@ $(document).ready(async function () {
                     </div>
                 </div>`;
                     $("#divSimilarProductList").append(html);
+                    value.variants.sort((ind, val) => {
+                        return ind.variant_title - val.variant_title;
+                    });
+                    $.each(value.variants, function (ind, val) {
+                        let div = `<input type="radio" class="btn-check" name="options"  id="cartAdd-size-4" autocomplete="off">
+                         <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd-size-4">${val.variant_title}</label>`;
+                        $(`#div_filter_${value.product_id}`).append(div);
+                    })
                 });
             }
         }
