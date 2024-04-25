@@ -39,6 +39,9 @@ $(document).ready(async function () {
                 $("#divOffCanvasFilters").append(htmlOffCanvas);
 
                 setTimeout(function () {
+                    value.titles.sort((index, val) => {
+                        return index- val;
+                    });
                     $.each(value.titles, function (index, val) {
                         let htmlFilter = `<div class="form-check">
                             <input class="form-check-input filterValues" type="checkbox" value="${value.variant_type}_${val}" id="chkFor${value.variant_type}">
@@ -67,7 +70,7 @@ async function GetFilterData() {
     return result;
 }
 
-async function GetFilterProducts() {
+async function GetFilterProducts() {    
 
     var shope_name = localStorage.getItem('shop_name');
     let selectedValues = [];
@@ -112,6 +115,7 @@ async function GetFilterProducts() {
             </button>
         </div>`;
         $("#divFilteredItems").append(html);
+        $('.offcanvas').offcanvas('hide');
     });
 
     let removeHtml = `<a class="text-black-95 bold" href="products.html">Remove All</a>`;

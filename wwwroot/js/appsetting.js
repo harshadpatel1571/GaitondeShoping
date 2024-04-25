@@ -182,6 +182,10 @@ async function AddToCartProductFromQuick(product_id) {
             $("#spnCartCount").text(0);
         }
         else {
+            Swal.fire({
+                title: "Products added!",
+                icon: "success"
+              });
             $("#spnCartCount").text(result.data[0].total_items);
             $('.offcanvas').offcanvas('hide');
         }

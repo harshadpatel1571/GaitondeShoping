@@ -115,6 +115,7 @@ $("#btnEmptyCart").click(async function () {
     }).then(async (result) => {
         if (result.isConfirmed) {
             let result = await DeleteAllCartItems();
+            console.log(result.data[0].cart_id);
             if (result.data.length > 0 && (result != undefined || result != null)) {
                 Swal.fire({
                     title: "Product deleted!",
