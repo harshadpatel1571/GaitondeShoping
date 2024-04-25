@@ -33,11 +33,11 @@ $(document).ready(async function () {
                                     </div>
                                 </div>`;
                         $("#divCartList").append(html);
-                        
+
                     });
                     $("#hdn_cart_id").val(result.data[0].cart_id);
                     $("#divCheckoutDetail").removeClass("d-none");
-                    $("#spnCartTotalAmount").text("Rs. "+cartData.total_amount + ".00");
+                    $("#spnCartTotalAmount").text("Rs. " + cartData.total_amount + ".00");
                     $("#hdnCartId").val(cartData.cart_id);
                 }
             }
@@ -69,25 +69,65 @@ $(document).on('click', '.decrement', async function () {
     } else {
         let id = quantityElement[0].id;
         let productId = $(`#dhn_prod_${id}`).val();
+
+
+
         if (id > 0) {
-            let response = await DeleteItemToCart(`${productId}`,id);
-            if (response) {
-                alert("Item removed from cart");
-                window.location.reload();
-            }
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You want to remove this item from cart",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ok"
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    let response = await DeleteItemToCart(`${productId}`, id);
+                    if (response) {
+                        Swal.fire({
+                            title: "Product deleted!",
+                            icon: "success"
+                        }).then(() => {
+                            window.location.reload();
+                        });
+                    } else {
+                    }
+                }
+            });
+
         }
     }
-    window.location.reload();
+
 });
 
 
 $("#btnEmptyCart").click(async function () {
-    let result = await DeleteAllCartItems();
-    if (result.data.length > 0 && (result != undefined || result != null)) {
-        alert("cart are empty.");
-        window.location.reload();
-    }
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You want to remove all cart items",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, remove it!"
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            let result = await DeleteAllCartItems();
+            if (result.data.length > 0 && (result != undefined || result != null)) {
+                Swal.fire({
+                    title: "Product deleted!",
+                    icon: "success"
+                }).then(() => {
+                    window.location.reload();
+                });
+            } else {
+            }
+        }
+    });
 });
+
 
 async function EditCartItems(productId, veriantId, qtty) {
     var session_id = localStorage.getItem('session_id');
@@ -173,9 +213,9 @@ $("#btnCheckoutRequest").click(async function () {
     let cartId = $("#hdnCartId").val();
     if (cartId != null) {
         let response = await CheckoutRequest(cartId);
-        
+
         if (response.error) {
-            
+
             alert(response.msg);
             return false;
         }

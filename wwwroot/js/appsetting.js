@@ -4,12 +4,10 @@ $(document).ready(async function () {
     }, 1000);
 
     const result = await GetAllCartItems();
-    if(result.error)
-    {
+    if (result.error) {
         $("#spnCartCount").text(0);
     }
-    else
-    {
+    else {
         $("#spnCartCount").text(result.data[0].total_items);
     }
 });
@@ -158,7 +156,7 @@ $("#btnContactUs").click(async function () {
             formData[$(this).attr('id')] = $(this).val();
         });
         formData["session_id"] = session_id;
-        
+
         const response = await fetch('https://gaitondeapi.imersive.io/api/customer/request', {
             method: 'POST',
             body: JSON.stringify(formData),
@@ -208,3 +206,13 @@ async function AddToCartProductFromQuick(product_id) {
 //         }
 //     }
 // });
+
+function AddtoCartSweetAlert() {
+    $("#btnAddToCart").click(function () {
+        Swal.fire({
+            title: "Products added!",
+            icon: "success"
+          });
+    });
+
+}
