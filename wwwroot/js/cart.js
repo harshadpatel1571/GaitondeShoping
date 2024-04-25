@@ -3,7 +3,7 @@ $(document).ready(async function () {
     if (session) {
         const result = await GetAllCartItems();
         if (result.error) {
-            $("#divCartList").append(result.msg);
+            // $("#divCartList").append(result.msg);
         }
         else {
 
