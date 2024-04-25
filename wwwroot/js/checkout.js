@@ -31,7 +31,10 @@ $(document).ready(async function () {
     }
 
     else {
-        alert(result.msg);
+        Swal.fire({
+            title: result.msg,
+            icon: "success"
+        });
     }
 });
 
@@ -52,11 +55,26 @@ async function GetAllCartItems() {
 }
 
 $('#btn_pay_now').click(async function paynow() {
-    let checkout_request = await AddItemToCart();
-    console.log(checkout_request);
+    let checkout_request = await CheckoutRequest();
+    if (!checkout_request.error) {
+        let payment = await CheckoutRequestCreate(checkout_request.data[0].checkout_request_id);
+        console.log(payment);
+        if (!payment.error) {
+            Swal.fire({
+                title: result.msg,
+                icon: "success"
+            });
+        }
+        else {
+            Swal.fire({
+                title: result.msg,
+                icon: "success"
+            });
+        }
+    }
 })
 
-async function AddItemToCart(productId, veriantId, qtty) {
+async function CheckoutRequest() {
     var session_id = localStorage.getItem('session_id');
     var cart_id = getParameterValueByName('cart_id');
     const data = {
@@ -76,3 +94,34 @@ async function AddItemToCart(productId, veriantId, qtty) {
     return result;
 }
 
+async function CheckoutRequestCreate(checkoutReqId) {
+    const data = {
+        "first_name": $("#txtFirstName").val(),
+        "last_name": $("#txtLastName").val(),
+        "phone": $("#txtPhone").val(),
+        "email": $("#txtEmail").val(),
+        "street_address": $("#txtAddress").val() + " " + $("#txtAddress2").val(),
+        "option_data": "13",
+        "city": $("#txtCity").val(),
+        "state": $("#txtCity").val(),
+        "country": "india",
+        "is_billing": true,
+        "is_shipping": true,
+        "pincode": parseInt($("#txtPin").val()),
+        "order_note": "Shoes orders",
+        "checkout_request_id": checkoutReqId
+    };
+
+    console.log(data);
+
+    const response = await fetch('https://gaitondeapi.imersive.io/api/order/request', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    const result = await response.json();
+    return result;
+}
