@@ -11,6 +11,7 @@ $(document).ready(async function () {
             else {
                 if (result.data != null) {
                     const product = result.data;
+                    console.log(product);
                     var image = product.images != null ? product.images[0].image_url : "https://placehold.co/400x500/FDD1CB/white";
                     $("#imgProductMainImage").attr("src", image);
                     $("#spnProductName").text(product.product_name);
