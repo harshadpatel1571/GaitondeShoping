@@ -97,7 +97,7 @@ async function GetFilterProducts(catagory_name) {
         url = `https://gaitondeapi.imersive.io/api/product/byShop?shop=${shope_name}&variant_type=${variantTypes}&title=${titles}`
     }
     else {
-        url = `https://gaitondeapi.imersive.io/api/product/byShop?category=${catagory_name}`
+        url = `https://gaitondeapi.imersive.io/api/product/byShop?shop=${shope_name}&category=${catagory_name}`
     }
 
     const response = await fetch(url, {
@@ -111,6 +111,7 @@ async function GetFilterProducts(catagory_name) {
     BindProductDataBaisedOnResult(result);
 
     if (catagory_name == null) {
+        console.log(catagory_name);
 
         $("#divFilteredItems").removeClass('d-none');
         $.each(variantTypes, function (index, value) {

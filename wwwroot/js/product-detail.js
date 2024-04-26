@@ -14,7 +14,7 @@ $(document).ready(async function () {
                     var image = product.images != null ? product.images[0].image_url : "https://placehold.co/400x500/FDD1CB/white";
                     $("#imgProductMainImage").attr("src", image);
                     $("#spnProductName").text(product.product_name);
-                    $("#spnProductName").text(product.description);
+                    $("#spnDescription").text(product.description);
 
                     if (product.variants.length > 0) {
                         product.variants.sort((a, b) => {
