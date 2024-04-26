@@ -423,7 +423,7 @@ main{
     font-weight: bold;
     font-size: 16px;
 }
-.products .nav-link.nav-link:active{
+.products .nav .nav-link:active {
     color: #DB4834;
     font-weight: bold;
     font-size: 16px;
@@ -487,7 +487,7 @@ main{
 }
 .form-control, .form-select{
     border: 1px solid #DB4834;
-    color: #DB4834!important;
+    color: #2a2929!important;
 }
 .form-control:focus, .form-select:focus{
     box-shadow: 0 0 0 0.25rem #FDD1CB;

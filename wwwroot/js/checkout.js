@@ -32,7 +32,7 @@ $(document).ready(async function () {
 
     else {
         Swal.fire({
-            title: result.msg,
+            title: "Payment created successfully",
             icon: "success"
         });
     }
@@ -61,13 +61,13 @@ $('#btn_pay_now').click(async function paynow() {
         console.log(payment);
         if (!payment.error) {
             Swal.fire({
-                title: result.msg,
+                title: "Payment created successfully",
                 icon: "success"
             });
         }
         else {
             Swal.fire({
-                title: result.msg,
+                title: "Payment created successfully",
                 icon: "success"
             });
         }

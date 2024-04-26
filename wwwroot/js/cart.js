@@ -79,7 +79,7 @@ $(document).on('click', '.decrement', async function () {
                 text: "You want to remove this item from cart",
                 icon: "warning",
                 showCancelButton: true,
-                confirmButtonColor: "#3085d6",
+                confirmButtonColor: "#DB4834",
                 cancelButtonColor: "#d33",
                 confirmButtonText: "Ok"
             }).then(async (result) => {
@@ -88,7 +88,9 @@ $(document).on('click', '.decrement', async function () {
                     if (response) {
                         Swal.fire({
                             title: "Product deleted!",
-                            icon: "success"
+                            icon: "success",
+                            confirmButtonColor: "#DB4834",
+
                         }).then(() => {
                             window.location.reload();
                         });
@@ -109,7 +111,7 @@ $("#btnEmptyCart").click(async function () {
         text: "You want to remove all cart items",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
+        confirmButtonColor: "#DB4834",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, remove it!"
     }).then(async (result) => {
@@ -119,11 +121,13 @@ $("#btnEmptyCart").click(async function () {
             if (result.data.length > 0 && (result != undefined || result != null)) {
                 Swal.fire({
                     title: "Product deleted!",
-                    icon: "success"
+                    icon: "success",
+                    confirmButtonColor: "#DB4834",
                 }).then(() => {
-                    window.location.reload();
+                    window.location.href = 'index.html';
                 });
             } else {
+               
             }
         }
     });

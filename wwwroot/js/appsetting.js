@@ -184,8 +184,9 @@ async function AddToCartProductFromQuick(product_id) {
         else {
             Swal.fire({
                 title: "Products added!",
-                icon: "success"
-              });
+                icon: "success",
+                confirmButtonColor: "#DB4834",
+            });
             $("#spnCartCount").text(result.data[0].total_items);
             $('.offcanvas').offcanvas('hide');
         }
@@ -215,8 +216,9 @@ function AddtoCartSweetAlert() {
     $("#btnAddToCart").click(function () {
         Swal.fire({
             title: "Products added!",
-            icon: "success"
-          });
+            icon: "success",
+            confirmButtonColor: "#DB4834",
+        });
     });
 
 }

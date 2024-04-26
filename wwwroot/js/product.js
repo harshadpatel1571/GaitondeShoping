@@ -70,7 +70,7 @@ async function GetFilterData() {
     return result;
 }
 
-async function GetFilterProducts() {
+async function GetFilterProducts(catagory_name) {
 
     var shope_name = localStorage.getItem('shop_name');
     let selectedValues = [];
@@ -92,7 +92,15 @@ async function GetFilterProducts() {
         titles.push(title);
     });
 
-    const response = await fetch(`https://gaitondeapi.imersive.io/api/product/byShop?shop=${shope_name}&variant_type=${variantTypes}&title=${titles}`, {
+    let url = "";
+    if (catagory_name == null) {
+        url = `https://gaitondeapi.imersive.io/api/product/byShop?shop=${shope_name}&variant_type=${variantTypes}&title=${titles}`
+    }
+    else {
+        url = `https://gaitondeapi.imersive.io/api/product/byShop?category=${catagory_name}`
+    }
+
+    const response = await fetch(url, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -101,9 +109,12 @@ async function GetFilterProducts() {
 
     const result = await response.json();
     BindProductDataBaisedOnResult(result);
-    $("#divFilteredItems").removeClass('d-none');
-    $.each(variantTypes, function (index, value) {
-        let html = `<div class="btn-1 p-2 gap-2 rounded-5 d-flex justify-content-between align-items-center">
+
+    if (catagory_name == null) {
+
+        $("#divFilteredItems").removeClass('d-none');
+        $.each(variantTypes, function (index, value) {
+            let html = `<div class="btn-1 p-2 gap-2 rounded-5 d-flex justify-content-between align-items-center">
             <span class="text-white bold FilteredItems-head">${value}&nbsp;:&nbsp;</span>
             <span class="text-white bold FilteredItems-size">${titles}&nbsp;(${result.data.length})</span>
             <button class="btn text-white p-0 FilteredItems-cancel" onclick="filterRemove()">
@@ -114,13 +125,30 @@ async function GetFilterProducts() {
             </svg>
             </button>
         </div>`;
-        $("#divFilteredItems").append(html);
-        $('.offcanvas').offcanvas('hide');
-    });
+            $("#divFilteredItems").append(html);
+            $('.offcanvas').offcanvas('hide');
+        });
 
-    let removeHtml = `<a class="text-black-95 bold" href="products.html">Remove All</a>`;
+        let removeHtml = `<a class="text-black-95 bold" href="products.html">Remove All</a>`;
 
-    $("#divFilteredItems").append(removeHtml);
+        $("#divFilteredItems").append(removeHtml);
+    }
+    // else
+    // {
+    //     alert();
+    //     let html = `<div class="btn-1 p-2 gap-2 rounded-5 d-flex justify-content-between align-items-center">
+    //         <span class="text-white bold FilteredItems-head">${catagory_name}&nbsp;:&nbsp;</span>
+    //         <span class="text-white bold FilteredItems-size">${catagory_name}&nbsp;(${result.data.length})</span>
+    //         <button class="btn text-white p-0 FilteredItems-cancel" onclick="filterRemove()">
+    //         <svg width="12" height="12" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    //             <path
+    //             d="M0.047515 7.11836L3.11164 4.05423L0.0643508 1.00694L1.00716 0.0641294L4.05445 3.11142L7.11858 0.0472936L8.09506 1.02377L5.03093 4.0879L8.07823 7.1352L7.13542 8.07801L4.08812 5.03071L1.024 8.09484L0.047515 7.11836Z"
+    //             fill="white" />
+    //         </svg>
+    //         </button>
+    //     </div>`;
+    //         $("#divFilteredItems").append(html);
+    // }
 }
 
 function BindProductDataBaisedOnResult(result) {

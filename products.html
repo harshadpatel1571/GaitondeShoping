@@ -170,8 +170,8 @@
       <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
           <nav class="nav">
-            <a class="nav-link" href="#">View All</a>
-            <a class="nav-link" href="#">Shoes</a>
+            <a class="nav-link" href="javascript:void(0);" onclick="GetFilterProducts()">View All</a>
+            <a class="nav-link" href="#" onclick="GetFilterProducts('CASUAL SHOES')">Shoes</a>
             <a class="nav-link" href="#">Chappals</a>
             <a class="nav-link" href="#">Loafers</a>
           </nav>
@@ -220,83 +220,82 @@
 
   <footer>
     <div class="row bg-orange-20 p-4 g-0">
-      <div class="col-12 col-lg-2">
-        <img src="wwwroot/images/gaitonde-logo.svg" alt="gaitonde-logo" class="mb-3 img-fluid">
-        <!-- <p class="font-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div class="col-12 col-lg-2">
+            <img src="wwwroot/images/gaitonde-logo.svg" alt="gaitonde-logo" class="mb-3 img-fluid">
+            <!-- <p class="font-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <p class="font-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
-      </div>
-      <div class="col-12 col-lg-2">
-        <h5 class="text-orange bold px-2 font-18">Explore</h5>
-        <nav class="nav flex-row flex-lg-column">
-          <a class="nav-link font-12 px-2" href="faq.html">FAQ</a>
-          <a class="nav-link font-12 px-2" href="testimonials.html">Testimonials</a>
-          <!-- <a class="nav-link font-12 px-2" href="#">Sitemap</a> -->
-          <!-- <a class="nav-link font-12 px-2" href="#">Disclaimer</a> -->
-        </nav>
-      </div>
-      <div class="col-12 col-lg-2">
-        <h5 class="text-orange bold px-2 font-18">Our&nbsp;Advantage</h5>
-        <nav class="nav flex-row flex-lg-column">
-          <a class="nav-link font-12 px-2" href="#">Genuine Leather Shoes</a>
-          <a class="nav-link font-12 px-2" href="#">Genuine Leather Accessories</a>
-          <a class="nav-link font-12 px-2" href="#">Genuine Leather Sandals</a>
-          <a class="nav-link font-12 px-2" href="#">Genuine Leather Chappals</a>
-        </nav>
-      </div>
-      <div class="col-12 col-lg-2">
-        <h5 class="text-orange bold px-2 font-18">Policies</h5>
-        <nav class="nav flex-row flex-lg-column">
-          <a class="nav-link font-12 px-2" href="privacy_policy.html">Privacy Policy</a>
-          <a class="nav-link font-12 px-2" href="return_exchange.html">Delivery & Return Policy</a>
-          <a class="nav-link font-12 px-2" href="terms_condition.html">Terms & Conditions</a>
-        </nav>
-      </div>
-      <div class="col-12 col-lg-2">
-        <h5 class="text-orange bold px-2 font-18">Reach&nbsp;US</h5>
-        <nav class="nav flex-row flex-lg-column">
-          <p class="px-2 font-12">
-            5th Floor,”A” Block
-            Alsa Crescent
-            No:58, Harrington Road
-            Chetpet,Chennai 600031
-          </p>
-        </nav>
-      </div>
-      <div class="col-12 col-lg-2">
-        <h5 class="text-orange bold px-2 font-18">Contact Us:</h5>
-        <nav class="nav flex-row flex-lg-column">
-          <a class="nav-link d-flex align-items-center gap-2 font-12 px-2" ><img src="wwwroot/images/footer-phone-icon.svg"></img> 044 28363101</a>
-          <a class="nav-link d-flex align-items-center gap-2 font-12 px-2" href="https://api.whatsapp.com/send/?phone=919790704282&text&type=phone_number&app_absent=0"><img src="wwwroot/images/footer-whatsapp-icon.svg"></img> 97907 04282</a>
-          <a class="nav-link d-flex align-items-center gap-2 font-12 px-2" href="mailto:domestic@gaitonde.com"><img src="wwwroot/images/footer-mail-icon.svg"></img> domestic@gaitonde.com</a>
-          <a class="nav-link d-flex align-items-center gap-2 font-12 px-2" href="https://gaitonde.com/"><img src="wwwroot/images/footer-web-icon.svg"></img> www.gaitonde.com</a>
-      </nav>
-      </div>
+        </div>
+        <div class="col-12 col-lg-2">
+            <h5 class="text-orange bold px-2 font-18">Explore</h5>
+            <nav class="nav flex-row flex-lg-column">
+                <a class="nav-link font-12 px-2" href="faq.html">FAQ</a>
+                <a class="nav-link font-12 px-2" href="testimonials.html">Testimonials</a>
+                <!-- <a class="nav-link font-12 px-2" href="#">Sitemap</a> -->
+                <!-- <a class="nav-link font-12 px-2" href="#">Disclaimer</a> -->   
+            </nav>
+        </div>
+        <div class="col-12 col-lg-2">
+            <h5 class="text-orange bold px-2 font-18">Our&nbsp;Advantage</h5>
+            <nav class="nav flex-row flex-lg-column">
+                <a class="nav-link font-12 px-2" >Genuine Leather Shoes</a>
+                <a class="nav-link font-12 px-2">Genuine Leather Accessories</a>
+                <a class="nav-link font-12 px-2">Genuine Leather Sandals</a>
+                <a class="nav-link font-12 px-2">Genuine Leather Chappals</a>
+            </nav>
+        </div>
+        <div class="col-12 col-lg-2">
+            <h5 class="text-orange bold px-2 font-18">Policies</h5>
+            <nav class="nav flex-row flex-lg-column">
+                <a class="nav-link font-12 px-2" href="privacy_policy.html">Privacy Policy</a>
+                <a class="nav-link font-12 px-2" href="return_exchange.html">Delivery & Return Policy</a>
+                <a class="nav-link font-12 px-2" href="terms_condition.html">Terms & Conditions</a>
+            </nav>
+        </div>
+        <div class="col-12 col-lg-2">
+            <h5 class="text-orange bold px-2 font-18">Reach&nbsp;US</h5>
+            <nav class="nav flex-row flex-lg-column">
+                <p class="px-2 font-12">
+                    5th Floor,”A” Block
+                    Alsa Crescent
+                    No:58, Harrington Road
+                    Chetpet,Chennai 600031
+                </p>
+            </nav>
+        </div>
+        <div class="col-12 col-lg-2">
+            <h5 class="text-orange bold px-2 font-18">Contact Us:</h5>
+            <nav class="nav flex-row flex-lg-column">
+                <a class="nav-link d-flex align-items-center gap-2 font-12 px-2" ><img src="wwwroot/images/footer-phone-icon.svg"></img> 044 28363101</a>
+                <a class="nav-link d-flex align-items-center gap-2 font-12 px-2" href="https://api.whatsapp.com/send/?phone=919790704282&text&type=phone_number&app_absent=0"><img src="wwwroot/images/footer-whatsapp-icon.svg"></img> 97907 04282</a>
+                <a class="nav-link d-flex align-items-center gap-2 font-12 px-2" href="mailto:domestic@gaitonde.com"><img src="wwwroot/images/footer-mail-icon.svg"></img> domestic@gaitonde.com</a>
+                <a class="nav-link d-flex align-items-center gap-2 font-12 px-2" href="https://gaitonde.com/"><img src="wwwroot/images/footer-web-icon.svg"></img> www.gaitonde.com</a>
+            </nav>
+        </div>
     </div>
     <div class="bg-orange-60" style="width: 100%;">
-      <div class="row g-0">
-        <div class="p-2 text-center d-flex flex-column flex-lg-row justify-content-around align-items-center">
+        <div class="row g-0">
+            <div class="p-2 text-center d-flex flex-column flex-lg-row justify-content-around align-items-center">
 
-          <div class="d-flex align-items-center">
-            <p class="text-white mb-0 p-2">
-              Follow Us
-              <a><img src="wwwroot/images/footer-facebook-icon.svg" alt="facbook-icon"></a>
-              <!-- <a><img src="wwwroot/images/footer-twitter-icon.svg" alt="twitter-icon"></a> -->
-              <a><img src="wwwroot/images/footer-instagram-icon.svg" alt="instagram-icon"></a>
-            </p>
-          </div>
-          <div>
-            <p class="text-white mb-0 p-2">© 2024, All rights reserved by Gaitonde Leathers and Accessories Private
-              Limited</p>
-          </div>
-          <div>
-            <p class="mb-0 p-2 text-white">
-              <!-- <a class="text-white nav-link p-1 d-inline-flex">Privacy Policy</a>&nbsp;|&nbsp;<a class="text-white nav-link p-1 d-inline-flex">Return Policy</a>&nbsp;|&nbsp;<a class="text-white nav-link p-1 d-inline-flex">Terms and Conditions</a> -->
-            </p>
-          </div>
+                <div class="d-flex align-items-center">
+                    <p class="text-white mb-0 p-2">
+                        Follow Us
+                        <a href="https://www.facebook.com/gaitonde.shoe/"><img src="wwwroot/images/footer-facebook-icon.svg"  alt="facbook-icon"></a>
+                        <!-- <a><img src="wwwroot/images/footer-twitter-icon.svg" alt="twitter-icon"></a> -->
+                        <a href="https://www.instagram.com/gaitonde_shoes/"><img src="wwwroot/images/footer-instagram-icon.svg" alt="instagram-icon"></a>
+                    </p>
+                </div>
+                <div>
+                    <p class="text-white mb-0 p-2">© 2024, All rights reserved by Gaitonde Leathers and Accessories Private Limited</p>
+                </div>
+                <div>
+                    <p class="mb-0 p-2 text-white">
+                        <!-- <a class="text-white nav-link p-1 d-inline-flex">Privacy Policy</a>&nbsp;|&nbsp;<a class="text-white nav-link p-1 d-inline-flex">Return Policy</a>&nbsp;|&nbsp;<a class="text-white nav-link p-1 d-inline-flex">Terms and Conditions</a> -->
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </footer>
+</footer>
 
   <script defer="defer" src="https://www.imprzd.com/bi/in-scol/app.js" inject="true" async test="{}" id="imprzd_SOL"
     domain="https://www.imprzd.com" api_type="scol" merchantdata="MTg=" imprzd_title_text="Customer Reviews"
