@@ -171,8 +171,10 @@ function BindProductDataBaisedOnResult(result) {
                                 <img src="${image}" class="card-img-top rounded-0 img-fluid" alt="product-img">
                             </a>
                             <div class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
-                                <p class="font-20 bold mb-0">${value.product_name.length > 10 ? value.product_name.substring(0, 10) + '...' : value.product_name}</p>
+                            <div>
+                                <p class="font-18 bold mb-0">${value.product_name}</p>
                                 <lable class="font-15 bold mb-0 bg-orange-20 d-flex"> &nbsp; &nbsp; &#8377 ${price}</lable>
+                                </div>
                                 <button class="border-0 btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_prod_${value.product_id}" aria-controls="offcanvas_prod_${value.product_id}">
                                     <img src="wwwroot/images/product-add-icon.svg" alt="add-icon">
                                 </button>

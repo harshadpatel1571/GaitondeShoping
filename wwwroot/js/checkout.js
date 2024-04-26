@@ -33,7 +33,8 @@ $(document).ready(async function () {
     else {
         Swal.fire({
             title: "Payment created successfully",
-            icon: "success"
+            icon: "success",
+            confirmButtonColor: "#DB4834",
         });
     }
 });
@@ -62,13 +63,15 @@ $('#btn_pay_now').click(async function paynow() {
         if (!payment.error) {
             Swal.fire({
                 title: "Payment created successfully",
-                icon: "success"
+                icon: "success",
+                confirmButtonColor: "#DB4834",
             });
         }
         else {
             Swal.fire({
                 title: "Payment created successfully",
-                icon: "success"
+                icon: "success",
+                confirmButtonColor: "#DB4834",
             });
         }
     }
@@ -125,3 +128,16 @@ async function CheckoutRequestCreate(checkoutReqId) {
     const result = await response.json();
     return result;
 }
+
+    function validateForm() {
+        var first_name = document.getElementById('txtFirstName').value;
+        var spn_name = document.getElementById('spn_name');
+
+        if(first_name == "") {
+            spn_name.innerHTML = " Please Enter Name";
+        }
+        else {
+            spn_name.addEventListener('keyup', first_name) = "";
+        }
+
+    }

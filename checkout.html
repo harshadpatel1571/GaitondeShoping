@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaitonde</title>
+    <link rel="icon" href="wwwroot/images/favicon.jpg" type="image/x-icon"/>
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -179,7 +180,7 @@
                         <h4 class="text-orange bold font-35 mb-0 mb-lg-4">Billing Details</h4>
                         <form class="row g-3 my-3">
                             <div class="col-12">
-                                <label for="txtFirstName" class="form-label">First Name*</label>
+                                <label for="txtFirstName" class="form-label">First Name*</label><span id="spn_name" style="color: red;"></span>
                                 <input type="text" class="form-control" id="txtFirstName" value="" required>
                             </div>
                             <div class="col-12">
@@ -205,11 +206,11 @@
                             </div>
                             <div class="col-12">
                                 <label for="txtPin" class="form-label">Pincode*</label>
-                                <input type="text" class="form-control" id="txtPin" required>
+                                <input type="text" class="form-control" id="txtPin" maxlength="6" required>
                             </div>
                             <div class="col-12">
                                 <label for="txtPhone" class="form-label">Phone Number*</label>
-                                <input type="text" class="form-control" id="txtPhone" required>
+                                <input type="text" class="form-control" id="txtPhone" maxlength="10" required>
                             </div>
                             <div class="col-12">
                                 <label for="txtEmail" class="form-label">Email Address*</label>
@@ -307,7 +308,7 @@
                         </div>
                         <p class="text-orange py-1">Including ₹1,040.12 in taxes</p>
                         <div class="d-grid">
-                            <button type="submit" class="btn-2 button1  btn mb-3 font-30" id="btn_pay_now">Pay
+                            <button type="submit" class="btn-2 button1  btn mb-3 font-30" id="btn_pay_now" onclick="validateForm()">Pay
                                 Now</button>
                         </div>
 
