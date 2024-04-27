@@ -1,8 +1,23 @@
+var data = [];
+var startIndex = 8;
+var itemsPerLoad = 8;
+
 $(document).ready(async function () {
     let session = await checkServerSession();
     if (session) {
         const result = await Getproductaspershop();
-        BindProductDataBaisedOnResult(result);
+        if (!result.error) {
+            data = [];
+            startIndex = 8;
+            data = result.data;
+            $("#divProductList").empty();
+            BindProductDataBaisedOnResult(data.slice(0, startIndex));
+        }
+        else {
+            $("#divProductList").empty();
+            let html = "<p>No Data Found.</p>";
+            $("#divProductList").append(html);
+        }
 
         const filter = await GetFilterData();
         if (!filter.error) {
@@ -71,7 +86,6 @@ async function GetFilterData() {
 }
 
 async function GetFilterProducts(catagory_name) {
-
     var shope_name = localStorage.getItem('shop_name');
     let selectedValues = [];
     let variantTypes = [];
@@ -93,7 +107,7 @@ async function GetFilterProducts(catagory_name) {
     });
 
     let url = "";
-    if (catagory_name == null) {
+    if (catagory_name == undefined) {
         url = `https://gaitondeapi.imersive.io/api/product/byShop?shop=${shope_name}&variant_type=${variantTypes}&title=${titles}`
     }
     else {
@@ -108,10 +122,20 @@ async function GetFilterProducts(catagory_name) {
     });
 
     const result = await response.json();
-    BindProductDataBaisedOnResult(result);
+    if (result.error) {
+        data = [];
+        startIndex = 8;
+        data = result.data;
+        $("#divProductList").empty();
+        BindProductDataBaisedOnResult(data.slice(0, startIndex));
+    }
+    else {
+        $("#divProductList").empty();
+        let html = "<p>No Data Found.</p>";
+        $("#divProductList").append(html);
+    }
 
-    if (catagory_name == null) {
-        console.log(catagory_name);
+    if (catagory_name == undefined) {
 
         $("#divFilteredItems").removeClass('d-none');
         $.each(variantTypes, function (index, value) {
@@ -134,36 +158,14 @@ async function GetFilterProducts(catagory_name) {
 
         $("#divFilteredItems").append(removeHtml);
     }
-    // else
-    // {
-    //     alert();
-    //     let html = `<div class="btn-1 p-2 gap-2 rounded-5 d-flex justify-content-between align-items-center">
-    //         <span class="text-white bold FilteredItems-head">${catagory_name}&nbsp;:&nbsp;</span>
-    //         <span class="text-white bold FilteredItems-size">${catagory_name}&nbsp;(${result.data.length})</span>
-    //         <button class="btn text-white p-0 FilteredItems-cancel" onclick="filterRemove()">
-    //         <svg width="12" height="12" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-    //             <path
-    //             d="M0.047515 7.11836L3.11164 4.05423L0.0643508 1.00694L1.00716 0.0641294L4.05445 3.11142L7.11858 0.0472936L8.09506 1.02377L5.03093 4.0879L8.07823 7.1352L7.13542 8.07801L4.08812 5.03071L1.024 8.09484L0.047515 7.11836Z"
-    //             fill="white" />
-    //         </svg>
-    //         </button>
-    //     </div>`;
-    //         $("#divFilteredItems").append(html);
-    // }
 }
 
 function BindProductDataBaisedOnResult(result) {
-    $("#divProductList").empty();
-    if (result.error) {
-        $("#divProductList").append(result.msg);
-    }
-    else {
-        if (result.data != null) {
-            if (result.data != null) {
-                $.each(result.data, function (index, value) {
-                    var image = value.images != null ? value.images[0].image_url : "https://placehold.co/100x100/FDD1CB/white";
-                    var price = value.variants.filter(x => x.product_id == value.product_id)[0] != null ? value.variants.filter(x => x.product_id == value.product_id)[0].price : 0;
-                    let html = `<div class="col-6 col-lg-3 px-0">
+
+    $.each(result, function (index, value) {
+        var image = value.images != null ? value.images[0].image_url : "https://placehold.co/100x100/FDD1CB/white";
+        var price = value.variants.filter(x => x.product_id == value.product_id)[0] != null ? value.variants.filter(x => x.product_id == value.product_id)[0].price : 0;
+        let html = `<div class="col-6 col-lg-3 px-0">
                         <div class="card rounded-0 border-1 position-relative">
                             ${value.best_seller ? '<img src="wwwroot/images/tag-bestSeller.svg" alt="best-seller" class="position-absolute best-seller-tag"></img>' : ''}
                             <!-- <img src="wwwroot/images/tag-outOfStock.svg" alt="out-of-stock" class="position-absolute out-of-stock-tag"></img> -->
@@ -172,7 +174,7 @@ function BindProductDataBaisedOnResult(result) {
                             </a>
                             <div class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
                             <div>
-                                <p class="font-18 bold mb-0">${value.product_name}</p>
+                                <p class="font-18 bold mb-0">${value.product_name.length > 13 ? value.product_name.substring(0, 13) + '&hellip;' : value.product_name} </p>
                                 <lable class="font-15 bold mb-0 bg-orange-20 d-flex"> &nbsp; &nbsp; &#8377 ${price}</lable>
                                 </div>
                                 <button class="border-0 btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_prod_${value.product_id}" aria-controls="offcanvas_prod_${value.product_id}">
@@ -208,22 +210,21 @@ function BindProductDataBaisedOnResult(result) {
                             </div>
                         </div>
                     </div>`;
-                    $("#divProductList").append(html);
-                    if (value.variants != null) {
-                        value.variants.sort((ind, val) => {
-                            return ind.variant_title - val.variant_title;
-                        });
-                        $.each(value.variants, function (ind, val) {
-                            let div = `<input type="radio" class="btn-check" name="chkVeriant" id="cartAdd_prod_${value.product_id}_${val.variant_title}" value="${val.variant_id}" autocomplete="off">
+        $("#divProductList").append(html);
+        if (value.variants != null) {
+            value.variants.sort((ind, val) => {
+                return ind.variant_title - val.variant_title;
+            });
+            $.each(value.variants, function (ind, val) {
+                let div = `<input type="radio" class="btn-check" name="chkVeriant" id="cartAdd_prod_${value.product_id}_${val.variant_title}" value="${val.variant_id}" autocomplete="off">
                         <label class="btn-quickAdd-size btn p-2 me-2 mb-2" for="cartAdd_prod_${value.product_id}_${val.variant_title}">${val.variant_title}</label>`;
-                            $(`#div_product_filter_${value.product_id}`).append(div);
-                        })
-                    }
-                });
-            }
+                $(`#div_product_filter_${value.product_id}`).append(div);
+            });
+        }
+    });
 
-            let seeAll = `<div class="d-flex justify-content-center mt-4">
-                            <button type="button" class="btn btn-3">See More<svg style="margin-left: 12px;" width="24"
+    let seeAll = `<div class="d-flex justify-content-center mt-4" id="divSeeMore">
+                            <button type="button" class="btn btn-3" onclick="pageData()">See More<svg style="margin-left: 12px;" width="24"
                                 height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                 d="M23.7071 8.70711C24.0976 8.31658 24.0976 7.68342 23.7071 7.29289L17.3431 0.928932C16.9526 0.538408 16.3195 0.538408 15.9289 0.928932C15.5384 1.31946 15.5384 1.95262 15.9289 2.34315L21.5858 8L15.9289 13.6569C15.5384 14.0474 15.5384 14.6805 15.9289 15.0711C16.3195 15.4616 16.9526 15.4616 17.3431 15.0711L23.7071 8.70711ZM0 9L23 9V7L0 7L0 9Z"
@@ -232,7 +233,23 @@ function BindProductDataBaisedOnResult(result) {
                             </button>
                         </div>`;
 
-            $("#divProductList").append(seeAll);
-        }
+    $("#divProductList").append(seeAll);
+
+}
+
+function pageData() {
+    var endIndex = startIndex + itemsPerLoad;
+    if (endIndex <= data.length) {
+        $('#divSeeMore').remove();
+        var additionalItems = data.slice(startIndex, endIndex);
+        BindProductDataBaisedOnResult(additionalItems);
+        startIndex = endIndex;
+    } else if (startIndex < data.length) {
+        $('#divSeeMore').remove();
+        var additionalItems = data.slice(startIndex);
+        BindProductDataBaisedOnResult(additionalItems);
+        $('#divSeeMore').remove();
+    } else {
+        $('#divSeeMore').remove();
     }
 }

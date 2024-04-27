@@ -36,28 +36,6 @@ $(document).ready(async function () {
             $("#divProduct").append(result.msg);
         }
         else {
-            // if (result.data != null) {
-            //     $.each(result.data.slice(0, 8), function (index, value) {
-            //         var image = value.images != null ? value.images[0].image_url : '';
-            //         var price = value.variants.filter(x => x.product_id == value.product_id)[0] != null ? value.variants.filter(x => x.product_id == value.product_id)[0].price : 0;
-            //         let html = `<div class="col-sm-3 px-0">
-            //         <a href="product-page.html?product_id=${value.product_id}" style="text-decoration: none;">
-            //             <div class="card rounded-0 border-1">
-            //                 <div class="card-body p-0">
-            //                     <img src="${image}" class="card-img-top rounded-0" alt="...">
-            //                     <lable class="font-15 bold mb-0 bg-orange-20 d-flex"> &nbsp; &nbsp; &#8377 ${price}</lable>
-            //                 </div>
-            //                 <div class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
-            //                     <lable class="font-15 bold mb-0">${value.product_name}</lable>
-            //                     <img src="wwwroot/images/product-add-icon.svg" alt="add-icon">
-            //                 </div>
-            //             </div>
-            //         </a>
-            //         </div>`;
-            //         $("#divProduct").append(html);
-            //     });
-            // }
-
             if (result.data != null) {
                 $.each(result.data.slice(0, 8), function (index, value) {
                     var image = value.images != null ? value.images[0].image_url : "https://placehold.co/100x100/FDD1CB/white";
@@ -72,7 +50,7 @@ $(document).ready(async function () {
                             </a>
                             <div class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
                             <div>
-                                <p class="font-18 bold mb-0">${value.product_name}</p>
+                            <p class="font-18 bold mb-0">${value.product_name.length > 13 ? value.product_name.substring(0, 13) + '&hellip;' : value.product_name} </p>
                                 <lable class="font-15 bold mb-0 bg-orange-20 d-flex"> &nbsp; &nbsp; &#8377 ${price}</lable>
                                 </div>
                                 <button class="border-0 btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_prod_${value.product_id}" aria-controls="offcanvas_prod_${value.product_id}">
@@ -141,10 +119,10 @@ $(document).ready(async function () {
                         </a>
                         <div class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
                         <div>
-                        <p class="font-18 bold mb-0">${value.product_name}</p>
+                        <p class="font-18 bold mb-0">${value.product_name.length > 13 ? value.product_name.substring(0, 13) + '&hellip;' : value.product_name} </p>
                         <lable class="font-15 bold mb-0 bg-orange-20 d-flex"> &nbsp; &nbsp; &#8377 ${price}</lable>
                         </div>
-                        <button class="border-0 btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_prod_${value.product_id}" aria-controls="offcanvas_prod_${value.product_id}">
+                        <button class="border-0 btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_${value.product_id}" aria-controls="offcanvas_${value.product_id}">
                             <img src="wwwroot/images/product-add-icon.svg" alt="add-icon">
                         </button>
                     </div>

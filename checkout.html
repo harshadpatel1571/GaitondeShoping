@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaitonde</title>
-    <link rel="icon" href="wwwroot/images/favicon.jpg" type="image/x-icon"/>
+    <link rel="icon" href="wwwroot/images/favicon.jpg" type="image/x-icon" />
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -178,18 +178,21 @@
                 <div class="col-12 col-lg-6 px-0 px-lg-5">
                     <div class="">
                         <h4 class="text-orange bold font-35 mb-0 mb-lg-4">Billing Details</h4>
-                        <form class="row g-3 my-3">
+                        <form class="row g-3 my-3" id="yourForm">
                             <div class="col-12">
-                                <label for="txtFirstName" class="form-label">First Name*</label><span id="spn_name" style="color: red;"></span>
-                                <input type="text" class="form-control" id="txtFirstName" value="" required>
+                                <label for="txtFirstName" class="form-label">First Name*</label><span id="spn_name"
+                                    style="color: red;"></span>
+                                <input type="text" class="form-control" id="txtFirstName" value="" name="first_name"
+                                    required>
                             </div>
                             <div class="col-12">
                                 <label for="txtLastName" class="form-label">Last name*</label>
-                                <input type="text" class="form-control" id="txtLastName" value="" required>
+                                <input type="text" class="form-control" id="txtLastName" value="" name="last_name"
+                                    required>
                             </div>
                             <div class="col-12">
                                 <label for="txtAddress" class="form-label">Street Address*</label>
-                                <textarea type="text" class="form-control" id="txtAddress" rows="2"
+                                <textarea type="text" class="form-control" id="txtAddress" name="Address" rows="2"
                                     style="color: black !important;"></textarea>
                             </div>
                             <div class="col-12">
@@ -198,23 +201,25 @@
                             </div>
                             <div class="col-12">
                                 <label for="txtCity" class="form-label">Town/City*</label>
-                                <input type="text" class="form-control" id="txtCity" required>
+                                <input type="text" class="form-control" id="txtCity" name="city" required>
                             </div>
                             <div class="col-12">
                                 <label for="txtstate" class="form-label">State*</label>
-                                <input type="text" class="form-control" id="txtstate" required>
+                                <input type="text" class="form-control" id="txtstate" name="state" required>
                             </div>
                             <div class="col-12">
                                 <label for="txtPin" class="form-label">Pincode*</label>
-                                <input type="text" class="form-control" id="txtPin" maxlength="6" required>
+                                <input type="text" class="form-control" id="txtPin" maxlength="6" name="pincode"
+                                    required>
                             </div>
                             <div class="col-12">
                                 <label for="txtPhone" class="form-label">Phone Number*</label>
-                                <input type="text" class="form-control" id="txtPhone" maxlength="10" required>
+                                <input type="text" class="form-control" id="txtPhone" maxlength="10" name="phone_number"
+                                    required>
                             </div>
                             <div class="col-12">
                                 <label for="txtEmail" class="form-label">Email Address*</label>
-                                <input type="text" class="form-control" id="txtEmail" required>
+                                <input type="text" class="form-control" id="txtEmail" name="Email_address" required>
                             </div>
                             <div class="col-12">
                                 <!-- <div class="form-check">
@@ -299,17 +304,19 @@
                         <div class="border-bottom">
                             <div class="d-flex justify-content-between align-items-center">
                                 <p class="text-orange">Subtotal</p>
-                                <p id="spnCheakoutSubTotalAmount" class="text-orange">₹12,597.00</p>
+                                <p id="spnCheakoutSubTotalAmount" class="text-orange"></p>
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <p class="text-orange bold">Total</p>
                                 <p id="spnCheakoutTotalAmount" class="text-orange bold"></p>
                             </div>
                         </div>
-                        <p class="text-orange py-1">Including all taxes</p>
+                        <div>
+                            <p class="text-orange py-1" id="spnAllText"></p>
+                        </div>
                         <div class="d-grid">
-                            <button type="submit" class="btn-2 button1  btn mb-3 font-30" id="btn_pay_now" onclick="validateForm()">Pay
-                                Now</button>
+                            <button type="submit" class="btn-2 button1  btn mb-3 font-30"
+                                id="btn_pay_now">PayNow</button>
                         </div>
 
                     </div>
@@ -411,8 +418,11 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script src="wwwroot/js/appsetting.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"
+        integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="wwwroot/js/checkout.js"></script>
 </body>
 

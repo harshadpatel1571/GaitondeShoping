@@ -212,13 +212,30 @@ async function AddToCartProductFromQuick(product_id) {
 //     }
 // });
 
-function AddtoCartSweetAlert() {
-    $("#btnAddToCart").click(function () {
-        Swal.fire({
-            title: "Products added!",
-            icon: "success",
-            confirmButtonColor: "#DB4834",
-        });
+async function DeleteAllCartItems() {
+
+    var session_id = localStorage.getItem('session_id');
+
+    const data = {
+        "session_id": session_id
+    };
+
+    const response = await fetch('https://gaitondeapi.imersive.io/api/cart/deleteAllItems', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
     });
 
+    const result = await response.json();
+    return result;
 }
+
+$("#btnAddToCart").click(function () {
+    Swal.fire({
+        title: "Products added!",
+        icon: "success",
+        confirmButtonColor: "#DB4834",
+    });
+});

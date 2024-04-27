@@ -155,26 +155,6 @@ async function EditCartItems(productId, veriantId, qtty) {
     return result;
 }
 
-async function DeleteAllCartItems() {
-
-    var session_id = localStorage.getItem('session_id');
-
-    const data = {
-        "session_id": session_id
-    };
-
-    const response = await fetch('https://gaitondeapi.imersive.io/api/cart/deleteAllItems', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-
-    const result = await response.json();
-    return result;
-}
-
 async function DeleteItemToCart(productId, veriantId) {
     var session_id = localStorage.getItem('session_id');
     const data = {
