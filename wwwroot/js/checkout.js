@@ -244,7 +244,7 @@ function bindCheckoutData(result) {
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-orange-60">
                             ${value.quantity}
                         </span>
-                        <img src="${value.images}" class="rounded-0 img-fluid" alt="product-img" width="100px" height="100px">
+                        <img src="${value.images}" class="rounded-0" alt="product-img" width="100px" height="100px">
                     </button>
                     <div class="ms-2 ms-lg-4">
                         <h5 class="mb-2 text-orange font-20 bold">${value.product_title}</h5>

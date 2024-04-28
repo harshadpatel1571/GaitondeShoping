@@ -14,8 +14,7 @@ $(document).ready(async function () {
                         let html = `<div class="d-flex gap-3 align-items-center justify-content-between border-bottom py-4">
                                     <div class="d-flex align-items-center">
                                         <button class="btn p-0">
-                                            <img src="${value.images}" class="rounded-0 img-fluid"
-                                                alt="product-color-img" height="150" width="150">
+                                            <img src="${value.images}" class="rounded-0" alt="product-color-img" width="100px">
                                         </button>
                                         <div class="ms-2 ms-lg-4">
                                             <h4 class="mb-2 text-orange semibold font-30">${value.product_title}</h4>

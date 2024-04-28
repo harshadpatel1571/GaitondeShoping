@@ -59,19 +59,19 @@ $(document).ready(async function () {
                     var image = value.images != null ? value.images[0].image_url : "https://placehold.co/100x100/FDD1CB/white";
                     var price = value.variants.filter(x => x.product_id == value.product_id)[0] != null ? value.variants.filter(x => x.product_id == value.product_id)[0].price : 0;
                     let html = `<div class="col-6 col-lg-3 px-0">
-                    <div class="card rounded-0 border-1 position-relative">
+                    <div class="card rounded-0 border-1 position-relative h-100 bg-orange-20">
                     ${value.best_seller ? '<img src="wwwroot/images/tag-bestSeller.svg" alt="best-seller" class="position-absolute best-seller-tag"></img>' : ''
                         }
                     <!-- <img src="wwwroot/images/tag-outOfStock.svg" alt="out-of-stock" class="position-absolute out-of-stock-tag"></img> -->
                     <a href="product-page.html?product_id=${value.product_id}" style="text-decoration: none;">    
                         <img src="${image}" class="card-img-top rounded-0 img-fluid" alt="product-img">
                     </a>
-                    <div class="card-footer border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
+                    <div class="bg-orange-20 card-footer p-2 border-0 rounded-0 d-flex align-items-center justify-content-between">
                         <div>
                             <p class="font-18 bold mb-0">${value.product_name.length > 13 ? value.product_name.substring(0, 13) + '&hellip;' : value.product_name} </p>
-                            <lable class="font-15 bold mb-0 bg-orange-20 d-flex"> &nbsp; &nbsp; &#8377 ${price}</lable>
+                            <p class="font-18 bold mb-0">&#8377&nbsp;${price}</p>
                         </div>
-                        <button class="border-0 btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_${value.product_id}" aria-controls="offcanvas_${value.product_id}">
+                        <button class="border-0 btn p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_${value.product_id}" aria-controls="offcanvas_${value.product_id}">
                             <img src="wwwroot/images/product-add-icon.svg" alt="add-icon">
                         </button>
                     </div>
