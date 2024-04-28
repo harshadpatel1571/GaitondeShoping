@@ -68,7 +68,7 @@ $(document).ready(async function () {
                     </a>
                     <div class="bg-orange-20 card-footer p-2 border-0 rounded-0 d-flex align-items-center justify-content-between">
                         <div>
-                            <p class="font-18 bold mb-0">${value.product_name.length > 13 ? value.product_name.substring(0, 13) + '&hellip;' : value.product_name} </p>
+                            <p class="font-18 bold mb-0">${value.product_name} </p>
                             <p class="font-18 bold mb-0">&#8377&nbsp;${price}</p>
                         </div>
                         <button class="border-0 btn p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_${value.product_id}" aria-controls="offcanvas_${value.product_id}">

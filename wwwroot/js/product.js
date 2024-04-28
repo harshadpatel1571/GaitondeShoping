@@ -174,7 +174,7 @@ function BindProductDataBaisedOnResult(result) {
                             </a>
                             <div class="bg-orange-20 card-footer p-2 border-0 rounded-0 d-flex align-items-center justify-content-between">
                             <div>
-                                <p class="font-18 bold mb-0">${value.product_name.length > 13 ? value.product_name.substring(0, 13) + '&hellip;' : value.product_name} </p>
+                                <p class="font-18 bold mb-0">${value.product_name} </p>
                                 <p class="font-18 bold mb-0">&#8377&nbsp;${price}</p>
                                 <!-- <lable class="font-15 bold mb-0 bg-orange-20 d-flex"> &nbsp; &nbsp; &#8377 ${price}</lable> -->
                                 </div>

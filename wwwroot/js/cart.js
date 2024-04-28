@@ -65,11 +65,10 @@ $(document).on('click', '.decrement', async function () {
         let id = quantityElement[0].id;
         let productId = $(`#dhn_prod_${id}`).val();
         await EditCartItems(`${productId}`, id, newQtty);
+        window.location.reload();
     } else {
         let id = quantityElement[0].id;
         let productId = $(`#dhn_prod_${id}`).val();
-
-
 
         if (id > 0) {
 
@@ -97,10 +96,8 @@ $(document).on('click', '.decrement', async function () {
                     }
                 }
             });
-
         }
     }
-
 });
 
 

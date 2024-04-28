@@ -50,7 +50,7 @@ $(document).ready(async function () {
                             </a>
                             <div class="bg-orange-20 card-footer p-2 border-0 rounded-0 bg-orange-20 d-flex align-items-center justify-content-between">
                             <div>
-                            <p class="font-18 bold mb-0">${value.product_name.length > 13 ? value.product_name.substring(0, 13) + '&hellip;' : value.product_name} </p>
+                            <p class="font-18 bold mb-0">${value.product_name} </p>
                             <p class="font-18 bold mb-0">&#8377&nbsp;${price}</p>
                                 </div>
                                 <button class="border-0 btn p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_prod_${value.product_id}" aria-controls="offcanvas_prod_${value.product_id}">
@@ -119,7 +119,7 @@ $(document).ready(async function () {
                         </a>
                         <div class="bg-orange-20 card-footer p-2 border-0 rounded-0 d-flex align-items-center justify-content-between">
                         <div>
-                        <p class="font-18 bold mb-0">${value.product_name.length > 13 ? value.product_name.substring(0, 13) + '&hellip;' : value.product_name} </p>
+                        <p class="font-18 bold mb-0">${value.product_name} </p>
                         <p class="font-18 bold mb-0">&#8377&nbsp;${price}</p>
                         </div>
                         <button class="border-0 btn p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_${value.product_id}" aria-controls="offcanvas_${value.product_id}">
@@ -180,7 +180,7 @@ $(document).ready(async function () {
                 $.each(bestSeller.data, function (index, value) {
                     var image = value.images != null ? value.images[0].image_url : 'https://gaitonde.imersive.io/liveassets/a1cae3cc-7f97-4619-87d6-fc977e22955e/28122020143343.png';
                     let html = `<div class="carousel-item ${active}">
-                    <img src="${image}" class="img-fluid" alt="best-seller-product">
+                    <a href="product-page.html?product_id=${value.product_id}"><img src="${image}" class="img-fluid" alt="best-seller-product"></a>
                     </div>`;
                     $("#divBestSeller").append(html);
                     active = "";
