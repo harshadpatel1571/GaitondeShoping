@@ -16,7 +16,7 @@ $(document).ready(async function () {
             message: {
                 required: true,
             },
-            
+
             // Add other rules for firstname, lastname, email, etc.
         },
         messages: {
@@ -32,11 +32,11 @@ $(document).ready(async function () {
             message: {
                 required: "Please enter a Message",
             },
-            
+
             // Add other messages
         },
     });
-    
+
     setTimeout(function () {
         $('.imprzd-watermark').remove();
     }, 1000);
@@ -220,10 +220,10 @@ $("#btnContactUs").click(async function () {
             }).then(() => {
                 window.location.reload();
             });
-        
+
         }
     } else {
-       
+
     }
 });
 

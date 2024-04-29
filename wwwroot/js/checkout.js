@@ -117,7 +117,7 @@ $('#btn_pay_now').click(async function paynow() {
         "pincode": parseInt($("#txtPin").val()),
         "order_note": "Shoes orders",
         "checkout_request_id": cheak_request_id,
-        "session_id":session_id
+        "session_id": session_id
     };
 
     const response = await fetch('https://gaitondeapi.imersive.io/api/order/request', {

@@ -66,7 +66,7 @@ $(document).ready(async function () {
                         </div>`;
                         $(`#divFilterDataFor${value.variant_type}`).append(htmlFilter);
                     });
-                    
+
                 }, 1000);
             });
         }
@@ -162,8 +162,6 @@ async function GetFilterProducts(catagory_name) {
 }
 
 function BindProductDataBaisedOnResult(result) {
-
-    console.log(result);
 
     $.each(result, function (index, value) {
         var image = value.images != null ? value.images[0].image_url : "https://placehold.co/100x100/FDD1CB/white";
