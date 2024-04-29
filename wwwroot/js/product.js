@@ -59,13 +59,14 @@ $(document).ready(async function () {
                     });
                     $.each(value.titles, function (index, val) {
                         let htmlFilter = `<div class="form-check">
-                            <input class="form-check-input filterValues" type="checkbox" value="${value.variant_type}_${val}" id="chkFor${value.variant_type}">
-                            <label class="text-orange form-check-label" for="chkFor${value.variant_type}">
+                            <input class="form-check-input filterValues" type="radio" name="filter_${value.variant_type}" value="${value.variant_type}_${val}" id="chkFor${value.variant_type}_${index}">
+                            <label class="text-orange form-check-label" for="chkFor${value.variant_type}_${index}">
                             ${val}
                             </label>
                         </div>`;
                         $(`#divFilterDataFor${value.variant_type}`).append(htmlFilter);
                     });
+                    
                 }, 1000);
             });
         }
