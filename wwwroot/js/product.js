@@ -122,7 +122,7 @@ async function GetFilterProducts(catagory_name) {
     });
 
     const result = await response.json();
-    if (result.error) {
+    if (!result.error) {
         data = [];
         startIndex = 8;
         data = result.data;
@@ -161,6 +161,8 @@ async function GetFilterProducts(catagory_name) {
 }
 
 function BindProductDataBaisedOnResult(result) {
+
+    console.log(result);
 
     $.each(result, function (index, value) {
         var image = value.images != null ? value.images[0].image_url : "https://placehold.co/100x100/FDD1CB/white";
