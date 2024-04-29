@@ -277,3 +277,18 @@ $("#btnAddToCart").click(function () {
         confirmButtonColor: "#DB4834",
     });
 });
+
+function formatIndianPrice(number) {
+    // Using toLocaleString() with options
+    var formattedPrice = number.toLocaleString('en-IN', { style: 'currency', currency: 'INR' });
+
+    // Replace ₹ with RS.
+    formattedPrice = formattedPrice.replace('₹', '');
+
+    // Check if there's a decimal part
+    if (formattedPrice.indexOf('.') === -1) {
+        formattedPrice += '.00'; // Append .00 if no decimal part
+    }
+    
+    return formattedPrice;
+}

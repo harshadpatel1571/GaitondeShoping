@@ -139,6 +139,7 @@ async function GetFilterProducts(catagory_name) {
     if (catagory_name == undefined) {
 
         $("#divFilteredItems").removeClass('d-none');
+        $("#divFilteredItems").empty();
         $.each(variantTypes, function (index, value) {
             let html = `<div class="btn-1 p-2 gap-2 rounded-5 d-flex justify-content-between align-items-center">
             <span class="text-white bold FilteredItems-head">${value}&nbsp;:&nbsp;</span>

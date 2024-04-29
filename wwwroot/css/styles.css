@@ -385,6 +385,10 @@ header .nav-link:active, .nav-link:focus{
     font-size: 20px;
 }
 
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: #DB4834!important;
+}
+
 .section__hero .carousel-item-next,
 .carousel-item-prev,
 .carousel-item.active {

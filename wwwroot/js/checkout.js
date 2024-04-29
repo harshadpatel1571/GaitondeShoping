@@ -260,8 +260,19 @@ function bindCheckoutData(result) {
                 $("#divcheakoutproductlist").append(html);
             });
 
-            $("#spnCheakoutTotalAmount").text("Rs. " + result.data[0].total_amount + ".00");
-            $("#spnCheakoutSubTotalAmount").text("Rs. " + result.data[0].total_amount + ".00");
+            $("#spnCheakoutTotalAmount").text("Rs. " + formatIndianPrice(result.data[0].price_breakup.discounted_price));
+            if (result.data[0].price_breakup.offer_id != "") {
+                $("#divDiscountOfferPrice").removeClass("d-none");
+                $("#spnOfferTitle").text(result.data[0].price_breakup.offer_details.offer_title);
+                $("#spnCheakoutDiscountAmount").text("Rs. " + formatIndianPrice(result.data[0].price_breakup.discount_off));
+            }
+            else
+            {
+                $("#divDiscountOfferPrice").addClass("d-none");
+                $("#spnOfferTitle").text("0");
+                $("#spnCheakoutDiscountAmount").text("0");
+            }
+            $("#spnCheakoutSubTotalAmount").text("Rs. " + formatIndianPrice(result.data[0].price_breakup.total_amount));
 
             if ($("#txtPin").val() == "") {
                 $("#spnAllText").text("Including all taxes");

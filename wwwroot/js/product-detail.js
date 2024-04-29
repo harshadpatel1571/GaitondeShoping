@@ -60,9 +60,7 @@ $(document).ready(async function () {
                     var price = value.variants.filter(x => x.product_id == value.product_id)[0] != null ? value.variants.filter(x => x.product_id == value.product_id)[0].price : 0;
                     let html = `<div class="col-6 col-lg-3 px-0">
                     <div class="card rounded-0 border-1 position-relative h-100 bg-orange-20">
-                    ${value.best_seller ? '<img src="wwwroot/images/tag-bestSeller.svg" alt="best-seller" class="position-absolute best-seller-tag"></img>' : ''
-                        }
-                    <!-- <img src="wwwroot/images/tag-outOfStock.svg" alt="out-of-stock" class="position-absolute out-of-stock-tag"></img> -->
+                    ${value.best_seller ? '<img src="wwwroot/images/tag-bestSeller.svg" alt="best-seller" class="position-absolute best-seller-tag"></img>' : ''}
                     <a href="product-page.html?product_id=${value.product_id}" style="text-decoration: none;">    
                         <img src="${image}" class="card-img-top rounded-0 img-fluid" alt="product-img">
                     </a>
