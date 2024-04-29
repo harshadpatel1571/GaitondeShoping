@@ -375,12 +375,14 @@ header .nav-link {
     font-size: 20px;
 }
 
-header .nav-link:hover {
-    color: #DB4834;
+header .nav-link:hover{
+    color: #DB4834!important;
+    font-size: 20px;
 }
 
-header .nav-link:active {
-    color: #DB4834;
+header .nav-link:active, .nav-link:focus{
+    color: #DB4834!important;
+    font-size: 20px;
 }
 
 .section__hero .carousel-item-next,
@@ -516,18 +518,16 @@ main {
     font-size: 16px;
 }
 
-.products .nav-link:hover {
-    color: #DB4834;
-    font-weight: bold;
-    font-size: 16px;
-}
-
 .products .nav .nav-link:active {
     color: #DB4834;
     font-weight: bold;
     font-size: 16px;
 }
-
+.products .nav .nav-link:focus, .nav-link:hover{
+    color: #DB4834!important;
+    font-weight: bold;
+    font-size: 16px;
+}
 .form-check-input {
     border-color: #DB4834;
 }
@@ -716,7 +716,9 @@ label.form-check-label:focus,
     main {
         padding: 0px 30px;
     }
-
+    .navbar-main-logo{
+        width: 50%;
+    }
     /* .font-16{
         font-size: 8px;
     }
@@ -817,7 +819,29 @@ label.form-check-label:focus,
         width: 270px;
         margin: auto;
     }
-
+    .products .nav-link {
+        color: #000;
+        font-weight: bold;
+        font-size: 12px;
+        padding: 6px;
+    }
+    
+    .products .nav .nav-link:active {
+        color: #DB4834;
+        font-weight: bold;
+        font-size: 12px;
+        padding: 6px;
+    }
+    .products .nav .nav-link:focus, .nav-link:hover{
+        color: #DB4834!important;
+        font-weight: bold;
+        font-size: 12px;
+        padding: 6px;
+    }
+    .products .btn-1{
+        padding: 6px!important;
+        font-size: 12px;
+    }
     /* .carousel-hero-prev{
         height: 20px;
         width: 20px;
