@@ -75,7 +75,7 @@ async function GetAllCartItems(pincode) {
             url = `https://gaitondeapi.imersive.io/api/checkout/get?session_id=${session_id}&checkout_request_id=${cheak_request_id}`;
         }
         else {
-            url = `https://gaitondeapi.imersive.io/api/checkout/get?session_id=${session_id}&checkout_request_id=${cheak_request_id}`;
+            url = `https://gaitondeapi.imersive.io/api/checkout/get?session_id=${session_id}&checkout_request_id=${cheak_request_id}&pincode=${pincode}`;
         }
         const response = await fetch(url, {
             method: 'GET',
@@ -129,7 +129,6 @@ $('#btn_pay_now').click(async function paynow() {
     });
 
     const result = await response.json();
-    console.log(result.data);
     const razorpay_order_id = result.data.razorpay_order_id
 
 
@@ -234,6 +233,7 @@ async function CheckoutRequestCreate(checkoutReqId) {
     return result;
 }
 
+
 function bindCheckoutData(result) {
     if (!result.error) {
         if (result.data[0].products != null) {
@@ -285,6 +285,7 @@ function bindCheckoutData(result) {
 
 $("#txtPin").focusout(async function () {
     const result = await GetAllCartItems($("#txtPin").val());
+    console.log(result);
     if (!result.error) {
         $("#divcheakoutproductlist").empty();
         bindCheckoutData(result);
