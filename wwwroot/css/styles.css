@@ -899,3 +899,28 @@ label.form-check-label:focus,
 .error {
     color: red;
 }
+
+.icon-bar {
+    position: fixed;
+    top: 50%;
+      right:0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  .icon-bar a {
+    display: block;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+  }
+  .side-flt-img{
+      width: 60%;
+      float: right;
+      box-shadow: rgb(87 83 83 / 50%) 0px 4px 24px;
+      margin-right:3px;
+          border-radius: 50%;
+      border: 3px solid #fff;
+  }

@@ -43,10 +43,12 @@ $(document).ready(async function () {
 
     const result = await GetAllCartItems();
     if (result.error) {
-        $("#spnCartCount").text(0);
+        $("#spnCartCountM").text(0);
+        $("#spnCartCountD").text(0);
     }
     else {
-        $("#spnCartCount").text(result.data[0].total_items);
+        $("#spnCartCountM").text(result.data[0].total_items);
+        $("#spnCartCountD").text(result.data[0].total_items);
     }
 });
 
@@ -230,7 +232,8 @@ async function AddToCartProductFromQuick(product_id) {
     if (result.data.length > 0 && result != undefined) {
         const result = await GetAllCartItems();
         if (result.error) {
-            $("#spnCartCount").text(0);
+            $("#spnCartCountD").text(0);
+            $("#spnCartCountM").text(0);
         }
         else {
             Swal.fire({
@@ -238,30 +241,14 @@ async function AddToCartProductFromQuick(product_id) {
                 icon: "success",
                 confirmButtonColor: "#DB4834",
             });
-            $("#spnCartCount").text(result.data[0].total_items);
+            $("#spnCartCountD").text(result.data[0].total_items);
+            $("#spnCartCountM").text(result.data[0].total_items);
             $('.offcanvas').offcanvas('hide');
         }
     }
 }
 
-// $("#btnAddToCart").click(async function () {
-//     if (productId != null) {
-//         var size = $('input[name="options"]:checked').val();
-//         if (size == undefined) {
-//             alert("Please select size first.");
-//         }
-//         var result = await AddItemToCart(`${productId}`, size, 1);
-//         if (result.data.length > 0 && result != undefined) {
-//             const result = await GetAllCartItems();
-//             if (result.error) {
-//                 $("#spnCartCount").text(0);
-//             }
-//             else {
-//                 $("#spnCartCount").text(result.data[0].total_items);
-//             }
-//         }
-//     }
-// });
+
 
 async function DeleteAllCartItems() {
 

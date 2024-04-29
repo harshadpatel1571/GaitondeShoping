@@ -135,10 +135,12 @@ $("#btnAddToCart").click(async function () {
         if (result.data.length > 0 && result != undefined) {
             const result = await GetAllCartItems();
             if (result.error) {
-                $("#spnCartCount").text(0);
+                $("spnCartCountD").text(0);
+                $("spnCartCountM").text(0);
             }
             else {
-                $("#spnCartCount").text(result.data[0].total_items);
+                $("#spnCartCountM").text(result.data[0].total_items);
+                $("#spnCartCountM").text(result.data[0].total_items);
             }
         }
     }

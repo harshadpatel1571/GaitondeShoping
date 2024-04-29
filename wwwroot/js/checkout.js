@@ -250,7 +250,7 @@ function bindCheckoutData(result) {
                     </button>
                     <div class="ms-2 ms-lg-4">
                         <h5 class="mb-2 text-orange font-20 bold">${value.product_title}</h5>
-                        <p class="mb-0 text-orange font-18">${value.variant_title} <span></span></p>
+                        <p class="mb-0 text-orange font-18">Size :${value.variant_title} <span></span></p>
                     </div>
                 </div>
                 <div>
