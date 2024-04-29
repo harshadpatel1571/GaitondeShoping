@@ -97,7 +97,7 @@ $('#btn_pay_now').click(async function paynow() {
     var session_id = localStorage.getItem('session_id');
     var cheak_request_id = getParameterValueByName('checkout_request_id');
 
-    if (session_id = null) { return }
+    if (session_id == null) { return }
 
     // Assuming you retrieve the total amount and other details required for the payment dynamically
     let totalAmount = $("#spnCheakoutTotalAmount").text().replace("Rs. ", "").replace(".00", "") + "00"; // Convert to paise
@@ -116,7 +116,8 @@ $('#btn_pay_now').click(async function paynow() {
         "is_shipping": true,
         "pincode": parseInt($("#txtPin").val()),
         "order_note": "Shoes orders",
-        "checkout_request_id": cheak_request_id
+        "checkout_request_id": cheak_request_id,
+        "session_id":session_id
     };
 
     const response = await fetch('https://gaitondeapi.imersive.io/api/order/request', {
@@ -128,6 +129,7 @@ $('#btn_pay_now').click(async function paynow() {
     });
 
     const result = await response.json();
+    console.log(result.data);
     const razorpay_order_id = result.data.razorpay_order_id
 
 

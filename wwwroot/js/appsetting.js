@@ -1,4 +1,42 @@
 $(document).ready(async function () {
+
+    $("#myForm").validate({
+        rules: {
+            full_name: {
+                required: true,
+            },
+            phone_number: {
+                required: true,
+                digits: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            message: {
+                required: true,
+            },
+            
+            // Add other rules for firstname, lastname, email, etc.
+        },
+        messages: {
+            full_name: {
+                required: "Please enter a Full Name",
+            },
+            phone_number: {
+                required: "Please enter a Phone Number",
+            },
+            email: {
+                required: "Please enter a Valid Email Address",
+            },
+            message: {
+                required: "Please enter a Message",
+            },
+            
+            // Add other messages
+        },
+    });
+    
     setTimeout(function () {
         $('.imprzd-watermark').remove();
     }, 1000);
@@ -147,6 +185,11 @@ $('#phone_number').on('input', function () {
 });
 
 $("#btnContactUs").click(async function () {
+
+    if (!$("#myForm").valid()) {
+        return;
+    }
+
     var form = $('#myForm')[0];
     if (form.checkValidity()) {
 
@@ -166,11 +209,19 @@ $("#btnContactUs").click(async function () {
         });
 
         const result = await response.json();
+        console.log(result);
         if (!result.error) {
-            window.location.reload();
+            Swal.fire({
+                title: "Submited!",
+                icon: "success",
+                confirmButtonColor: "#DB4834",
+            }).then(() => {
+                window.location.reload();
+            });
+        
         }
     } else {
-        alert('Please fill out all required fields.');
+       
     }
 });
 
