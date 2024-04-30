@@ -9,7 +9,8 @@ $(document).ready(async function () {
         }
         else{
             $("#divSelloffer").removeClass("d-none");
-            let html =`${offer.data[0].offer_title} ${offer.data[0].offer_description} - OFF ${offer.data[0].offer_value} &nbsp; <span class="badge bg-white text-orange">Shop Now</span>`;
+            //let html =`${offer.data[0].offer_title} ${offer.data[0].offer_description} - OFF ${offer.data[0].offer_value} &nbsp; <span class="badge bg-white text-orange">Shop Now</span>`;
+            let html =`${offer.data[0].offer_description} &nbsp; <span class="badge bg-white text-orange">Shop Now</span>`;
             $("#spnOfferTitle").html(html);
 
         }

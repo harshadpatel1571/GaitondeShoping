@@ -950,3 +950,7 @@ label.form-check-label:focus,
           border-radius: 50%;
       border: 3px solid #fff;
   }
+
+  .rounded-5:hover{
+    border-color: #DB4834;
+    border-radius: 500px;  }
