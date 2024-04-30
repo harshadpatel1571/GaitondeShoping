@@ -20,13 +20,15 @@ $(document).ready(async function () {
 
                     // console.log(product);
                     $.each(product.color_variant, function (i, v) {
+                        console.log(v);
                         var image = v.image_url != null ? v.image_url : "";
-                        let html = `<button class="btn-product-color btn rounded-5 p-2 mb-1" onclick="productcolourimageredirection('${v.product_id}')">
+                        let html = `<button class="btn-product-color btn rounded-5 p-2 mb-1" onclick="ProductColourImageRedirection('${v.product_id}')" title="${v.product_color}">
                                         <img src="${image}" class="rounded-5 img-fluid" width="100px" height="100px" 
                                             alt="product-color-img">
                                     </button>`
                         $('#divColorList').append(html);
                     })
+                    
                     
 
                     if (product.variants.length > 0) {
@@ -174,6 +176,6 @@ async function GetAllSimilarProductList() {
     return result;
 }
 
-function productcolourimageredirection(product_id) {
+function ProductColourImageRedirection(product_id) {
 window.location.href = `product-page.html?product_id=${product_id}`
 }
