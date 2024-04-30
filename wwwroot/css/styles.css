@@ -708,6 +708,21 @@ label.form-check-label:focus,
     margin: 12px;
 }
 
+/* admin styles */
+.admin_login{
+    width: 50%;
+    margin: auto;
+    border: 1px solid gainsboro;
+    padding: 16px;
+    background-color: white;
+}
+.admin_table{
+    border: 1px solid gainsboro;
+    padding: 16px;
+}
+.table-responsive{
+    overflow-x: auto;
+}
 
 /* Responsive */
 @media only screen and (min-width: 1400px) {
@@ -897,6 +912,13 @@ label.form-check-label:focus,
     .cart-offcanvas {
         position: fixed;
         margin: 0px;
+    }
+    /* admin styles */
+    .admin_login{
+        width: 100%;
+        margin: auto;
+        border: 1px solid gainsboro;
+        padding: 16px;
     }
 }
 
