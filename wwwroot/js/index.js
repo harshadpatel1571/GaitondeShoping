@@ -2,6 +2,18 @@ $(document).ready(async function () {
     let session = await checkServerSession();
     if (session) {
 
+        const offer = await GetDiscountOffer();
+        if (offer.error)
+        {
+            $("#divSelloffer").addClass("d-none");
+        }
+        else{
+            $("#divSelloffer").removeClass("d-none");
+            let html =`${offer.data[0].offer_title} ${offer.data[0].offer_description} - OFF ${offer.data[0].offer_value} &nbsp; <span class="badge bg-white text-orange">Shop Now</span>`;
+            $("#spnOfferTitle").html(html);
+
+        }
+
         const topCollection = await GetTopCollection();
         console.log(topCollection);
         if (topCollection.error) {
@@ -221,6 +233,17 @@ async function GetBestSeller() {
 
 async function GetTopCollection() {
     const response = await fetch(`https://gaitondeapi.imersive.io/api/banner/getAll`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    const result = await response.json();
+    return result;
+}
+
+async function GetDiscountOffer() {
+    const response = await fetch(`https://gaitondeapi.imersive.io/api/discount/getAll`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'

@@ -5,17 +5,29 @@ $(document).ready(async function () {
         productId = getParameterValueByName("product_id");
         if (productId != null) {
             const result = await GetSingleProductData(productId);
+            console.log(result);
             if (result.error) {
                 alert(result.msg);
             }
             else {
                 if (result.data != null) {
                     const product = result.data;
-                    console.log(product);
                     var image = product.images != null ? product.images[0].image_url : "https://placehold.co/400x500/FDD1CB/white";
                     $("#imgProductMainImage").attr("src", image);
                     $("#spnProductName").text(product.product_name);
                     $("#spnDescription").text(product.description);
+
+
+                    // console.log(product);
+                    $.each(product.color_variant, function (i, v) {
+                        var image = v.image_url != null ? v.image_url : "";
+                        let html = `<button class="btn-product-color btn rounded-5 p-2 mb-1" onclick="productcolourimageredirection('${v.product_id}')">
+                                        <img src="${image}" class="rounded-5 img-fluid" width="100px" height="100px" 
+                                            alt="product-color-img">
+                                    </button>`
+                        $('#divColorList').append(html);
+                    })
+                    
 
                     if (product.variants.length > 0) {
                         product.variants.sort((a, b) => {
@@ -141,6 +153,7 @@ $("#btnAddToCart").click(async function () {
                 $("#spnCartCountM").text(result.data[0].total_items);
             }
         }
+        window.location.reload();
     }
 });
 
@@ -159,4 +172,8 @@ async function GetAllSimilarProductList() {
 
     const result = await response.json();
     return result;
+}
+
+function productcolourimageredirection(product_id) {
+window.location.href = `product-page.html?product_id=${product_id}`
 }

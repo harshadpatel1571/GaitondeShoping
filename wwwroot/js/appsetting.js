@@ -239,7 +239,8 @@ async function AddToCartProductFromQuick(product_id) {
             Swal.fire({
                 title: "Products added!",
                 icon: "success",
-                confirmButtonColor: "#DB4834",
+                showConfirmButton: false,
+                timer: 1500
             });
             $("#spnCartCountD").text(result.data[0].total_items);
             $("#spnCartCountM").text(result.data[0].total_items);
@@ -274,8 +275,10 @@ $("#btnAddToCart").click(function () {
     Swal.fire({
         title: "Products added!",
         icon: "success",
-        confirmButtonColor: "#DB4834",
+        showConfirmButton: false,
+        timer: 1500
     });
+    
 });
 
 function formatIndianPrice(number) {
@@ -289,6 +292,6 @@ function formatIndianPrice(number) {
     if (formattedPrice.indexOf('.') === -1) {
         formattedPrice += '.00'; // Append .00 if no decimal part
     }
-    
+
     return formattedPrice;
 }
