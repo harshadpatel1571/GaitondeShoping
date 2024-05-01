@@ -26,9 +26,10 @@ $(document).ready(async function () {
                             let html = `<div class="border-bottom py-4">
                                        <p class="text-orange font-14 bold text-uppercase">Other Available Color</p>
                                        <div>
-                                            <button class="btn-product-color btn rounded-5 p-2 mb-1" onclick="ProductColourImageRedirection('${v.product_id}')">
-                                            <img src="${image}" class="rounded-5 img-fluid" width="100px" height="100px" 
+                                            <button class="btn-product-color btn rounded-5 p-0 mb-1" onclick="ProductColourImageRedirection('${v.product_id}')">
+                                            <img src="${image}" class="rounded-5 px-2 py-0 img-fluid" width="100px" height="100px" 
                                                 alt="product-color-img">
+                                                <p class="mb-0 bg-orange-50 text-white p-2 rounded-5 rounded-top-0">Black</p>
                                             </button> 
                                       </div>
                                   </div> `

@@ -677,7 +677,7 @@ label.form-check-label:focus,
 }
 
 .gallery {
-    width: 500px;
+    /* width: 270px; */
     display: flex;
     overflow-x: scroll;
     border: 2px solid #DB4834;
