@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +15,9 @@
     <link href="https://cdn.datatables.net/v/dt/dt-2.0.5/datatables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/wwwroot/css/styles.css">
 </head>
+
 <body>
     <header>
-        <!-- deals bar -->
-        <div class="bg-orange-60 d-none" style="width: 100%;">
-            <p class="text-white mb-0 py-3 text-center">Summer Sale For All Sports Shoes And Free Express Delivery - OFF
-                50%!&nbsp;&nbsp;<span class="badge bg-white text-orange">Shop Now</span></p>
-        </div>
-        <!-- navbar -->
         <nav class="navbar navbar-expand-lg shadow">
             <div class="justify-content-start gap-2 container-fluid p-0 ">
                 <button class="border-0 navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -35,9 +31,6 @@
                 <a class="m-0 navbar-brand navbar-main-logo" href="index.html"><img
                         src="/wwwroot/images/gaitonde-logo.svg" class="img-fluid" alt="logo"></a>
 
-            
-
-
                 <div class="collapse navbar-collapse justify-content-between flex-grow-1" id="navbarSupportedContent">
                     <ul
                         class="navbar-nav d-flex justify-content-center mb-2 mx-auto mb-lg-0 align-items-center gap-2 gap-lg-4">
@@ -45,7 +38,7 @@
                             <a class="nav-link" aria-current="page" href="#">Dashbaord</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Orders</a>
+                            <a class="nav-link" href="orders.html">Orders</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Product</a>
@@ -60,122 +53,29 @@
                             <a class="nav-link" href="#">Logout</a>
                         </li>
                     </ul>
-
                 </div>
-
-
-
-                
-
             </div>
         </nav>
 
     </header>
     <main>
         <section>
-            <div>
-                <h1 class="text-center my-5">Orders</h1>
+            <div class="card my-5">
+                <div class="card-header">
+                    <h2 class="h3">Customer Order List</h2>
+                </div>
                 <div class="admin_table table-responsive">
-
-                <table id="example" class="display cell-border" style="width:100%">
-                    <thead class="bg-orange-30">
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Customer Name</th>
-                            <th>Bill Value</th>
-                            <th>Date</th>
-                            <th>Order Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Kiran Rao</td>
-                            <td>4000</td>                           
-                            <td>2011-04-25</td>
-                            <td>pending</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Arpitha shah</td>
-                            <td>3000</td>                           
-                            <td>2011-07-25</td>
-                            <td>process</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Rahul Jain</td>
-                            <td>5000</td>
-                            <td>2009-01-12</td>
-                            <td>process</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Abhishek Sharma</td>
-                            <td>4000</td>
-                            <td>2012-03-29</td>
-                            <td>delivered</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Kiran Rao</td>
-                            <td>4000</td>                           
-                            <td>2011-04-25</td>
-                            <td>pending</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Arpitha shah</td>
-                            <td>3000</td>                           
-                            <td>2011-07-25</td>
-                            <td>process</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Rahul Jain</td>
-                            <td>5000</td>
-                            <td>2009-01-12</td>
-                            <td>process</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Abhishek Sharma</td>
-                            <td>4000</td>
-                            <td>2012-03-29</td>
-                            <td>delivered</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Kiran Rao</td>
-                            <td>4000</td>                           
-                            <td>2011-04-25</td>
-                            <td>pending</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Arpitha shah</td>
-                            <td>3000</td>                           
-                            <td>2011-07-25</td>
-                            <td>process</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Rahul Jain</td>
-                            <td>5000</td>
-                            <td>2009-01-12</td>
-                            <td>process</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Abhishek Sharma</td>
-                            <td>4000</td>
-                            <td>2012-03-29</td>
-                            <td>delivered</td>
-                        </tr>
-                    </tbody>
-                    
-                </table>
-
+                    <table id="example" class="display cell-border" style="width:100%">
+                        <thead class="bg-orange-30">
+                            <tr>
+                                <th class="col-sm-1">Order ID</th>
+                                <th class="col-sm-3">Customer Name</th>
+                                <th class="col-sm-3">Bill Value</th>
+                                <th class="col-sm-3">Date</th>
+                                <th class="col-sm-2">Order Status</th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
             </div>
         </section>
@@ -188,19 +88,19 @@
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/v/dt/dt-2.0.5/datatables.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             let table = new DataTable('#example', {
-                // order: [[3, 'desc']]
-                columnDefs: [
-                    {
-                        targets: '_all',
-                        className: 'dt-center'
-                    }
+                ajax: 'https://gaitondeapi.imersive.io/api/order/get',
+                columns:[
+                { data: "order_id", name: "Id", "autoWidth": true },
+                { data: "order_id", name: "Id", "autoWidth": true },
+                { data: "order_id", name: "Id", "autoWidth": true },
+                { data: "order_id", name: "Id", "autoWidth": true },
+                { data: "order_id", name: "Id", "autoWidth": true },
                 ]
             });
         });
     </script>
-    
-    
 </body>
+
 </html>
