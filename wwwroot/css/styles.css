@@ -985,6 +985,10 @@ label.form-check-label:focus,
     border-radius: 400px;
 }
 
+.auto-width{
+    width: auto;
+}
+
 
 /* .rounded-5:hover .divcolorname {
     visibility: visible;

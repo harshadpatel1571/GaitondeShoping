@@ -20,24 +20,24 @@ $(document).ready(async function () {
 
                     console.log(product);
                     if (product.color_variant != null) {
+                        $('#divcolortitle').show();
                         $.each(product.color_variant, function (i, v) {
-                            // console.log(v);
                             var image = v.image_url != null ? v.image_url : "";
-                            let html = `<div class="border-bottom py-4">
-                                       <p class="text-orange font-14 bold text-uppercase">Other Available Color</p>
-                                       <div>
-                                            <button class="btn-product-color btn rounded-5 p-0 mb-1" onclick="ProductColourImageRedirection('${v.product_id}')">
-                                            <img src="${image}" class="rounded-5 px-2 py-0 img-fluid" width="100px" height="100px" 
+                            let html = `
+                                       <div class="col-sm-2 auto-width">
+                                            <button class="btn-product-color btn rounded-5 p-1 mb-1" onclick="ProductColourImageRedirection('${v.product_id}')">
+                                            <img src="${image}" class="rounded-5 img-fluid" width="100px" height="100px" 
                                                 alt="product-color-img">
-                                                <p class="mb-0 bg-orange-50 text-white p-2 rounded-5 rounded-top-0">Black</p>
+                                                <p class="mb-0 bg-orange-50 text-white p-2 rounded-5 rounded-top-0">${v.product_color}</p>
                                             </button> 
-                                      </div>
-                                  </div> `
+                                      </div>`
 
                             $('#divColorList').append(html);
                         })
                     }
-
+                else {
+                    $('#divcolortitle').hide();
+                }
 
 
                     if (product.variants.length > 0) {
