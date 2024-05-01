@@ -65,14 +65,14 @@
                     <h2 class="h3">Customer Order List</h2>
                 </div>
                 <div class="admin_table table-responsive">
-                    <table id="example" class="display cell-border" style="width:100%">
+                    <table id="grid" class="display cell-border" style="width:100%">
                         <thead class="bg-orange-30">
                             <tr>
-                                <th class="col-sm-1">Order ID</th>
-                                <th class="col-sm-3">Customer Name</th>
-                                <th class="col-sm-3">Bill Value</th>
-                                <th class="col-sm-3">Date</th>
-                                <th class="col-sm-2">Order Status</th>
+                                <th class="col-sm-1 center text-center">Order ID</th>
+                                <th class="col-sm-4 center text-center">Customer Name</th>
+                                <th class="col-sm-2 center text-center">Bill Value</th>
+                                <th class="col-sm-3 center text-center">Date</th>
+                                <th class="col-sm-2 center text-center">Order Status</th>
                             </tr>
                         </thead>
                     </table>
@@ -87,17 +87,37 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/v/dt/dt-2.0.5/datatables.min.js"></script>
+    <script src="/wwwroot/js/admin_appsetting.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            let table = new DataTable('#example', {
+            $('#grid').DataTable().destroy();
+            $('#grid').DataTable({
                 ajax: 'https://gaitondeapi.imersive.io/api/order/get',
-                columns:[
-                { data: "order_id", name: "Id", "autoWidth": true },
-                { data: "order_id", name: "Id", "autoWidth": true },
-                { data: "order_id", name: "Id", "autoWidth": true },
-                { data: "order_id", name: "Id", "autoWidth": true },
-                { data: "order_id", name: "Id", "autoWidth": true },
-                ]
+                columns: [
+                    { data: "order_id", name: "Order Id", "autoWidth": true, type: "string", className: 'dt-center' },
+                    { data: "customer_details.name", name: "Customer Name", type: "string", "autoWidth": true, },
+                    {
+                        data: null,
+                        name: "Bill Amount",
+                        "autoWidth": true,
+                        type: "string",
+                        render: function (data, type, row) {
+                            console.log(data);
+                            console.log(row);
+                            return formatIndianPrice(row.price_breakup.discounted_price);
+                        },
+                    },
+                    {
+                        data: null,
+                        name: "Date",
+                        type: "string",
+                        "autoWidth": true,
+                        render: function (data, type, row) {
+                            return formatDate(row.created_at);
+                        },
+                    },
+                    { data: "order_status", name: "Order Status",type: "string", "autoWidth": true },
+                ],
             });
         });
     </script>

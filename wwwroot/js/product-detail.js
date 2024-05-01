@@ -5,7 +5,7 @@ $(document).ready(async function () {
         productId = getParameterValueByName("product_id");
         if (productId != null) {
             const result = await GetSingleProductData(productId);
-            console.log(result);
+            // console.log(result);
             if (result.error) {
                 alert(result.msg);
             }
@@ -18,18 +18,26 @@ $(document).ready(async function () {
                     $("#spnDescription").text(product.description);
 
 
-                    // console.log(product);
-                    $.each(product.color_variant, function (i, v) {
-                        console.log(v);
-                        var image = v.image_url != null ? v.image_url : "";
-                        let html = `<button class="btn-product-color btn rounded-5 p-2 mb-1" onclick="ProductColourImageRedirection('${v.product_id}')" title="${v.product_color}">
-                                        <img src="${image}" class="rounded-5 img-fluid" width="100px" height="100px" 
-                                            alt="product-color-img">
-                                    </button>`
-                        $('#divColorList').append(html);
-                    })
-                    
-                    
+                    console.log(product);
+                    if (product.color_variant != null) {
+                        $.each(product.color_variant, function (i, v) {
+                            // console.log(v);
+                            var image = v.image_url != null ? v.image_url : "";
+                            let html = `<div class="border-bottom py-4">
+                                       <p class="text-orange font-14 bold text-uppercase">Other Available Color</p>
+                                       <div>
+                                            <button class="btn-product-color btn rounded-5 p-2 mb-1" onclick="ProductColourImageRedirection('${v.product_id}')">
+                                            <img src="${image}" class="rounded-5 img-fluid" width="100px" height="100px" 
+                                                alt="product-color-img">
+                                            </button> 
+                                      </div>
+                                  </div> `
+
+                            $('#divColorList').append(html);
+                        })
+                    }
+
+
 
                     if (product.variants.length > 0) {
                         product.variants.sort((a, b) => {
@@ -177,5 +185,5 @@ async function GetAllSimilarProductList() {
 }
 
 function ProductColourImageRedirection(product_id) {
-window.location.href = `product-page.html?product_id=${product_id}`
+    window.location.href = `product-page.html?product_id=${product_id}`
 }

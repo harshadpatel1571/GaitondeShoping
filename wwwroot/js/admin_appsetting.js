@@ -42,3 +42,29 @@ function restrictSearchFilter() {
             }
         });
 }
+
+
+function formatDate(dateString) {
+    var date = new Date(dateString);
+
+    // Format the date
+    var formattedDate = ("0" + date.getDate()).slice(-2) + "/" + ("0" + (date.getMonth() + 1)).slice(-2) + "/" + date.getFullYear();
+    var hours = ("0" + date.getHours()).slice(-2);
+    var minutes = ("0" + date.getMinutes()).slice(-2);
+    var ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12;
+    hours = hours ? hours : 12; // Handle midnight (0 hours)
+    var formattedTime = hours + ":" + minutes + " " + ampm;
+
+    return formattedDate + " " + formattedTime;
+}
+
+function formatIndianPrice(number) {
+    var formattedPrice = number.toLocaleString('en-IN', { style: 'currency', currency: 'INR' });
+
+    if (formattedPrice.indexOf('.') === -1) {
+        formattedPrice += '.00';
+    }
+
+    return formattedPrice;
+}

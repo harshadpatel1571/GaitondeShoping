@@ -79,9 +79,10 @@ body {
 }
 
 /* font styles*/
-.font-10{
+.font-10 {
     font-size: 10px;
 }
+
 .font-12 {
     font-size: 12px;
 }
@@ -375,18 +376,20 @@ header .nav-link {
     font-size: 20px;
 }
 
-header .nav-link:hover{
-    color: #DB4834!important;
+header .nav-link:hover {
+    color: #DB4834 !important;
     font-size: 20px;
 }
 
-header .nav-link:active, .nav-link:focus{
-    color: #DB4834!important;
+header .nav-link:active,
+.nav-link:focus {
+    color: #DB4834 !important;
     font-size: 20px;
 }
 
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-    color: #DB4834!important;
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+    color: #DB4834 !important;
 }
 
 .section__hero .carousel-item-next,
@@ -527,11 +530,14 @@ main {
     font-weight: bold;
     font-size: 16px;
 }
-.products .nav .nav-link:focus, .nav-link:hover{
-    color: #DB4834!important;
+
+.products .nav .nav-link:focus,
+.nav-link:hover {
+    color: #DB4834 !important;
     font-weight: bold;
     font-size: 16px;
 }
+
 .form-check-input {
     border-color: #DB4834;
 }
@@ -709,18 +715,20 @@ label.form-check-label:focus,
 }
 
 /* admin styles */
-.admin_login{
+.admin_login {
     width: 50%;
     margin: auto;
     border: 1px solid gainsboro;
     padding: 16px;
     background-color: white;
 }
-.admin_table{
+
+.admin_table {
     border: 1px solid gainsboro;
     padding: 16px;
 }
-.table-responsive{
+
+.table-responsive {
     overflow-x: auto;
 }
 
@@ -735,9 +743,11 @@ label.form-check-label:focus,
     main {
         padding: 0px 30px;
     }
-    .navbar-main-logo{
+
+    .navbar-main-logo {
         width: 50%;
     }
+
     /* .font-16{
         font-size: 8px;
     }
@@ -838,29 +848,34 @@ label.form-check-label:focus,
         width: 270px;
         margin: auto;
     }
+
     .products .nav-link {
         color: #000;
         font-weight: bold;
         font-size: 12px;
         padding: 6px;
     }
-    
+
     .products .nav .nav-link:active {
         color: #DB4834;
         font-weight: bold;
         font-size: 12px;
         padding: 6px;
     }
-    .products .nav .nav-link:focus, .nav-link:hover{
-        color: #DB4834!important;
+
+    .products .nav .nav-link:focus,
+    .nav-link:hover {
+        color: #DB4834 !important;
         font-weight: bold;
         font-size: 12px;
         padding: 6px;
     }
-    .products .btn-1{
-        padding: 6px!important;
+
+    .products .btn-1 {
+        padding: 6px !important;
         font-size: 12px;
     }
+
     /* .carousel-hero-prev{
         height: 20px;
         width: 20px;
@@ -913,8 +928,9 @@ label.form-check-label:focus,
         position: fixed;
         margin: 0px;
     }
+
     /* admin styles */
-    .admin_login{
+    .admin_login {
         width: 100%;
         margin: auto;
         border: 1px solid gainsboro;
@@ -929,28 +945,47 @@ label.form-check-label:focus,
 .icon-bar {
     position: fixed;
     top: 50%;
-      right:0;
+    right: 0;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-  }
-  
-  .icon-bar a {
+}
+
+.icon-bar a {
     display: block;
     text-align: center;
     transition: all 0.3s ease;
     color: white;
     font-size: 20px;
-  }
-  .side-flt-img{
-      width: 60%;
-      float: right;
-      box-shadow: rgb(87 83 83 / 50%) 0px 4px 24px;
-      margin-right:3px;
-          border-radius: 50%;
-      border: 3px solid #fff;
-  }
+}
 
-  .rounded-5:hover{
+.side-flt-img {
+    width: 60%;
+    float: right;
+    box-shadow: rgb(87 83 83 / 50%) 0px 4px 24px;
+    margin-right: 3px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+/* .divcolorname {
+    visibility: hidden;
+    margin-top: 5px;
+    background-color: #DB4834;
+    border-radius: 15px;
+    color: white;
+} */
+
+.rounded-5 {
     border-color: #DB4834;
-    border-radius: 500px;  }
+    border-radius: 400px;
+}
+.rounded-5:hover {
+    border-color: #DB4834;
+    border-radius: 400px;
+}
+
+
+/* .rounded-5:hover .divcolorname {
+    visibility: visible;
+} */
