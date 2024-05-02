@@ -14,29 +14,35 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.datatables.net/v/dt/dt-2.0.5/datatables.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    
+
     <link rel="stylesheet" href="/wwwroot/css/styles.css">
-    <link rel="stylesheet" href="/filter-multi-select-main/dist/filter_multi_select.css" />
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_orange.css">
+    <link rel="stylesheet" href="/wwwroot/css/filter_multi_select.css">
+
     <style>
-        .filter-multi-select > .viewbar > .selected-items > .item {
+        .filter-multi-select>.viewbar>.selected-items>.item {
             background-color: #EC5B47;
-            height: 2rem!important;
-            padding: 12px!important;
+            height: 2rem !important;
+            padding: 12px !important;
         }
+
         .selected-items {
-            border: 0!important;
+            border: 0 !important;
         }
+
         .placeholder {
-            background-color: transparent!important;
-            cursor: pointer!important;
+            background-color: transparent !important;
+            cursor: pointer !important;
             font-size: 16px;
         }
-        .filter-multi-select > .viewbar {
+
+        .filter-multi-select>.viewbar {
             border: 1px solid gray;
             padding: 8px;
             border-radius: 0;
         }
-        .filter-multi-select .dropdown-item .custom-checkbox:checked ~ .custom-control-label::after {
+
+        .filter-multi-select .dropdown-item .custom-checkbox:checked~.custom-control-label::after {
             background-color: #EC5B47;
         }
     </style>
@@ -86,39 +92,37 @@
     </header>
     <main>
         <section>
-            <div class="card p-4 my-5">
-                <form>
-                    <div class="d-flex flex-column flex-lg-row align-items-center gap-5">
-                    <div>
-                        <label for="fromDate" class="d-block mb-3">From Date:</label>
-                        <input placeholder="Select Date" class="date p-2" id="fromDate"/>                   
-                    </div>
-                    <div>
-                        <label for="toDate" class="d-block mb-3">To Date:</label>
-                        <input placeholder="Select Date" class="date p-2" id="toDate"/>  
-                    </div>
-                    
-                    <div>
-                        <label for="selectStatus" class="d-block mb-3">Select Status</label>
-                        <select multiple name="selectStatus" id="selectStatus" class="filter-multi-select">
-                            <option value="created">created</option>
-                            <option value="process">process</option>
-                            <option value="pending">pending</option>
-                            <option value="paid">paid</option>
-                        </select>
-                    </div>
-                    <div>
-                        <button class="btn btn-1" type="submit">
-                            Search
-                        </button>
-                    </div>
-                    </div>
-                </form>
-            </div>
             <div class="card my-5">
                 <div class="card-header">
                     <h2 class="h3">Customer Order List</h2>
                 </div>
+
+                <form class="p-2">
+                    <div class="d-flex flex-column flex-lg-row align-items-center gap-3">
+                        <div>
+                            <label for="fromDate" class="d-block">From Date:</label>
+                            <input placeholder="Select Date" class="date p-2" id="fromDate" />
+                        </div>
+                        <div>
+                            <label for="toDate" class="d-block">To Date:</label>
+                            <input placeholder="Select Date" class="date p-2" id="toDate" />
+                        </div>
+
+                        <div>
+                            <label for="selectStatus" class="d-block">Select Status</label>
+                            <select multiple name="selectStatus" id="selectStatus" class="filter-multi-select">
+                                <option value="created">created</option>
+                                <option value="process">process</option>
+                                <option value="pending">pending</option>
+                                <option value="paid">paid</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button class="btn btn-1" type="button" id="btnSearch"> Search </button>
+                        </div>
+                    </div>
+                </form>
+
                 <div class="admin_table table-responsive">
                     <table id="grid" class="display cell-border" style="width:100%">
                         <thead class="bg-orange-30">
@@ -143,68 +147,12 @@
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/v/dt/dt-2.0.5/datatables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="/filter-multi-select-main/dist/filter-multi-select-bundle.min.js"></script>
+    <script src="/wwwroot/js/filter-multi-select-bundle.min.js"></script>
     <script src="/wwwroot/js/admin_appsetting.js"></script>
-    <script>       
-        document.addEventListener("DOMContentLoaded", function () {
-            $('#grid').DataTable().destroy();
-            $('#grid').DataTable({
-                ajax: 'https://gaitondeapi.imersive.io/api/order/get',
-                columns: [
-                    { data: "order_id", name: "Order Id", "autoWidth": true, type: "string", className: 'dt-center' },
-                    { data: "customer_details.name", name: "Customer Name", type: "string", "autoWidth": true, },
-                    {
-                        data: null,
-                        name: "Bill Amount",
-                        "autoWidth": true,
-                        type: "string",
-                        render: function (data, type, row) {
-                            console.log(data);
-                            console.log(row);
-                            return formatIndianPrice(row.price_breakup.discounted_price);
-                        },
-                    },
-                    {
-                        data: null,
-                        name: "Date",
-                        type: "string",
-                        "autoWidth": true,
-                        render: function (data, type, row) {
-                            return formatDate(row.created_at);
-                        },
-                    },
-                    { data: "order_status", name: "Order Status",type: "string", "autoWidth": true },
-                ],
-            });
-            
-        });
-    </script>
-    
+    <script src="/wwwroot/js/admin_order.js"></script>
     <script>
-        var fp = flatpickr(".date", {
-            dateFormat: "d-m-Y",
-        })
-        // $(function () {
-        // // Apply the plugin 
-        // var status = $('#status');
-        // $('#selectStatus').on("optionselected", function(e) {
-        //   createStatus("selected", e.detail.label);
-        // });
-        // $('#selectStatus').on("optiondeselected", function(e) {
-        //   createStatus("deselected", e.detail.label);
-        // });
-        // function createStatus(event,label) {
-        //   var n = $(document.createElement('span'))
-        //     .text(event + ' ' + label + "  ")
-        //     .addClass('status')
-        //     .appendTo(status)
-        //     .fadeOut(3000, function() {
-        //       n.remove();
-        //     });
-        // }
-        // });
+        
     </script>
-    
 </body>
 
 </html>

@@ -10,20 +10,10 @@ function BindGrid(pURL, pColumns, pdfColumn, excelColumn, printColumn, isPaging 
         autoWidth: true,
         responsive: true,
         processing: true,
-        serverSide: true,
+        //serverSide: true,
         filter: true,
-        ajax: {
-            url: pURL,
-            type: "GET",
-            datatype: "json",
-        },
-        columnDefs: [{
-            targets: [0],
-            visible: false,
-            searchable: false
-        }],
+        ajax: pURL,
         columns: pColumns,
-        dom: 'Blfrtip',
     });
 
     restrictSearchFilter();
