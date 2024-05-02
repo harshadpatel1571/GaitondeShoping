@@ -30,7 +30,6 @@ $(document).ready(async function () {
                                 <h1 class="text-orange font-60">${value.banner_title}</h1>
                                 <p class="font-20">${value.banner_description}</p>
                                 <div class="text-center my-3">
-                                    <button class="btn btn-1" onclick="location.href='product-page.html?product_id=${value.product_id}'">Shop now</button>
                                 </div>
                             </div>
                         </div>
