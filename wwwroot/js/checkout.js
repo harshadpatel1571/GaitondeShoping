@@ -40,7 +40,7 @@ $(document).ready(async function () {
                 required: "Please enter a Last Name",
             },
             Address: {
-                required: "Please enter a Valid Address",
+                required: "Please enter a Parmanent Address",
             },
             city: {
                 required: "Please enter a City Name",
@@ -61,6 +61,65 @@ $(document).ready(async function () {
         },
     });
 
+    $("#shipping").validate({
+        rules: {
+            First_Name: {
+                required: true,
+            },
+            Last_Name: {
+                required: true,
+            },
+            Address: {
+                required: true,
+            },
+            City: {
+                required: true,
+            },
+            State: {
+                required: true,
+            },
+            Pincode: {
+                required: true,
+                digits: true
+            },
+            Phone_Number: {
+                required: true,
+                digits: true
+            },
+            Email_Address: {
+                required: true,
+                email: true
+            },
+        },
+        messages: {
+            First_Name: {
+                required: "Please enter a Name",
+            },
+            Last_Name: {
+                required: "Please enter a Last Name",
+            },
+            Address: {
+                required: "Please enter a Parmanent Address",
+            },
+            City: {
+                required: "Please enter a City Name",
+            },  
+            State: {
+                required: "Please enter a State Name",
+            },
+            Pincode: {
+                required: "Please enter a Only Number",
+            },
+            Phone_Number: {
+                required: "Please enter a Only Phone Number",
+            },
+            Email_Address: {
+                required: "Please enter a Valid Email Address",
+            },
+            // Add other messages
+        },
+    });
+   
 });
 
 
@@ -89,7 +148,7 @@ async function GetAllCartItems(pincode) {
 
 $('#btn_pay_now').click(async function paynow() {
 
-    if (!$("#yourForm").valid()) {
+    if (!$("#yourForm").valid() & !$("#shipping").valid() ) {
         return;
     }
 
