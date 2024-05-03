@@ -25,7 +25,7 @@ $(document).ready(async function () {
                 let active = "active";
                 $.each(topCollection.data, function (index, value) {
                     let html = `<div class="carousel-item ${active}">
-                        <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+                        <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center p-0 p-lg-3">
                             <div class="d-flex flex-column">
                                 <h1 class="text-orange font-60">${value.banner_title}</h1>
                                 <p class="font-20">${value.banner_description}</p>
@@ -33,7 +33,7 @@ $(document).ready(async function () {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-6 d-flex align-items-start justify-content-center">
+                        <div class="col-12 col-lg-6 d-flex align-items-start justify-content-center p-0 p-lg-3">
                             <img src="${value.banner_url}" class="img-fluid" alt="banner-img">
                         </div>
                     </div>`;
