@@ -40,10 +40,10 @@ $("#btnSearch").click(function () {
         var textContentWithoutX = item.textContent.replace('×', '').trim();
         selectedValues.push(textContentWithoutX);
     });
-    var selectedValuesCommaSeparated = selectedValues.join(', ');
+    var selectedValuesCommaSeparated = selectedValues.join();
 
     alert(selectedValuesCommaSeparated);
 
 
-    BindGrid(`https://gaitondeapi.imersive.io/api/order/get?start_date=${$("#fromDate").val()}&end_date=${$("#toDate").val()}`, columns);
+    BindGrid(`https://gaitondeapi.imersive.io/api/order/get?order_status=${selectedValuesCommaSeparated}&start_date=${$("#fromDate").val()}&end_date=${$("#toDate").val()}`, columns);
 });
