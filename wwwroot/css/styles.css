@@ -988,6 +988,9 @@ label.form-check-label:focus,
 .auto-width{
     width: auto;
 }
+.spnbilling {
+    color:#DB4834;
+}
 
 
 /* .rounded-5:hover .divcolorname {

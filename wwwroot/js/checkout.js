@@ -31,7 +31,6 @@ $(document).ready(async function () {
                 required: true,
                 email: true
             },
-            // Add other rules for firstname, lastname, email, etc.
         },
         messages: {
             first_name: {
@@ -45,7 +44,7 @@ $(document).ready(async function () {
             },
             city: {
                 required: "Please enter a City Name",
-            },
+            },  
             state: {
                 required: "Please enter a State Name",
             },
@@ -301,4 +300,14 @@ $("#txtPin").focusout(async function () {
         $("#divcheakoutproductlist").empty();
         bindCheckoutData(result);
     }
+});
+
+$(document).ready(function() {
+    $('#btnchecked').click(function() {
+        if ($(this).is(':checked')) {
+            $("#divshippingaddress").hide();            
+        } else if ($(this).is(':unchecked')) {
+            $("#divshippingaddress").show();              
+        }
+    });
 });
