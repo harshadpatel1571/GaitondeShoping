@@ -58,3 +58,31 @@ function formatIndianPrice(number) {
 
     return formattedPrice;
 }
+
+// $(document).ready(function () {
+
+//     $("#loginform").validate({
+//         rules: {
+//             Username: {
+//                 required: true,
+//             },
+//             Password: {
+//                 required: true,
+//             },
+
+//         },
+//         messages: {
+//             Username: {
+//                 required: "Please enter a Username",
+//             },
+//             Password: {
+//                 required: "Please enter a Password",
+//             },
+//         },
+
+//     });
+// });
+
+// $('#btn_login').click(function () {
+//     alert();
+// })

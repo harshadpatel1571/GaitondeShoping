@@ -291,7 +291,6 @@ async function CheckoutRequestCreate(checkoutReqId) {
     return result;
 }
 
-
 function bindCheckoutData(result) {
     if (!result.error) {
         if (result.data[0].products != null) {

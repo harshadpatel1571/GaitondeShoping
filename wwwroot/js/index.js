@@ -181,6 +181,7 @@ $(document).ready(async function () {
             }
         }
 
+
         const bestSeller = await GetBestSeller();
 
         if (bestSeller.error) {
