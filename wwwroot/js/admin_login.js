@@ -32,7 +32,7 @@ $('#btn_login').click(async function () {
     console.log(result);
     var email = $("#adminUsername").val()
     if(result.data.email== email) {
-        window.location.href = "/admin/orders.html"; 
+        window.location.href = "/admin/dashboard.html"; 
     } else {
         
     }

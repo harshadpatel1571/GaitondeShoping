@@ -90,55 +90,7 @@
         </nav>
 
     </header>
-    <main>
-        <section>
-            <div class="card my-5">
-                <div class="card-header">
-                    <h2 class="h3">Customer Order List</h2>
-                </div>
-
-                <form class="p-2">
-                    <div class="d-flex flex-column flex-lg-row align-items-center gap-3">
-                        <div>
-                            <label for="fromDate" class="d-block">From Date:</label>
-                            <input placeholder="Select Date" class="date p-2" id="fromDate" />
-                        </div>
-                        <div>
-                            <label for="toDate" class="d-block">To Date:</label>
-                            <input placeholder="Select Date" class="date p-2" id="toDate" />
-                        </div>
-
-                        <div>
-                            <label for="selectStatus" class="d-block">Select Status</label>
-                            <select multiple name="selectStatus" id="selectStatus" class="filter-multi-select">
-                                <option value="created">CREATED</option>
-                                <option value="process">PROCESS</option>
-                                <option value="pending">PENDING</option>
-                                <option value="paid">PAID</option>
-                            </select>
-                        </div>
-                        <div>
-                            <button class="btn btn-1" type="button" id="btnSearch"> Search </button>
-                        </div>
-                    </div>
-                </form>
-
-                <div class="admin_table table-responsive">
-                    <table id="grid" class="display cell-border" style="width:100%">
-                        <thead class="bg-orange-30">
-                            <tr>
-                                <th class="col-sm-1 center text-center">Order ID</th>
-                                <th class="col-sm-4 center text-center">Customer Name</th>
-                                <th class="col-sm-2 center text-center">Bill Value</th>
-                                <th class="col-sm-3 center text-center">Date</th>
-                                <th class="col-sm-2 center text-center">Order Status</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
-        </section>
-    </main>
+ <h1>Dashboard</h1>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

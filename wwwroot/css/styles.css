@@ -996,3 +996,16 @@ label.form-check-label:focus,
 /* .rounded-5:hover .divcolorname {
     visibility: visible;
 } */
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.fa-pencil-alt{
+    color:#DB4834;
+}
+
+.fa-trash-alt{
+    color:#DB4834;
+}

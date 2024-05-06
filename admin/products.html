@@ -17,35 +17,11 @@
 
     <link rel="stylesheet" href="/wwwroot/css/styles.css">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_orange.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <link rel="stylesheet" href="/wwwroot/css/filter_multi_select.css">
-
-    <style>
-        .filter-multi-select>.viewbar>.selected-items>.item {
-            background-color: #EC5B47;
-            height: 2rem !important;
-            padding: 12px !important;
-        }
-
-        .selected-items {
-            border: 0 !important;
-        }
-
-        .placeholder {
-            background-color: transparent !important;
-            cursor: pointer !important;
-            font-size: 16px;
-        }
-
-        .filter-multi-select>.viewbar {
-            border: 1px solid gray;
-            padding: 8px;
-            border-radius: 0;
-        }
-
-        .filter-multi-select .dropdown-item .custom-checkbox:checked~.custom-control-label::after {
-            background-color: #EC5B47;
-        }
-    </style>
+    
+    
 </head>
 
 <body>
@@ -92,52 +68,28 @@
     </header>
     <main>
         <section>
-            <div class="card my-5">
-                <div class="card-header">
-                    <h2 class="h3">Customer Order List</h2>
-                </div>
-
-                <form class="p-2">
-                    <div class="d-flex flex-column flex-lg-row align-items-center gap-3">
-                        <div>
-                            <label for="fromDate" class="d-block">From Date:</label>
-                            <input placeholder="Select Date" class="date p-2" id="fromDate" />
-                        </div>
-                        <div>
-                            <label for="toDate" class="d-block">To Date:</label>
-                            <input placeholder="Select Date" class="date p-2" id="toDate" />
-                        </div>
-
-                        <div>
-                            <label for="selectStatus" class="d-block">Select Status</label>
-                            <select multiple name="selectStatus" id="selectStatus" class="filter-multi-select">
-                                <option value="created">CREATED</option>
-                                <option value="process">PROCESS</option>
-                                <option value="pending">PENDING</option>
-                                <option value="paid">PAID</option>
-                            </select>
-                        </div>
-                        <div>
-                            <button class="btn btn-1" type="button" id="btnSearch"> Search </button>
-                        </div>
-                    </div>
-                </form>
-
-                <div class="admin_table table-responsive">
-                    <table id="grid" class="display cell-border" style="width:100%">
-                        <thead class="bg-orange-30">
-                            <tr>
-                                <th class="col-sm-1 center text-center">Order ID</th>
-                                <th class="col-sm-4 center text-center">Customer Name</th>
-                                <th class="col-sm-2 center text-center">Bill Value</th>
-                                <th class="col-sm-3 center text-center">Date</th>
-                                <th class="col-sm-2 center text-center">Order Status</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+    <div class="card my-5">
+        <div class="admin_table table-responsive">
+            <div class="button-container">
+                <button class="btn btn-1" type="button" id="btnadd">Add Product</button>
             </div>
-        </section>
+            
+            <table id="grid" class="display cell-border custom-table">
+                <thead class="custom-table-header">
+                    <tr>
+                        <th class="col-sm-2 center text-center">Category</th>
+                        <th class="col-sm-3 center text-center">Product Name</th>
+                        <th class="col-sm-2 center text-center">Size</th>
+                        <th class="col-sm-2 center text-center">Color</th>
+                        <th class="col-sm-1 center text-center">Price</th>
+                        <th class="col-sm-2 center text-center">Status</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</section>
+
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -149,9 +101,9 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="/wwwroot/js/filter-multi-select-bundle.min.js"></script>
     <script src="/wwwroot/js/admin_appsetting.js"></script>
-    <script src="/wwwroot/js/admin_order.js"></script>
+    <script src="/wwwroot/js/admin_products.js"></script>
     <script>
-        
+
     </script>
 </body>
 

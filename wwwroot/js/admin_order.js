@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             render: function (data, type, row) {
                 return formatIndianPrice(row.price_breakup.discounted_price);
             },
-        },
+        },  
         {
             data: null,
             name: "Date",
