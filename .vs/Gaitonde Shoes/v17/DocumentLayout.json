@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "E:\\Project\\Gaitonde Shoes\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project\\Gaitonde Shoes\\gaitonde.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:gaitonde.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Project\\Gaitonde Shoes\\faq.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:faq.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -59,31 +55,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "gaitonde.html",
-              "DocumentMoniker": "E:\\Project\\Gaitonde Shoes\\gaitonde.html",
-              "RelativeDocumentMoniker": "gaitonde.html",
-              "ToolTip": "E:\\Project\\Gaitonde Shoes\\gaitonde.html",
-              "RelativeToolTip": "gaitonde.html",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-04-29T07:06:27.445Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "faq.html",
               "DocumentMoniker": "E:\\Project\\Gaitonde Shoes\\faq.html",
               "RelativeDocumentMoniker": "faq.html",
               "ToolTip": "E:\\Project\\Gaitonde Shoes\\faq.html",
               "RelativeToolTip": "faq.html",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-04-29T07:06:26.225Z"
+              "WhenOpened": "2024-04-29T07:06:26.225Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "index.html",
               "DocumentMoniker": "E:\\Project\\Gaitonde Shoes\\index.html",
               "RelativeDocumentMoniker": "index.html",
@@ -95,7 +79,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "order-confirm.html",
               "DocumentMoniker": "E:\\Project\\Gaitonde Shoes\\order-confirm.html",
               "RelativeDocumentMoniker": "order-confirm.html",
@@ -107,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "order-history.html",
               "DocumentMoniker": "E:\\Project\\Gaitonde Shoes\\order-history.html",
               "RelativeDocumentMoniker": "order-history.html",
@@ -119,7 +103,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "privacy_policy.html",
               "DocumentMoniker": "E:\\Project\\Gaitonde Shoes\\privacy_policy.html",
               "RelativeDocumentMoniker": "privacy_policy.html",
@@ -131,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "product-page.html",
               "DocumentMoniker": "E:\\Project\\Gaitonde Shoes\\product-page.html",
               "RelativeDocumentMoniker": "product-page.html",
@@ -143,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "products.html",
               "DocumentMoniker": "E:\\Project\\Gaitonde Shoes\\products.html",
               "RelativeDocumentMoniker": "products.html",
@@ -155,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "return-exchange_not_use.html",
               "DocumentMoniker": "E:\\Project\\Gaitonde Shoes\\return-exchange_not_use.html",
               "RelativeDocumentMoniker": "return-exchange_not_use.html",
@@ -167,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "return_exchange.html",
               "DocumentMoniker": "E:\\Project\\Gaitonde Shoes\\return_exchange.html",
               "RelativeDocumentMoniker": "return_exchange.html",
@@ -179,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "testimonials.html",
               "DocumentMoniker": "E:\\Project\\Gaitonde Shoes\\testimonials.html",
               "RelativeDocumentMoniker": "testimonials.html",

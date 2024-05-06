@@ -24,19 +24,25 @@ $(document).ready(function () {
 
 
 
-$('#btn_login').click(function () {
+$('#btn_login').click(async function () {
     if (!$('#loginform').valid()) {
         return;
     }
-    const result = AdminLogin();
+    const result = await AdminLogin();
     console.log(result);
-})
+    var email = $("#adminUsername").val()
+    if(result.data.email== email) {
+        window.location.href = "/admin/orders.html"; 
+    } else {
+        
+    }
+});
 
 async function AdminLogin() {
     const data = {
-        "shop" : 'teststore@gaitonde.com',
-        "email" : $("#adminUsername").val(),
-        "password" : $("#adminPassword").val(),
+        "shop": 'teststore@gaitonde.com',
+        "email": $("#adminUsername").val(),
+        "password": $("#adminPassword").val(),
     }
     const response = await fetch(`https://gaitondeapi.imersive.io/api/user/login`, {
         method: 'POST',
