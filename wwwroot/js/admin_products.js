@@ -1,14 +1,14 @@
 let columns = [];
 document.addEventListener("DOMContentLoaded", function () {
     columns = [
-        { data: "category", name: "Category", "autoWidth": true, type: "string", className: 'dt-center' },
+        { data: "category", name: "Category", "autoWidth": true, type: "string", className: 'dt-left' },
         { data: "product_name", name: "Product Name", type: "string", "autoWidth": true },
         { 
             data: null,
             name: "Size",
             "autoWidth": true,
             type: "string",
-            className: 'dt-center',
+            className: 'dt-left',
             render: function (data, type, row) {
                 return row.variants.map(variant => variant.variant_title).join(', ');
             }
@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Status", 
             type: "string", 
             "autoWidth": true,
+            className: 'dt-center',
             render: function(data, type, row) {
                 return '<i class="fas fa-pencil-alt"></i> ' +
                 '<i class="fas fa-trash-alt"></i>';

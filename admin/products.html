@@ -73,18 +73,24 @@
         <section>
     <div class="card my-5">
         <div class="admin_table table-responsive">
-            <div class="button-container">
-                <button class="btn btn-1" type="button" id="btnadd">Add Product</button>
+            <div class="card-header">
+                <div class="row">
+                    <div class="col">
+                        <h2 class="h3">Product List</h2>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-1" type="button" id="btnadd">Add Product</button>
+                    </div>
+                </div>
             </div>
-            
-            <table id="grid" class="display cell-border custom-table">
-                <thead class="custom-table-header">
+            <table id="grid" class="display cell-border" style="width:100%">
+                <thead class="bg-orange-30">
                     <tr>
                         <th class="col-sm-2 center text-center">Category</th>
                         <th class="col-sm-3 center text-center">Product Name</th>
-                        <th class="col-sm-2 center text-center">Size</th>
+                        <th class="col-sm-3 center text-center">Size</th>
                         <th class="col-sm-2 center text-center">Color</th>
-                        <th class="col-sm-1 center text-center">Price</th>
+                        <th class="col-sm-2 center text-center">Price</th>
                         <th class="col-sm-2 center text-center">Status</th>
                     </tr>
                 </thead>

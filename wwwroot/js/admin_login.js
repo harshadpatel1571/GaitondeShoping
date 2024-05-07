@@ -29,14 +29,17 @@ $('#btn_login').click(async function () {
         return;
     }
     const result = await AdminLogin();
-    console.log(result);
+
     var email = $("#adminUsername").val()
-    if(result.data.email== email) {
-        window.location.href = "/admin/dashboard.html"; 
-    } else {
-        
+    if(result) {
+        window.location.href ="/admin/orders.html"
+    }
+    else {
+        window.location.href = "/admin/login.html"
+
     }
 });
+
 
 async function AdminLogin() {
     const data = {
@@ -44,7 +47,6 @@ async function AdminLogin() {
         "email": $("#adminUsername").val(),
         "password": $("#adminPassword").val(),
     }
-    console.log(data);
     const response = await fetch(`https://gaitondeapi.imersive.io/api/user/login`, {
         method: 'POST',
         body: JSON.stringify(data),
@@ -53,5 +55,15 @@ async function AdminLogin() {
         }
     });
     const result = await response.json();
-    return result;
+    if (result != null) {
+        localStorage.setItem('email', result.data.email);
+        localStorage.setItem('role_id', result.data.role_id);
+        localStorage.setItem('user_id', result.data.user_id);
+        localStorage.setItem('user_name', result.data.user_name);
+        return true;
+    }
+    else {
+        return false;
+    }
 }
+
