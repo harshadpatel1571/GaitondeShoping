@@ -44,6 +44,7 @@ async function AdminLogin() {
         "email": $("#adminUsername").val(),
         "password": $("#adminPassword").val(),
     }
+    console.log(data);
     const response = await fetch(`https://gaitondeapi.imersive.io/api/user/login`, {
         method: 'POST',
         body: JSON.stringify(data),
