@@ -26,6 +26,16 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         },
         { data: "order_status", name: "Order Status", type: "string", "autoWidth": true },
+        {
+            data: null,
+            name: "Order Details",
+            type: "string",
+            autoWidth: true,
+            className: 'dt-center',
+            render: function (data, type, row) {
+                return '<a href="product_details.html"><i class="fas fa-eye"></i></a>'; 
+            }
+        }
     ];
 
     BindGrid('https://gaitondeapi.imersive.io/api/order/get', columns);
@@ -46,7 +56,6 @@ $("#btnSearch").click(function () {
     });
     var selectedValuesCommaSeparated = selectedValues.join();
 
-    alert(selectedValuesCommaSeparated);
 
 
     BindGrid(`https://gaitondeapi.imersive.io/api/order/get?order_status=${selectedValuesCommaSeparated}&start_date=${$("#fromDate").val()}&end_date=${$("#toDate").val()}`, columns);

@@ -40,9 +40,15 @@ $('#btn_login').click(async function () {
         localStorage.setItem('user_name', result.data.user_name);
         window.location.href = "/admin/dashboard.html"
     }
-    else {
-        alert("Username and Password Wrong.");
-    }
+    else {       
+        Swal.fire({
+          title: "Email and Password are incorrect. Try again !",
+          icon: "warning",
+          confirmButtonColor: "#F68373",
+        }).then(() => {
+            window.location.reload();
+        });
+} 
 });
 
 
