@@ -8,7 +8,6 @@ $(document).ready(function () {
             Password: {
                 required: true,
             },
-
         },
         messages: {
             Username: {
@@ -23,6 +22,9 @@ $(document).ready(function () {
 });
 
 
+$('#btncancel').click(function () {
+    window.location.reload();
+});
 
 $('#btn_login').click(async function () {
     if (!$('#loginform').valid()) {
@@ -30,13 +32,16 @@ $('#btn_login').click(async function () {
     }
     const result = await AdminLogin();
 
-    var email = $("#adminUsername").val()
-    if(result) {
-        window.location.href ="/admin/orders.html"
+    if (!result.error) {
+
+        localStorage.setItem('email', result.data.email);
+        localStorage.setItem('role_id', result.data.role_id);
+        localStorage.setItem('user_id', result.data.user_id);
+        localStorage.setItem('user_name', result.data.user_name);
+        window.location.href = "/admin/dashboard.html"
     }
     else {
-        window.location.href = "/admin/login.html"
-
+        alert("Username and Password Wrong.");
     }
 });
 
@@ -55,15 +60,5 @@ async function AdminLogin() {
         }
     });
     const result = await response.json();
-    if (result != null) {
-        localStorage.setItem('email', result.data.email);
-        localStorage.setItem('role_id', result.data.role_id);
-        localStorage.setItem('user_id', result.data.user_id);
-        localStorage.setItem('user_name', result.data.user_name);
-        return true;
-    }
-    else {
-        return false;
-    }
+    return result;
 }
-

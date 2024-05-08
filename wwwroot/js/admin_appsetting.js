@@ -59,30 +59,25 @@ function formatIndianPrice(number) {
     return formattedPrice;
 }
 
-// $(document).ready(function () {
+function checkSession() {
+    var userId = localStorage.getItem('user_id');
+    var userName = localStorage.getItem('user_name');
+    var email = localStorage.getItem('email');
+    var roleId = localStorage.getItem('role_id');
 
-//     $("#loginform").validate({
-//         rules: {
-//             Username: {
-//                 required: true,
-//             },
-//             Password: {
-//                 required: true,
-//             },
+    if (userId == undefined && userName == undefined && email == undefined && roleId == undefined) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
 
-//         },
-//         messages: {
-//             Username: {
-//                 required: "Please enter a Username",
-//             },
-//             Password: {
-//                 required: "Please enter a Password",
-//             },
-//         },
 
-//     });
-// });
-
-// $('#btn_login').click(function () {
-//     alert();
-// })
+$('#btnlogout').click(function(){
+    localStorage.removeItem('email');
+    localStorage.removeItem('role_id');
+    localStorage.removeItem('user_id');
+    localStorage.removeItem('user_name');
+    window.location.href = "/admin/login.html"; 
+})

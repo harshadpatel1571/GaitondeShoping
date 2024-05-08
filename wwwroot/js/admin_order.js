@@ -1,5 +1,9 @@
 let columns = [];
 document.addEventListener("DOMContentLoaded", function () {
+
+    if (!checkSession()) {
+        window.location.href = "/admin/login.html"
+    }
     columns = [
         { data: "order_id", name: "Order Id", "autoWidth": true, type: "string", className: 'dt-center' },
         { data: "customer_details.name", name: "Customer Name", type: "string", "autoWidth": true, },
@@ -11,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
             render: function (data, type, row) {
                 return formatIndianPrice(row.price_breakup.discounted_price);
             },
-        },  
+        },
         {
             data: null,
             name: "Date",
@@ -46,4 +50,6 @@ $("#btnSearch").click(function () {
 
 
     BindGrid(`https://gaitondeapi.imersive.io/api/order/get?order_status=${selectedValuesCommaSeparated}&start_date=${$("#fromDate").val()}&end_date=${$("#toDate").val()}`, columns);
+
 });
+ 

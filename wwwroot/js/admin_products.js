@@ -1,9 +1,13 @@
 let columns = [];
 document.addEventListener("DOMContentLoaded", function () {
+
+    if (!checkSession()) {
+        window.location.href = "/admin/login.html"
+    }
     columns = [
         { data: "category", name: "Category", "autoWidth": true, type: "string", className: 'dt-left' },
         { data: "product_name", name: "Product Name", type: "string", "autoWidth": true },
-        { 
+        {
             data: null,
             name: "Size",
             "autoWidth": true,
@@ -18,35 +22,35 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Color",
             type: "string",
             "autoWidth": true,
-            render: function(data, type, row) {
+            render: function (data, type, row) {
                 if (row.color_variant && row.color_variant.length > 0) {
                     var colors = row.color_variant.map(variant => variant.product_color);
                     return colors.join(', ');
                 } else {
-                    return ''; 
+                    return '';
                 }
             }
         },
-        
-        
-        { 
+
+
+        {
             data: null,
             name: "Price",
             type: "string",
             "autoWidth": true,
-            render: function (data, type, row) {  
+            render: function (data, type, row) {
                 return formatIndianPrice(row.variants[0].price);
             }
         },
-        { 
-            data: "status", 
-            name: "Status", 
-            type: "string", 
+        {
+            data: "status",
+            name: "Status",
+            type: "string",
             "autoWidth": true,
             className: 'dt-center',
-            render: function(data, type, row) {
+            render: function (data, type, row) {
                 return '<i class="fas fa-pencil-alt"></i> ' +
-                '<i class="fas fa-trash-alt"></i>';
+                    '<i class="fas fa-trash-alt"></i>';
             }
         }
     ];
