@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             autoWidth: true,
             className: 'dt-center',
             render: function (data, type, row) {
-                return '<a href="product_details.html"><i class="fas fa-eye"></i></a>'; 
+                return '<a href="order_details.html"><i class="fas fa-eye"></i></a>'; 
             }
         }
     ];
